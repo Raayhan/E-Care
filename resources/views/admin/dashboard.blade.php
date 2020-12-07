@@ -40,16 +40,16 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Branch" aria-expanded="true" aria-controls="Branch">
-          <i class="fas fa-fw fa-code-branch"></i>
-          <span>BRANCH</span>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#doctor" aria-expanded="true" aria-controls="Branch">
+          <i class="fas fa-user-md"></i>
+          <span>DOCTOR</span>
         </a>
-        <div id="Branch" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="doctor" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="py-2 collapse-inner rounded">
             
-            <a class="collapse-item" href="/admin/branch/branches"><i class="fas fa-list-ul"></i> &nbsp;All Branches</a>
-            <a class="collapse-item" href="/admin/branch/add"><i class="fas fa-calendar-plus"></i> &nbsp;Open Branch</a>
-            <a class="collapse-item" href="/admin/branch/close"><i class="fas fa-calendar-minus"></i> &nbsp;Close Branch</a>
+            <a class="collapse-item" href="/admin/doctor/all"><i class="fas fa-list-ul"></i> &nbsp;All Doctors</a>
+            <a class="collapse-item" href="/admin/doctor/add"><i class="fas fa-user-plus"></i> &nbsp;Add Doctor</a>
+            <a class="collapse-item" href="/admin/doctor/remove"><i class="fas fa-user-minus"></i> &nbsp;Remove Doctor</a>
             
           </div>
         </div>
@@ -57,16 +57,16 @@
 
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Customer" aria-expanded="true" aria-controls="Customer">
-          <i class="fas fa-fw fa-users"></i>
-          <span>CUSTOMER</span>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#patient" aria-expanded="true" aria-controls="Customer">
+          <i class="fas fa-fw fa-hospital-user"></i>
+          <span>PATIENT</span>
         </a>
-        <div id="Customer" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div id="patient" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class=" py-2 collapse-inner rounded">
             
-            <a class="collapse-item" href="\admin\customer\customers"><i class="fas fa-list-ul"></i> &nbsp;All Customers</a>
-            <a class="collapse-item" href="\admin\customer\add"><i class="fas fa-user-plus"></i> &nbsp;Add Customer</a>
-            <a class="collapse-item" href="\admin\customer\block"><i class="fas fa-user-times"></i> &nbsp;Block Customer</a>
+            <a class="collapse-item" href="\admin\patient\all"><i class="fas fa-list-ul"></i> &nbsp;All Patients</a>
+            <a class="collapse-item" href="\admin\patient\add"><i class="fas fa-user-plus"></i> &nbsp;Add Patient</a>
+            <a class="collapse-item" href="\admin\patient\block"><i class="fas fa-user-times"></i> &nbsp;Block Patient</a>
             
           </div>
         </div>
@@ -82,27 +82,20 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Shipment" aria-expanded="true" aria-controls="Shipment">
-          <i class="fas fa-dolly-flatbed"></i>
-          <span>SHIPMENTS</span>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#appointment" aria-expanded="true" aria-controls="Shipment">
+          <i class="fas fa-prescription"></i>
+          <span>APPOINTMENTS</span>
         </a>
-        <div id="Shipment" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+        <div id="appointment" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class=" py-2 collapse-inner rounded">
-            <a class="collapse-item" href="\admin\shipment\all"><i class="fas fa-list-ul"></i> &nbsp;All Shipments</a>
-            <a class="collapse-item" href="\admin\shipment\live"><i class="fas fa-eye"></i> &nbsp;Live Status</a>
-            <a class="collapse-item" href="\admin\shipment\request"><i class="fas fa-truck-pickup"></i> &nbsp;Pickup Requests <span class="badge badge-danger">1</span></a>
-            <a class="collapse-item" href="\admin\shipment\arrived"><i class="fas fa-download"></i> &nbsp;Arrived Parcels</a>
-            <a class="collapse-item" href="\admin\shipment\shipped"><i class="fas fa-calendar-check"></i> &nbsp;Shipped Parcels</a>
+            <a class="collapse-item" href="\admin\appointment\all"><i class="fas fa-file-prescription"></i> &nbsp;All Appointments</a>
+            <a class="collapse-item" href="\admin\appointment\live"><i class="fas fa-eye"></i> &nbsp;Live Status</a>
+            <a class="collapse-item" href="\admin\appointment\request"><i class="fas fa-comment-medical"></i> &nbsp;Appointment Requests <span class="badge badge-danger">1</span></a>
+
             
         </div>
       </li>
 
-      <!-- Nav Item - Charts -->
-      <li class="nav-item">
-        <a class="nav-link" href="\admin\earnings">
-          <i class="fas fa-fw fa-dollar-sign"></i>
-          <span>EARNINGS</span></a>
-      </li>
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
@@ -154,15 +147,15 @@
 
             
             <div class="col-xl-3 col-md-6 mb-4">
-             <a onclick="window.location.href='/admin/branch/branches'"> <div class="card border-left-primary shadow h-100 py-2">
+             <a onclick="window.location.href='/admin/doctor/all'"> <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Branches</div>
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Doctors</div>
                     <div class="h5 mb-0 font-weight-bold text-gray-800">200</div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-code-branch fa-2x text-gray-500"></i>
+                      <i class="fas fa-user-md fa-2x text-gray-500"></i>
                     </div>
                   </div>
                 </div>
@@ -172,7 +165,7 @@
 
             
             <div class="col-xl-3 col-md-6 mb-4">
-             <a onclick="window.location.href='/admin/customer/customers'"> <div class="card border-left-success shadow h-100 py-2">
+             <a onclick="window.location.href='/admin/patient/all'"> <div class="card border-left-success shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
@@ -180,7 +173,7 @@
                     <div class="h5 mb-0 font-weight-bold text-gray-800">200</div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-users fa-2x text-gray-500"></i>
+                      <i class="fas fa-hospital-user fa-2x text-gray-500"></i>
                     </div>
                   </div>
                 </div>
@@ -229,53 +222,7 @@
             </div>
           </div>
 
-          <!-- Content Row -->
 
-          <div class="row">
-
-            <!-- Area Chart -->
-            <div class="col-xl-8 col-lg-7">
-              <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
-                  
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                  <div class="chart-area">
-                    <canvas id="myBarChart"></canvas>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-   <!-- Pie Chart -->
-   <div class="col-xl-4 col-lg-5">
-    <div class="card shadow mb-4">
-      <!-- Card Header - Dropdown -->
-      <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-        <h6 class="m-0 font-weight-bold text-primary">Branch vs Customer Ratio</h6>
-       
-      </div>
-      <!-- Card Body -->
-      <div class="card-body">
-        <div class="chart-pie pt-4 pb-2">
-          <canvas id="myPieChart"></canvas>
-        </div>
-        <div class="mt-4 text-center small">
-         
-          <span class="mr-2">
-            <i class="fas fa-circle text-primary"></i> Branches
-          </span>
-          <span class="mr-2">
-            <i class="fas fa-circle text-success"></i> Customers
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
            
 
           

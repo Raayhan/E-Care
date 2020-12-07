@@ -157,13 +157,13 @@
                             </div>
                             <div class="col-6 col-lg-3">
                                 <div class="count-data text-center">
-                                <h6 class="count h5" data-to={{$completed}} data-speed={{$completed}}>{{$completed}}</h6>
+                                <h6 class="count h5" data-to="190" data-speed="190">500</h6>
                                     <p class="m-0px font-w-600">Completed</p>
                                 </div>
                             </div>
                             <div class="col-6 col-lg-3">
                                 <div class="count-data text-center">
-                                <h6 class="count h5" data-to="190" data-speed="190">{{$pending}}</h6>
+                                <h6 class="count h5" data-to="190" data-speed="190">100</h6>
                                     <p class="m-0px font-w-600">Pendings</p>
                                 </div>
                             </div>
