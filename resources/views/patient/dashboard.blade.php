@@ -65,7 +65,12 @@
             <a class="collapse-item" href="/patient/department/diabetics"><i class="fas fa-burn"></i>&nbsp; Diabetics</a>
             <a class="collapse-item" href="/patient/department/neurology"><i class="fas fa-brain"></i>&nbsp; Neurology</a>
             <a class="collapse-item" href="/patient/department/gynaecology"><i class="fas fa-baby"></i>&nbsp; Gynacology</a>
+            <a class="collapse-item" href="/patient/department/child"><i class="fas fa-child"></i>&nbsp; Child/Pediatric</a>
+            <a class="collapse-item" href="/patient/department/dermatology"><i class="fas fa-allergies"></i>&nbsp; Dermatology</a>
+            <a class="collapse-item" href="/patient/department/urology"><i class="fas fa-bacteria"></i>&nbsp; Urology</a>
+            <a class="collapse-item" href="/patient/department/ophthalmology"><i class="fas fa-eye"></i>&nbsp; Ophthalmology</a>
 
+            
             
           </div>
         </div>
@@ -176,7 +181,7 @@
                            <div class="row no-gutters align-items-center">
                              <div class="col mr-2">
                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Departments</div>
-                             <div class="h5 mb-0 font-weight-bold text-gray-800">15</div>
+                             <div class="h5 mb-0 font-weight-bold text-gray-800">10</div>
                              </div>
                              <div class="col-auto">
                                <i class="fas fa-clinic-medical fa-2x text-gray-500"></i>
