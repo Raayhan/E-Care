@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Branch\Auth;
+namespace App\Http\Controllers\Doctor\Auth;
 
 use Auth;
 use App\Http\Controllers\Controller;
@@ -16,15 +16,15 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
-        if((Auth::guard('branch')->check())){
+        if((Auth::guard('doctor')->check())){
             return redirect()
-            ->intended(route('branch.dashboard'))
-            ->with('status','You are already logged in as Branch!');
+            ->intended(route('doctor.dashboard'))
+            ->with('status','You are already logged in as Doctor!');
     }
     else{
-        return view('branch.login',[
+        return view('doctor.login',[
             
-            'loginRoute' => 'branch.login',
+            'loginRoute' => 'doctor.login',
            
         ]);
     }
@@ -42,11 +42,11 @@ class LoginController extends Controller
         
         $this->validator($request);
     
-       if(Auth::guard('branch')->attempt($request->only('email','password'),$request->filled('remember'))){
+       if(Auth::guard('doctor')->attempt($request->only('email','password'),$request->filled('remember'))){
         //Authentication passed...
         return redirect()
-            ->intended(route('branch.dashboard'))
-            ->with('status','You are Logged in as Branch!');
+            ->intended(route('doctor.dashboard'))
+            ->with('status','You are Logged in as Doctor!');
     }
 
     //Authentication failed...
@@ -63,9 +63,9 @@ class LoginController extends Controller
     public function logout()
     {
       
-        Auth::guard('branch')->logout();
+        Auth::guard('doctor')->logout();
          return redirect()
-        ->route('branch.login')
+        ->route('doctor.login')
         ->with('status','Logout Successful!');
     }
 
@@ -79,7 +79,7 @@ class LoginController extends Controller
     {
             //validation rules.
             $rules = [
-                'email'    => 'required|email|exists:branches|min:5|max:191',
+                'email'    => 'required|email|exists:doctores|min:5|max:191',
                 'password' => 'required|string|min:4|max:255',
             ];
 
@@ -106,7 +106,7 @@ class LoginController extends Controller
         return redirect()
         ->back()
         ->withInput()
-        ->with('error','Login failed, please try again!');
+        ->with('error','Incorrect Password, please try again!');
         
     }
 }
