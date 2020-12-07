@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Customer\Auth;
+namespace App\Http\Controllers\Patient\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Socialite;
 use Auth;
 use Exception;
-use App\Models\Customer;
+use App\Models\Patient;
 
 class LinkedinController extends Controller
 {
@@ -30,27 +30,27 @@ class LinkedinController extends Controller
     {
         try {
     
-            $customer = Socialite::driver('linkedin')->user();
+            $patient = Socialite::driver('linkedin')->user();
      
-            $finduser = Customer::where('linkedin_id', $customer->id)->first();
+            $finduser = Patient::where('linkedin_id', $patient->id)->first();
      
             if($finduser){
      
-                Auth::guard('customer')->login($finduser);
+                Auth::guard('patient')->login($finduser);
     
-                return redirect('/customer/dashboard');
+                return redirect('/patient/dashboard');
      
             }else{
-                $newUser = Customer::create([
-                    'name' => $customer->name,
-                    'email' => $customer->email,
-                    'linkedin_id'=> $customer->id,
+                $newUser = Patient::create([
+                    'name' => $patient->name,
+                    'email' => $patient->email,
+                    'linkedin_id'=> $patient->id,
                     'password' => encrypt('123456dummy')
                 ]);
     
-                Auth::guard('customer')->login($newUser);
+                Auth::guard('patient')->login($newUser);
      
-                return redirect('/customer/profile/complete');
+                return redirect('/patient/profile/complete');
             }
     
         } catch (Exception $e) {

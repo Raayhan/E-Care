@@ -36,8 +36,8 @@ return [
     ],
     
     'linkedin' => [
-        'client_id' => '86s0bw6kb2jyy3',
-        'client_secret' => 'oip2uOrIpfi0tNzg',
+        'client_id' => '86yapdobylgm5p',
+        'client_secret' => 'KG0Fud8L0Fw9EQtO',
         'redirect' => 'http://e-care.com/auth/linkedin/callback',
     ],
 
