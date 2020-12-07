@@ -90,7 +90,7 @@
           <div class=" py-2 collapse-inner rounded">
             <a class="collapse-item" href="\admin\shipment\all"><i class="fas fa-list-ul"></i> &nbsp;All Shipments</a>
             <a class="collapse-item" href="\admin\shipment\live"><i class="fas fa-eye"></i> &nbsp;Live Status</a>
-            <a class="collapse-item" href="\admin\shipment\request"><i class="fas fa-truck-pickup"></i> &nbsp;Pickup Requests <span class="badge badge-danger">{{$pending}}</span></a>
+            <a class="collapse-item" href="\admin\shipment\request"><i class="fas fa-truck-pickup"></i> &nbsp;Pickup Requests <span class="badge badge-danger">1</span></a>
             <a class="collapse-item" href="\admin\shipment\arrived"><i class="fas fa-download"></i> &nbsp;Arrived Parcels</a>
             <a class="collapse-item" href="\admin\shipment\shipped"><i class="fas fa-calendar-check"></i> &nbsp;Shipped Parcels</a>
             
@@ -159,7 +159,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Branches</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{$branch}}</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">200</div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-code-branch fa-2x text-gray-500"></i>
@@ -177,7 +177,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Customers</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{$customer}}</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">200</div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-users fa-2x text-gray-500"></i>
@@ -197,7 +197,7 @@
                       <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Completed</div>
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
-                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$completed}}</div>
+                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">250</div>
                         </div>
                        
                       </div>
@@ -217,7 +217,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Pending</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{$pending}}</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">150</div>
                     </div>
                     <div class="col-auto">
                       <i class="far fa-clock fa-2x text-gray-500"></i>

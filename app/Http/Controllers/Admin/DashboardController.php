@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Branch;
-use App\Models\Customer;
-use App\Models\Shipment;
+use App\Models\Doctor;
+use App\Models\Patient;
+
 class DashboardController extends Controller
 {
    
@@ -20,10 +20,11 @@ class DashboardController extends Controller
     public function index()
     {
         
-        $branch = Branch::count();
-        $customer = Customer::count();
-        $completed = Branch::sum('completed');
-        $pending = Shipment::where('status', 'Requested,Pending Approval')->count();
-        return view('admin.dashboard',['branch'=>$branch,'customer'=>$customer,'completed'=>$completed,'pending'=>$pending]);
+        // $branch = Branch::count();
+        // $customer = Customer::count();
+        // $completed = Branch::sum('completed');
+        // $pending = Shipment::where('status', 'Requested,Pending Approval')->count();
+        // return view('admin.dashboard',['branch'=>$branch,'customer'=>$customer,'completed'=>$completed,'pending'=>$pending]);
+        return view('admin.dashboard');
     }
 }
