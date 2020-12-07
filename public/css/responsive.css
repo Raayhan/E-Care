@@ -1,0 +1,27 @@
+@media screen and (max-width: 480px) {
+    .navbar-brand  {
+      max-width: 60%!important;
+    }
+    .footer-logo{
+      max-width: 15%;
+    }
+    .collapse-inner{
+      background-color: white;
+      
+    }
+    
+    .branch_add{
+      padding-left:3%!important;
+      padding-right:3%!important;
+    }
+   
+  }
+@media screen and (max-width:550px) and (max-height: 800px) {
+.front-panel{
+  height:100vh;
+}
+.Error404{
+  height:60vh;
+}
+
+}
