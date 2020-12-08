@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Branch extends Authenticatable
+class Doctor extends Authenticatable
 {
     use Notifiable;
     use HasFactory;

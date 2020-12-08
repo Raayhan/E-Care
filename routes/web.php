@@ -95,9 +95,9 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
       Route::post('/profile/password',[App\Http\Controllers\Admin\Profile\viewProfileController::class,'ChangePassword']);
      
       //Doctor->Admin Routes
-      Route::get('/doctor/all',[App\Http\Controllers\Admin\ViewBranchController::class,'index'])->middleware('admin')->name('branches');
-      Route::get('/doctor/add',[App\Http\Controllers\Admin\AddBranchController::class,'BranchRegisterForm'])->middleware('admin')->name('branch.add');
-      Route::post('/doctor/add',[App\Http\Controllers\Admin\AddBranchController::class,'AddBranch']);
+      Route::get('/doctor/all',[App\Http\Controllers\Admin\Doctor\ViewDoctorController::class,'index'])->middleware('admin')->name('doctors');
+      Route::get('/doctor/add',[App\Http\Controllers\Admin\Doctor\AddDoctorController::class,'DoctorRegisterForm'])->middleware('admin')->name('doctor.add');
+      Route::post('/doctor/add',[App\Http\Controllers\Admin\Doctor\AddDoctorController::class,'AddDoctor']);
       Route::get('/doctor/remove',[App\Http\Controllers\Admin\CloseBranchController::class,'ViewBranchList'])->middleware('admin')->name('branches');
       Route::post('/doctor/remove',[App\Http\Controllers\Admin\CloseBranchController::class,'CloseBranch']);
 
