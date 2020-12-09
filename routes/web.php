@@ -32,7 +32,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
 
   Route::prefix('/patient')->name('patient.')->namespace('Patient')->group(function(){
 
-      Route::get('/dashboard',[App\Http\Controllers\Patient\DashboardController::class,'index'])->middleware('patient')->name('dashboard');
+      Route::get('/dashboard',[App\Http\Controllers\Patient\DashboardController::class,'index'])->name('dashboard')->middleware('patient');
     
 
       //Login Routes
@@ -45,7 +45,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
 
       //Profile Routes
 
-      Route::get('/profile/complete',[App\Http\Controllers\Patient\Profile\CompleteProfileController::class,'CompleteForm'])->middleware('patient')->name('CompleteForm');
+      Route::get('/profile/complete',[App\Http\Controllers\Patient\Profile\CompleteProfileController::class,'CompleteForm'])->name('CompleteForm')->middleware('patient');
       Route::post('/profile/complete', [App\Http\Controllers\Patient\Profile\CompleteProfileController::class,'CompleteProfile']);
   
 

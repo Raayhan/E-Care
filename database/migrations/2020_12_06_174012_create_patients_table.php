@@ -20,6 +20,7 @@ class CreatePatientsTable extends Migration
             $table->text('password');
             $table->text('phone')->unique()->nullable();
             $table->text('dob')->nullable();
+            $table->text('age')->nullable();
             $table->text('blood')->nullable();
             $table->text('gender')->nullable();
             $table->text('address')->nullable();

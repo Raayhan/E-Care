@@ -25,10 +25,18 @@ class CompleteProfileController extends Controller
         $id = $request->input('id');
         
         $patient = Patient::findOrFail($id);
+        
+        //Calculate age from date of Birth
+
+        $dateOfBirth = $request->input('dob');
+        $today = date("Y-m-d");
+        $diff = date_diff(date_create($dateOfBirth), date_create($today));
+        $age = $diff->format('%y');
 
         $patient->phone   = $request->input('phone');
         $patient->address = $request->input('address');   // Getting user inputs
         $patient->dob     = $request->input('dob');
+        $patient->age     = $age;
         $patient->blood   = $request->input('blood');
         $patient->gender  = $request->input('gender');
         

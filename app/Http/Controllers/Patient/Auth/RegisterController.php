@@ -60,12 +60,20 @@ class RegisterController extends Controller
         $password = $request->input('password'); // Encrypting the password for security  
         $hash = Hash::make($password);
 
+        //Calculate age from date of Birth
+
+        $dateOfBirth = $request->input('dob');
+        $today = date("Y-m-d");
+        $diff = date_diff(date_create($dateOfBirth), date_create($today));
+        $age = $diff->format('%y');
+
         // Insering data into database 
 
         $patient->name      = $request->input('name');
         $patient->email     = $request->input('email');
         $patient->gender    = $request->input('gender');  // Getting all the inputs from user
         $patient->dob       = $request->input('dob');
+        $patient->age       = $age;
         $patient->blood     = $request->input('blood');
         $patient->phone     = $request->input('phone');
         $patient->address   = $request->input('address');
@@ -74,7 +82,7 @@ class RegisterController extends Controller
     
           //redirect to dashboard 
         
-        return redirect()->to('/patient/dashboard')->with('status','Patient Registered Successfully');
+        return redirect()->to('/patient/login')->with('status','Patient Registered Successfully.Please login to access the service');
 
     }
     private function validator(Request $request)

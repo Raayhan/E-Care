@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('pagetitle', 'Branch Login')
+@section('pagetitle', 'Doctor Login')
 @section('content')
 <div class="container py-4 Poppins" >
     <div class="row justify-content-center" >
@@ -30,10 +30,10 @@
                             </div>
                         @endif
                          <div class="row justify-content-center" style="margin-bottom:1%;">
-                            <i class="mdb-color-text fas fa-user-tie fa-3x text-center"></i>
+                            <i class="mdb-color-text fas fa-user-md fa-3x text-center"></i>
                         </div> 
                         <div class="row justify-content-center" style="margin-bottom:5%;">
-                            <h4 class="mdb-color-text">Branch Login</h4>
+                            <h4 class="mdb-color-text">Doctor Login</h4>
                         </div>
                     <form method="POST" action="{{ route($loginRoute) }}">
                         @csrf
