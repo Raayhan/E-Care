@@ -232,6 +232,178 @@
                      </div>
                  </div>
 
+                 <div class="jumbotron jumbotron-fluid" style="padding-top:20px!important;padding-bottom:20px!important;">
+                  <div class="container">
+                    <h4 class="text-center">Popular Specialists</h4>
+                    <p class="lead text-center small">Most popular departments based on patient's appointment requests</p>
+                    <div class="row mb-4">
+                      <div class="col-md-4">
+                        <!-- Card -->
+                        <div class="card">
+
+                          <div class="card-image">
+
+                            <!-- Content -->
+                            <a href="/patient/department/medicine">
+                              <div class="text-white d-flex h-100 mask green darken-4">
+                                <div class="first-content align-self-center p-3">
+                                  <h4 class="card-title">Medicine</h4>
+                                  <p class="">General Medicine</p>
+                                </div>
+                                <div class="second-content align-self-center mx-auto text-center">
+                                  <i class="fas fa-pills fa-3x"></i>
+                                </div>
+                              </div>
+                            </a>
+
+                          </div>
+
+
+
+                        </div>
+                      <!-- Card -->
+                      </div>
+                      <div class="col-md-4">
+                        <!-- Card -->
+                        <div class="card">
+
+                          <div class="card-image">
+
+                            <!-- Content -->
+                            <a href="/patient/department/cancer">
+                              <div class="text-white d-flex h-100 mask default-color-dark">
+                                <div class="first-content align-self-center p-3">
+                                  <h4 class="card-title">Cancer</h4>
+                                  <p class="">Cancer Specialists</p>
+                                </div>
+                                <div class="second-content align-self-center mx-auto text-center">
+                                  <i class="fas fa-bacterium fa-3x"></i>
+                                </div>
+                              </div>
+                            </a>
+
+                          </div>
+
+
+
+                        </div>
+                      <!-- Card -->
+                      </div>
+                      <div class="col-md-4">
+                        <!-- Card -->
+                        <div class="card">
+
+                          <div class="card-image">
+
+                            <!-- Content -->
+                            <a href="/patient/department/cardiology">
+                              <div class="text-white d-flex h-100 mask  deep-orange darken-4">
+                                <div class="first-content align-self-center p-3">
+                                  <h4 class="card-title">Cardiology</h4>
+                                  <p class="">Special Cardiologist</p>
+                                </div>
+                                <div class="second-content align-self-center mx-auto text-center">
+                                  <i class="fas fa-heartbeat fa-3x"></i>
+                                </div>
+                              </div>
+                            </a>
+
+                          </div>
+
+
+
+                        </div>
+                      <!-- Card -->
+                      </div>
+                    </div>
+                    <div class="row mb-4">
+                      <div class="col-md-4">
+                        <!-- Card -->
+                        <div class="card">
+
+                          <div class="card-image">
+
+                            <!-- Content -->
+                            <a href="/patient/department/diabetics">
+                              <div class="text-white d-flex h-100 mask mdb-color darken-3">
+                                <div class="first-content align-self-center p-3">
+                                  <h4 class="card-title">Diabetics</h4>
+                                  <p class="">Diabetics Specialists</p>
+                                </div>
+                                <div class="second-content align-self-center mx-auto text-center">
+                                  <i class="fas fa-burn fa-3x"></i>
+                                </div>
+                              </div>
+                            </a>
+
+                          </div>
+
+
+
+                        </div>
+                      <!-- Card -->
+                      </div>
+                      <div class="col-md-4">
+                        <!-- Card -->
+                        <div class="card">
+
+                          <div class="card-image">
+
+                            <!-- Content -->
+                            <a href="/patient/department/child">
+                              <div class="text-white d-flex h-100 mask brown darken-4">
+                                <div class="first-content align-self-center p-3">
+                                  <h4 class="card-title">Child/Pediatric</h4>
+                                  <p class="">Children Specialists</p>
+                                </div>
+                                <div class="second-content align-self-center mx-auto text-center">
+                                  <i class="fas fa-baby fa-3x"></i>
+                                </div>
+                              </div>
+                            </a>
+
+                          </div>
+
+
+
+                        </div>
+                      <!-- Card -->
+                      </div>
+                      <div class="col-md-4">
+                        <!-- Card -->
+                        <div class="card">
+
+                          <div class="card-image">
+
+                            <!-- Content -->
+                            <a href="/patient/department/dermatology">
+                              <div class="text-white d-flex h-100 mask purple darken-4">
+                                <div class="first-content align-self-center p-3">
+                                  <h4 class="card-title">Dermatology</h4>
+                                  <p class="">Special Dermatologist</p>
+                                </div>
+                                <div class="second-content align-self-center mx-auto text-center">
+                                  <i class="fas fa-allergies fa-3x"></i>
+                                </div>
+                              </div>
+                            </a>
+
+                          </div>
+
+
+
+                        </div>
+                      <!-- Card -->
+                      </div>
+                    </div>
+                    <div class="row justify-content-center">
+                      <!-- Link -->
+                        <a href="/patient/department/all" class="text-danger d-flex flex-row-reverse p-2">
+                          <h5 class="waves-effect waves-light font-weight-bold">View more<i class="fas fa-angle-double-right ml-2"></i></h5>
+                        </a>
+                    </div>
+                  </div>
+                </div>
 
 
               </div>
