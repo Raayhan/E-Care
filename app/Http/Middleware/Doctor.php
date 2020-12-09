@@ -5,7 +5,7 @@ use Auth;
 use Closure;
 use Illuminate\Http\Request;
 
-class Branch
+class Doctor
 {
     /**
      * Handle an incoming request.
@@ -17,10 +17,10 @@ class Branch
     public function handle(Request $request, Closure $next)
     {
         
-        if(Auth::guard('branch')->check()){
+        if(Auth::guard('doctor')->check()){
             return $next($request);
           }
 
-    return redirect('/branch/login')->with('error',"You must login to access Branch Panel");
+    return redirect('/doctor/login')->with('error',"You must login to access Doctor Panel");
     }
 }
