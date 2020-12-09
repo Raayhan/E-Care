@@ -20,11 +20,11 @@ class DashboardController extends Controller
     public function index()
     {
         
-        // $branch = Branch::count();
-        // $customer = Customer::count();
+        $doctor = Doctor::count();
+        $patient = Patient::count();
         // $completed = Branch::sum('completed');
         // $pending = Shipment::where('status', 'Requested,Pending Approval')->count();
         // return view('admin.dashboard',['branch'=>$branch,'customer'=>$customer,'completed'=>$completed,'pending'=>$pending]);
-        return view('admin.dashboard');
+        return view('admin.dashboard',['doctor'=>$doctor,'patient'=>$patient]);
     }
 }

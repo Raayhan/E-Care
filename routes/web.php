@@ -102,7 +102,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
       Route::post('/doctor/remove',[App\Http\Controllers\Admin\CloseBranchController::class,'CloseBranch']);
 
       //Patient->Admin Routes
-      Route::get('/patient/all',[App\Http\Controllers\Admin\ViewPatientController::class,'index'])->middleware('admin')->name('Patients');
+      Route::get('/patient/all',[App\Http\Controllers\Admin\Patient\ViewPatientController::class,'index'])->middleware('admin')->name('Patients');
       Route::get('/patient/add',[App\Http\Controllers\Admin\AddPatientController::class,'PatientRegisterForm'])->middleware('admin')->name('Patient.add');
       Route::post('/patient/add',[App\Http\Controllers\Admin\AddPatientController::class,'AddPatient']);
       Route::get('/patient/block',[App\Http\Controllers\Admin\BlockPatientController::class,'ViewPatientList'])->middleware('admin')->name('Patients');

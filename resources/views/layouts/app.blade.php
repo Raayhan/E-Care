@@ -58,6 +58,9 @@
                           <li class="nav-item">
                             <a class="nav-link" href="/about">{{ __('About') }}</a>
                           </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/contact">{{ __('Contact') }}</a>
+                          </li>
                         
                           <!-- Authentication Links -->
                           @if(Auth::guard('doctor')->check())

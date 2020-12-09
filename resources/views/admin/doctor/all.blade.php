@@ -178,7 +178,7 @@
 
                         <tr>
 
-                          <td>DR.{{ $doctor->name }}</td>
+                          <td>Dr. {{ $doctor->name }}</td>
                           <td>{{ $doctor->reg_no }}</td>
                           <td>{{ $doctor->designation }}</td>
                           <td>{{ $doctor->department }}</td>

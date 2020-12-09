@@ -158,7 +158,7 @@
                   <!-- Content Row -->
                   <div class="row">
                     <div class="col-xl-3 col-md-6 mb-4">
-                      <a onclick="window.location.href='/patient/parcel/all'"> <div class="card border-left-primary shadow h-100 py-2">
+                      <a onclick="window.location.href='/patient/doctor/all'"> <div class="card border-left-primary shadow h-100 py-2">
                          <div class="card-body">
                            <div class="row no-gutters align-items-center">
                              <div class="col mr-2">
@@ -245,7 +245,7 @@
 
                             <!-- Content -->
                             <a href="/patient/department/medicine">
-                              <div class="text-white d-flex h-100 mask green darken-4">
+                              <div class="text-white rounded d-flex h-100 mask green darken-4">
                                 <div class="first-content align-self-center p-3">
                                   <h4 class="card-title">Medicine</h4>
                                   <p class="">General Medicine</p>
@@ -271,7 +271,7 @@
 
                             <!-- Content -->
                             <a href="/patient/department/cancer">
-                              <div class="text-white d-flex h-100 mask default-color-dark">
+                              <div class="text-white d-flex rounded h-100 mask default-color-dark">
                                 <div class="first-content align-self-center p-3">
                                   <h4 class="card-title">Cancer</h4>
                                   <p class="">Cancer Specialists</p>
@@ -297,7 +297,7 @@
 
                             <!-- Content -->
                             <a href="/patient/department/cardiology">
-                              <div class="text-white d-flex h-100 mask  deep-orange darken-4">
+                              <div class="text-white d-flex rounded h-100 mask  deep-orange darken-4">
                                 <div class="first-content align-self-center p-3">
                                   <h4 class="card-title">Cardiology</h4>
                                   <p class="">Special Cardiologist</p>
@@ -325,7 +325,7 @@
 
                             <!-- Content -->
                             <a href="/patient/department/diabetics">
-                              <div class="text-white d-flex h-100 mask mdb-color darken-3">
+                              <div class="text-white d-flex rounded h-100 mask mdb-color darken-3">
                                 <div class="first-content align-self-center p-3">
                                   <h4 class="card-title">Diabetics</h4>
                                   <p class="">Diabetics Specialists</p>
@@ -351,7 +351,7 @@
 
                             <!-- Content -->
                             <a href="/patient/department/child">
-                              <div class="text-white d-flex h-100 mask brown darken-4">
+                              <div class="text-white d-flex rounded h-100 mask brown darken-4">
                                 <div class="first-content align-self-center p-3">
                                   <h4 class="card-title">Child/Pediatric</h4>
                                   <p class="">Children Specialists</p>
@@ -371,16 +371,16 @@
                       </div>
                       <div class="col-md-4">
                         <!-- Card -->
-                        <div class="card">
+                        <div class="card ">
 
                           <div class="card-image">
 
                             <!-- Content -->
                             <a href="/patient/department/dermatology">
-                              <div class="text-white d-flex h-100 mask purple darken-4">
+                              <div class="text-white d-flex rounded h-100 mask purple darken-4">
                                 <div class="first-content align-self-center p-3">
                                   <h4 class="card-title">Dermatology</h4>
-                                  <p class="">Special Dermatologist</p>
+                                  <p class="">Skin Specialist</p>
                                 </div>
                                 <div class="second-content align-self-center mx-auto text-center">
                                   <i class="fas fa-allergies fa-3x"></i>
