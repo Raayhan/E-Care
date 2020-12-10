@@ -164,7 +164,7 @@
                            <div class="row no-gutters align-items-center">
                              <div class="col mr-2">
                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Doctors</div>
-                             <div class="h5 mb-0 font-weight-bold text-gray-800">37</div>
+                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{$doctor}}</div>
                              </div>
                              <div class="col-auto">
                               <i class="fas fa-user-md fa-2x text-gray-500"></i>
@@ -182,7 +182,7 @@
                            <div class="row no-gutters align-items-center">
                              <div class="col mr-2">
                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Departments</div>
-                             <div class="h5 mb-0 font-weight-bold text-gray-800">10</div>
+                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{$department}}</div>
                              </div>
                              <div class="col-auto">
                                <i class="fas fa-clinic-medical fa-2x text-gray-500"></i>
