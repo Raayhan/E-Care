@@ -208,16 +208,10 @@
                                 <div class="col-md-6">
                                   <select name="department" class="form-control  @error('department') is-invalid @enderror" id="department">
                                     <option value="" disabled selected>Select Department</option>
-                                    <option value="Medicine">Medicine</option>
-                                    <option value="Cardiology">Cardiology</option>
-                                    <option value="Cancer">Cancer</option>
-                                    <option value="Diabetics">Diabetics</option>
-                                    <option value="Neurology">Neurology</option>
-                                    <option value="Gynacology">Gynacology</option>
-                                    <option value="Child/Pediatric">Child/Pediatric</option>
-                                    <option value="Dermatology">Dermatology</option>
-                                    <option value="Urology">Urology</option>
-                                    <option value="Ophthalmology">Ophthalmology</option>
+                                    @foreach($departments as $department)
+                                    <option value="{{$department->name}}">{{$department->name}}</option>
+                                  @endforeach
+
 
                                   </select>
     

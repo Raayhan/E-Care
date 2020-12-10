@@ -3,16 +3,20 @@
 namespace App\Http\Controllers\Admin\Doctor;
 
 use App\Models\Doctor;
+use App\Models\Department;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Hash;
 
+use Illuminate\Support\Facades\DB;
+
 class AddDoctorController extends Controller
 {
     public function DoctorRegisterForm(){
+        $departments = Department::all(['name']);
         return view('admin.doctor.add',[
             
-            'registerRoute' => 'admin.doctor.add',
+            'registerRoute' => 'admin.doctor.add','departments'=>$departments
            
         ]);
     }
