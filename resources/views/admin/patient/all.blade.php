@@ -161,16 +161,16 @@
          @endif
             <div class="table-responsive">
                 <table id="example" class="table table-striped table-bordered" style="width:100%;text-align:center!important;">
-                    <thead class="text-white" style="background:rgb(46, 85, 199)!important;">
+                    <thead class="text-white" style="background:#4285F4 !important;">
                         <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Age</th>
-                            <th>Gender</th>
-                            <th>Blood Group</th>
-                            <th>Address</th>
-                            <th>Email</th>
-                            <th>Phone</th>
+                            <th class="small-table">ID</th>
+                            <th class="small-table">Name</th>
+                            <th class="small-table">Age</th>
+                            <th class="small-table">Gender</th>
+                            <th class="small-table">Blood Group</th>
+                            <th class="small-table">Address</th>
+                            <th class="small-table">Email</th>
+                            <th class="small-table">Phone</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -193,14 +193,14 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Age</th>
-                            <th>Gender</th>
-                            <th>Blood Group</th>
-                            <th>Address</th>
-                            <th>Email</th>
-                            <th>Phone</th>
+                            <th class="small-table">ID</th>
+                            <th class="small-table">Name</th>
+                            <th class="small-table">Age</th>
+                            <th class="small-table">Gender</th>
+                            <th class="small-table">Blood Group</th>
+                            <th class="small-table">Address</th>
+                            <th class="small-table">Email</th>
+                            <th class="small-table">Phone</th>
                         </tr>
                     </tfoot>
                 </table>

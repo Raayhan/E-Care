@@ -161,16 +161,16 @@
          @endif
             <div class="table-responsive">
                 <table id="example" class="table table-striped table-bordered" style="width:100%;text-align:center!important;">
-                    <thead class="small">
+                  <thead class="small text-white" style="background:#4285F4 !important;">
                         <tr>
-                            <th>Name</th>
-                            <th>Reg no.</th>
-                            <th>Designation</th>
-                            <th>Department</th>
-                            <th>Degree</th>
-                            <th>Gender</th>
-                            <th>Email</th>
-                            <th>Phone</th>
+                            <th class="small-table">Name</th>
+                            <th class="small-table">Reg No.</th>
+                            <th class="small-table">Designation</th>
+                            <th class="small-table">Department</th>
+                            <th class="small-table">Degree</th>
+                            <th class="small-table">Gender</th>
+                            <th class="small-table">Email</th>
+                            <th class="small-table" >Phone</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -194,14 +194,14 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                          <th>Name</th>
-                          <th>Reg no.</th>
-                          <th>Designation</th>
-                          <th>Department</th>
-                          <th>Degree</th>
-                          <th>Gender</th>
-                          <th>Email</th>
-                          <th>Phone</th>
+                          <th class="small-table">Name</th>
+                            <th class="small-table">Reg No.</th>
+                            <th class="small-table">Designation</th>
+                            <th class="small-table">Department</th>
+                            <th class="small-table">Degree</th>
+                            <th class="small-table">Gender</th>
+                            <th class="small-table">Email</th>
+                            <th class="small-table" >Phone</th>
                         </tr>
                     </tfoot>
                 </table>
