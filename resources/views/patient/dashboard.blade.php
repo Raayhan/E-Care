@@ -43,6 +43,7 @@
         <div id="appointment" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class=" py-2 collapse-inner rounded">
             
+            <a class="collapse-item" href="\patient\appointments\create"><i class="fas fa-file-medical"></i> &nbsp;Make Appointment</a>
             <a class="collapse-item" href="\patient\appointments\all"><i class="fas fa-paste"></i> &nbsp;All Appointments</a>
             <a class="collapse-item" href="\patient\appointments\status"><i class="fas fa-eye"></i> &nbsp;Check Status</a>
            
@@ -234,7 +235,7 @@
 
                  <div class="jumbotron jumbotron-fluid" style="padding-top:20px!important;padding-bottom:20px!important;">
                   <div class="container">
-                    <h4 class="text-center">Popular Specialists</h4>
+                    <h4 class="text-center">Top Departments</h4>
                     <p class="lead text-center small">Most popular departments based on patient's appointment requests</p>
                     <div class="row mb-4">
                       <div class="col-md-4">

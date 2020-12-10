@@ -97,6 +97,14 @@
             
         </div>
       </li>
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+              <a class="nav-link" href="\admin\departments">
+                <i class="fas fa-clinic-medical"></i>
+                <span>DEPARTMENTS</span>
+              </a>
+      
+            </li>
 
 
       <!-- Nav Item - Tables -->

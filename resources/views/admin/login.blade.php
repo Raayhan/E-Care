@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('pagetitle', 'Admin Login')
 @section('content')
-<div class="container py-4 Poppins" >
+<div class="container py-4" >
     <div class="row justify-content-center" >
         <div class="col-md-9">
           
