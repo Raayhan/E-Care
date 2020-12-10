@@ -35,7 +35,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
       Route::get('/dashboard',[App\Http\Controllers\Patient\DashboardController::class,'index'])->name('dashboard')->middleware('patient');
     
 
-      //Login Routes
+      //Login Register Routes
       Route::get('/register',[App\Http\Controllers\Patient\Auth\RegisterController::class,'PatientRegisterForm'])->name('register');
       Route::post('/register',[App\Http\Controllers\Patient\Auth\RegisterController::class,'RegisterPatient']);
       Route::get('/login',[App\Http\Controllers\Patient\Auth\LoginController::class,'showLoginForm'])->name('login');
@@ -48,7 +48,10 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
       Route::get('/profile/complete',[App\Http\Controllers\Patient\Profile\CompleteProfileController::class,'CompleteForm'])->name('CompleteForm')->middleware('patient');
       Route::post('/profile/complete', [App\Http\Controllers\Patient\Profile\CompleteProfileController::class,'CompleteProfile']);
   
+     // Department Routes
 
+     Route::get('/department/all',[App\Http\Controllers\Patient\Department\DepartmentController::class,'index'])->name('Departments')->middleware('patient');
+     Route::post('/department/all',[App\Http\Controllers\Patient\Department\DepartmentController::class,'FindDoctor'])->name('Doctors');
      
 
 
