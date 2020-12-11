@@ -155,6 +155,13 @@
             <div class="container">
             <h4 class="text-center">Department : {{$department}}</h4>
               <p class="lead text-center small">Available Doctors</p>
+              <div class="row justify-content-start">
+                <div class="col">
+                  <button onclick="goBack()" class="btn btn-unique btn-sm"><i class="fas fa-chevron-circle-left"></i> GO BACK</button>
+                </div>
+                
+              </div>
+
               <div class="row mb-4">
 
                 @foreach($doctors as $doctor)
@@ -166,16 +173,16 @@
 
                       <!-- Content -->
                      
-                        <div class="text-white rounded d-flex h-100 mask mdb-color darken-3" style="padding:10px;">
+                        <div class=" rounded d-flex h-100 mask rgba-cyan-slight" style="padding:20px;">
                           <div class="first-content align-self-center p-3">
-                            <div class="row" style="padding:15px;">
-                                <div class="com-md-4">
+                            <div class="row justify-content-start" style="padding:15px;">
+                                
                                     <i class="fas fa-user-md fa-3x"></i>
-                                </div>
+                               
 
                                 
                             </div>
-                            <h5 class="card-title">Dr. {{$doctor->name}}</h5>
+                            <h5 class="card-title font-weight-bold">Dr. {{$doctor->name}}</h5>
                           <p class="mb-0">{{$doctor->designation}} of {{$doctor->department}}</p>
                           <p class="mb-0">{{$doctor->degree}}</p>
                           <p class="mb-0">BMDC REG No. : {{$doctor->reg_no}}</p>
@@ -232,6 +239,11 @@
     $(document).ready(function() {
         $('#example').DataTable();
     } );
+
+    
+    function goBack() {
+       window.history.back();
+         }
   </script>
   
   

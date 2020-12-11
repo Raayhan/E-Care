@@ -164,6 +164,23 @@
             <h4 class="mb-2 text-gray-800 text-center">E-Care Departments</h4>
 
         </div>
+        @if(session('status'))
+        <div style="margin-left:10%;margin-right:10%;" class="alert alert-success alert-dismissible fade show text-center font-weight-bold small" role="alert">
+            {{session('status')}}&nbsp; <i class="far fa-check-circle"></i>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      @endif
+
+      @if(session('error'))
+        <div style="margin-left:10%;margin-right:10%;" class="alert alert-danger alert-dismissible fade show text-center font-weight-bold small" role="alert">
+            {{session('error')}}&nbsp;
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+      @endif
         <div class="card shadow mb-4">
           <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">All Department Informations</h6>
@@ -177,8 +194,8 @@
                 <table id="example" class="table table-striped table-bordered" style="width:100%;text-align:center!important;">
                   <thead class="small text-white" style="background:#4285F4 !important;">
                         <tr>
-                            <th class="small-table">Department Name</th>
-                            <th class="small-table">Action</th>
+                            <th class="small-table">Select Department</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -187,16 +204,16 @@
                         <tr>
 
                           
-                          <td class="font-weight-bold">{{ $department->name }}</td>
+                          
                           
                           <td>
-                              <form action="/patient/department/all" method="post">
+                              <form action="/patient/department/all" method="POST">
 
                                 @csrf
                                 <input type="hidden" name="name" value="{{$department->name}}">
                                
 
-                                <button type="submit" class="small btn btn-primary btn-sm view_btn" aria-label="Left Align">Go 
+                                <button type="submit" class=" btn-block py-3 view_btn" aria-label="Left Align">{{ $department->name }} 
                                     <span class="fas fa-angle-double-right" aria-hidden="true"></span>
                                     </button>
                              </form>
@@ -210,7 +227,7 @@
                     <tfoot>
                         <tr>
                             <th class="small-table">Department Name</th>
-                            <th class="small-table">Action</th>
+                           
                         </tr>
                     </tfoot>
                 </table>

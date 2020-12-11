@@ -245,7 +245,7 @@
                           <div class="card-image">
 
                             <!-- Content -->
-                            <a href="/patient/department/medicine">
+                            <a href="/patient/department/all">
                               <div class="text-white rounded d-flex h-100 mask green darken-4">
                                 <div class="first-content align-self-center p-3">
                                   <h4 class="card-title">Medicine</h4>
@@ -271,7 +271,7 @@
                           <div class="card-image">
 
                             <!-- Content -->
-                            <a href="/patient/department/cancer">
+                            <a href="/patient/department/all">
                               <div class="text-white d-flex rounded h-100 mask default-color-dark">
                                 <div class="first-content align-self-center p-3">
                                   <h4 class="card-title">Cancer</h4>
@@ -297,7 +297,7 @@
                           <div class="card-image">
 
                             <!-- Content -->
-                            <a href="/patient/department/cardiology">
+                            <a href="/patient/department/all">
                               <div class="text-white d-flex rounded h-100 mask  deep-orange darken-4">
                                 <div class="first-content align-self-center p-3">
                                   <h4 class="card-title">Cardiology</h4>
@@ -325,7 +325,7 @@
                           <div class="card-image">
 
                             <!-- Content -->
-                            <a href="/patient/department/diabetics">
+                            <a href="/patient/department/all">
                               <div class="text-white d-flex rounded h-100 mask mdb-color darken-3">
                                 <div class="first-content align-self-center p-3">
                                   <h4 class="card-title">Diabetics</h4>
@@ -351,7 +351,7 @@
                           <div class="card-image">
 
                             <!-- Content -->
-                            <a href="/patient/department/child">
+                            <a href="/patient/deparatment/all">
                               <div class="text-white d-flex rounded h-100 mask brown darken-4">
                                 <div class="first-content align-self-center p-3">
                                   <h4 class="card-title">Child/Pediatric</h4>
@@ -377,7 +377,7 @@
                           <div class="card-image">
 
                             <!-- Content -->
-                            <a href="/patient/department/dermatology">
+                            <a href="/patient/department/atment/all">
                               <div class="text-white d-flex rounded h-100 mask purple darken-4">
                                 <div class="first-content align-self-center p-3">
                                   <h4 class="card-title">Dermatology</h4>
