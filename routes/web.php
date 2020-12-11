@@ -56,7 +56,10 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
 
      //Doctor Routes
      Route::get('/doctors/all',[App\Http\Controllers\Patient\Doctor\DoctorController::class,'index'])->name('Doctors')->middleware('patient');
+     Route::post('/doctors/all',[App\Http\Controllers\Patient\Doctor\DoctorController::class,'ConfirmAppointment'])->name('ConfirmAppointment');
 
+     //Appointment Routes
+     Route::get('/appointments/confirm',[App\Http\Controllers\Patient\Doctor\DoctorController::class,'MakeAppointment'])->name('MakeAppointment')->middleware('patient');
   
     });
   

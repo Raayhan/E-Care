@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('pagetitle', 'Doctors')
+@section('pagetitle', 'Confirm Appointment')
 @section('styles')
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 <link href="{{ asset('css/vendor/admin.min.css') }}" rel="stylesheet">
@@ -36,7 +36,7 @@
         Service
       </div>
       <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#appointment" aria-expanded="true" aria-controls="patient">
             <i class="fas fa-prescription"></i>
           <span>APPOINTMENTS</span>
@@ -79,7 +79,7 @@
       </li>
 
       <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#doctor" aria-expanded="true" aria-controls="patient">
             <i class="fas fa-user-md"></i>
           <span>DOCTORS</span>
@@ -157,116 +157,107 @@
 
                <!-- Begin Page Content -->
               <div class="container-fluid py-4">
-
-                 
-        <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800 text-center">E-Care Doctors</h1>
+                <div class="card">
+                    <div class="card-header font-weight-bold"></div>
+                      <div class="card-body branch_add">
+                     
+                        <div class="row mb-4">
+                          <div class="col-md-10">
+                            <img style="max-width:20%!important;text-align:left;" src="{{ asset('img/logo.png') }}" alt="">
+                          </div>
+                          <div class="col-md-2 small">
+                          <span>Appointment ID :</span><span class="mdb-color-text" style="font-weight:bold;"> &nbsp;{{$appointment_id}}</span>
+                          </div>
+                        </div>
+                        <div class="row justify-content-center Poppins mb-4">
         
-
-        <!-- DataTales Example -->
-        <div class="card shadow mb-4">
-          <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">All Doctor Informations</h6>
-          </div>
-          <div class="card-body">
-            @if(session('status'))
-            <div class="alert alert-success alert-dismissible fade show text-center font-weight-bold small" role="alert">
-                {{session('status')}}
-               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-               </button>
-             </div>
-         @endif
-
-         {{-- Error Alert --}}
-         @if(session('error'))
-              <div class="alert alert-danger alert-dismissible fade show text-center font-weight-bold small" role="alert">
-                  {{session('error')}}
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                  </button>
-              </div>
-         @endif
-            <div class="table-responsive">
-                <table id="example" class="table table-striped table-bordered" style="width:100%;text-align:center!important;">
-                  <thead class="small text-white" style="background:#4285F4 !important;">
-                        <tr>
-                            <th class="small-table">Name</th>
-                            <th class="small-table">Reg No.</th>
-                            <th class="small-table">Designation</th>
-                            <th class="small-table">Department</th>
-                            <th class="small-table">Degree</th>
-                            <th class="small-table">Gender</th>
-                            <th class="small-table">Action</th>
+                          <h5 class="mdb-color-text font-weight-bold">Appointment Summary</h5>
+        
+                        </div>
+                        <div class="row justify-content-center">
+                          <div class="barcode">
+                          
+                            {!! DNS1D::getBarcodeHTML($appointment_id, "C128",1.4,22) !!}
+                            <p class="small text-center">{{$appointment_id}}</p>
+                        </div>
+                        </div>
+                        <hr>
+                        <div class="row justify-content-center mb-4">
+                          <div class="col-md-6">
+                            <h6 class="font-weight-bold" ><i class="fas fa-user-md"></i> Doctor Informations</h6><hr>
+                            <div class="small">
+                            <span class="font-weight-bold"> Doctor Name : </span><span>Dr. {{$doctor_name}}</span><br>
+                            <span class="font-weight-bold"> Designation : </span><span>{{$doctor_designation}}</span><br>
+                            <span class="font-weight-bold"> Degree : </span><span>{{$doctor_degree}}</span><br>
+                            <span class="font-weight-bold"> BMDC REG No. : </span><span>{{$doctor_reg}}</span><br>
+                            <span class="font-weight-bold"> Gender : </span><span>{{$doctor_gender}}</span>
+                            <hr>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
                             
-                        </tr>
-                    </thead>
-                    <tbody>
-                      @foreach($doctors as $doctor)
+                            <h6 class="font-weight-bold" ><i class="fas fa-hospital-user"></i> Patient Informations</h6><hr>
+                            <div class="small">
+                              <span class="font-weight-bold"> Patient Name : </span><span>{{Auth::guard('patient')->user()->name}}</span><br>
+                              <span class="font-weight-bold"> Department : </span><span>{{$department_name}}</span><br>
+                              <span class="font-weight-bold"> Age : </span><span>{{Auth::guard('patient')->user()->age}} Years</span><br>
+                              <span class="font-weight-bold"> Gender : </span><span>{{Auth::guard('patient')->user()->gender}}</span><br>
+                              <span class="font-weight-bold"> Blood Group : </span><span>{{Auth::guard('patient')->user()->blood}}</span><br>
+                              
+                              <hr>
+                              </div>
+                          </div>
 
-                        <tr>
+                        </div>
 
-                          <td>Dr. {{ $doctor->name }}</td>
-                          <td>{{ $doctor->reg_no }}</td>
-                          <td>{{ $doctor->designation }}</td>
-                          <td>{{ $doctor->department }}</td>
-                          <td>{{ $doctor->degree }}</td>
-                          <td>{{ $doctor->gender }}</td>
-                          <td>
+                        <div class="row justify-content-center">
 
+                          <div class="">
+                            
+                             
+                               
+                                <form action="/patient/appointments/confirm" method="GET">
+                                  @csrf
 
-                            <form action="/patient/doctors/all" method="POST">
-
-                              @csrf
-                              <input type="hidden" name="doctor_name" value="{{$doctor->name}}">
-                              <input type="hidden" name="doctor_designation" value="{{$doctor->designation}}">
-                              <input type="hidden" name="doctor_gender" value="{{$doctor->gender}}">
-                              <input type="hidden" name="doctor_reg" value="{{$doctor->reg_no}}">
-                              <input type="hidden" name="department_name" value="{{$doctor->department}}">
-                              <input type="hidden" name="doctor_degree" value="{{$doctor->degree}}">
-
-
-                            <input class="small btn-indigo" type="submit" value="Make Appointment" >
-                          </form>
-                          </td>
-                         
-
-                        </tr>
-
-                          @endforeach
-                       
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <th class="small-table">Name</th>
-                            <th class="small-table">Reg No.</th>
-                            <th class="small-table">Designation</th>
-                            <th class="small-table">Department</th>
-                            <th class="small-table">Degree</th>
-                            <th class="small-table">Gender</th>
-                            <th class="small-table">Action</th>
-                        </tr>
-                    </tfoot>
-                </table>
-
-            </div>
-          </div>
-        </div>
+                                  <input type="hidden" name="doctor_name" value="{{$doctor_name}}">
+                                  <input type="hidden" name="doctor_designation" value="{{$doctor_designation}}">
+                                  <input type="hidden" name="doctor_gender" value="{{$doctor_gender}}">
+                                  <input type="hidden" name="department_name" value="{{$department_name}}">
+                                  <input type="hidden" name="patient_name" value="{{Auth::guard('patient')->user()->name}}">
+                                  <input type="hidden" name="patient_age" value="{{Auth::guard('patient')->user()->age}}">
+                                  <input type="hidden" name="patient_gender" value="{{Auth::guard('patient')->user()->gender}}">
+                                  <input type="hidden" name="patient_blood" value="{{Auth::guard('patient')->user()->blood}}">
+                                  <input type="hidden" name="status" value="Requested,Pending Approval">
+                                  
+        
+        
+        
+                                  <input type="submit" class="btn btn-dark-green"   value="CONFIRM"/>
+                                </form>
+                             
+                              
+                           
+                          </div>
+                          
+                        </div>
+        
+        
+        
+                  
+                        
+                          </div>
+                          </div>
 
 
-              </div>
-          </div>
-    </div>
+</div>
+</div>
+</div>
 </div>
 @section('scripts')
-<script src="{{ asset('js/vendor/jquery.dataTables.min.js') }}"></script>
-    <script src="{{asset('js/vendor/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{asset('js/vendor/admin.js')}}"></script>
-   
-    <script type="text/javascript">
-      $(document).ready(function() {
-          $('#example').DataTable();
-      } );
-    </script>   
+
+<script src="{{asset('js/vendor/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('js/vendor/admin.js')}}"></script>
+
+ 
 @stop
 @endsection
