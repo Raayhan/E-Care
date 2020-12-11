@@ -92,6 +92,13 @@
           </div>
         </div>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="\patient\medicines" aria-expanded="true" aria-controls="patient">
+            <i class="fas fa-pills"></i>
+          <span>MEDICINES</span>
+        </a>
+ 
+      </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider">
@@ -159,7 +166,7 @@
                   <!-- Content Row -->
                   <div class="row">
                     <div class="col-xl-3 col-md-6 mb-4">
-                      <a onclick="window.location.href='/patient/doctor/all'"> <div class="card border-left-primary shadow h-100 py-2">
+                      <a onclick="window.location.href='/patient/doctors/all'"> <div class="card border-left-primary shadow h-100 py-2">
                          <div class="card-body">
                            <div class="row no-gutters align-items-center">
                              <div class="col mr-2">
@@ -177,7 +184,7 @@
          
                      
                      <div class="col-xl-3 col-md-6 mb-4">
-                      <a onclick="window.location.href='/patient/parcel/all'"> <div class="card border-left-success shadow h-100 py-2">
+                      <a onclick="window.location.href='/patient/department/all'"> <div class="card border-left-success shadow h-100 py-2">
                          <div class="card-body">
                            <div class="row no-gutters align-items-center">
                              <div class="col mr-2">
@@ -401,6 +408,74 @@
                       <!-- Link -->
                         <a href="/patient/department/all" class="text-danger d-flex flex-row-reverse p-2">
                           <h5 class="waves-effect waves-light font-weight-bold">View more<i class="fas fa-angle-double-right ml-2"></i></h5>
+                        </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="jumbotron jumbotron-fluid" style="padding-top:20px!important;padding-bottom:20px!important;">
+                  <div class="container">
+                    <h4 class="text-center">Services</h4>
+                    <p class="lead text-center small">Enjoy non-stop services at your door.</p>
+                    <div class="row mb-4">
+                      <div class="col-md-6">
+                        <!-- Card -->
+                        <div class="card">
+
+                          <div class="card-image">
+
+                            <!-- Content -->
+                            <a href="/patient/medicines">
+                              <div class="text-white rounded d-flex h-100 mask  indigo darken-3">
+                                <div class="first-content align-self-center p-3">
+                                  <h4 class="card-title">Order Medicines</h4>
+                                  <p class="">Order your prescribed medicines online.</p>
+                                </div>
+                                <div class="second-content align-self-center mx-auto text-center">
+                                  <i class="fas fa-database fa-3x"></i>
+                                </div>
+                              </div>
+                            </a>
+
+                          </div>
+
+
+
+                        </div>
+                      <!-- Card -->
+                      </div>
+                      <div class="col-md-6">
+                        <!-- Card -->
+                        <div class="card">
+
+                          <div class="card-image">
+
+                            <!-- Content -->
+                            <a href="/contact">
+                              <div class="text-white d-flex rounded h-100 mask  red darken-4">
+                                <div class="first-content align-self-center p-3">
+                                  <h4 class="card-title">Emergency Services</h4>
+                                  <p class="">Contact us for emergency services</p>
+                                </div>
+                                <div class="second-content align-self-center mx-auto text-center">
+                                  <i class="fas fa-phone fa-3x"></i>
+                                </div>
+                              </div>
+                            </a>
+
+                          </div>
+
+
+
+                        </div>
+                      <!-- Card -->
+                      </div>
+
+                    </div>
+
+                    <div class="row justify-content-center">
+                      <!-- Link -->
+                        <a href="/services" class="text-danger d-flex flex-row-reverse p-2">
+                          <h5 class="waves-effect waves-light font-weight-bold">More Services<i class="fas fa-angle-double-right ml-2"></i></h5>
                         </a>
                     </div>
                   </div>
