@@ -209,7 +209,7 @@
                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Active</div>
                                <div class="row no-gutters align-items-center">
                                  <div class="col-auto">
-                                 <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">0</div>
+                                 <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$active}}</div>
                                  </div>
                                 
                                </div>
@@ -229,7 +229,7 @@
                            <div class="row no-gutters align-items-center">
                              <div class="col mr-2">
                                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Completed</div>
-                             <div class="h5 mb-0 font-weight-bold text-gray-800">2</div>
+                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{$completed}}</div>
                              </div>
                              <div class="col-auto">
                                <i class="fas fa-check-circle fa-2x text-gray-500"></i>

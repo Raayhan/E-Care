@@ -218,6 +218,7 @@
                             <form action="/patient/doctors/all" method="POST">
 
                               @csrf
+                              <input type="hidden" name="doctor_id" value="{{$doctor->id}}">
                               <input type="hidden" name="doctor_name" value="{{$doctor->name}}">
                               <input type="hidden" name="doctor_designation" value="{{$doctor->designation}}">
                               <input type="hidden" name="doctor_gender" value="{{$doctor->gender}}">
