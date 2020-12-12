@@ -21,4 +21,8 @@ class AppointmentController extends Controller
         
 
     }
+
+    public function MakeAppointment(){
+        return view('patient.appointments.create');
+    }
 }
