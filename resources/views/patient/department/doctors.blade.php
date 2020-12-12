@@ -196,10 +196,16 @@
                           <p class="">Gender : {{$doctor->gender}}</p>
 
                          
-                            <form action="/patient/department/doctors" method="GET">
+                            <form action="/patient/department/doctors" method="POST">
 
-                                @csrf
-                                <input type="hidden" name="name" value="{{$doctor->name}}">
+                              @csrf
+                              <input type="hidden" name="doctor_id" value="{{$doctor->id}}">
+                              <input type="hidden" name="doctor_name" value="{{$doctor->name}}">
+                              <input type="hidden" name="doctor_designation" value="{{$doctor->designation}}">
+                              <input type="hidden" name="doctor_gender" value="{{$doctor->gender}}">
+                              <input type="hidden" name="doctor_reg" value="{{$doctor->reg_no}}">
+                              <input type="hidden" name="department_name" value="{{$doctor->department}}">
+                              <input type="hidden" name="doctor_degree" value="{{$doctor->degree}}">
                                
     
                                 <button type="submit" class="btn btn-danger btn-block MyButton" aria-label="Left Align">Make Appointment 

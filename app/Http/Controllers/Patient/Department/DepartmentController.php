@@ -21,7 +21,7 @@ class DepartmentController extends Controller
 
         $department      = $request->input('name');
 
-        $doctors = DB::table('doctors')->select('name','reg_no','designation','department','degree','gender')->where('department', '=',$department)->get();
+        $doctors = DB::table('doctors')->select('id','name','reg_no','designation','department','degree','gender')->where('department', '=',$department)->get();
   
         if ($doctors->isEmpty()){
             return redirect()->to('/patient/department/all')->with('error','Sorry, currently no doctors available for this department. Contact us for more informations.');

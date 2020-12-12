@@ -52,6 +52,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
 
      Route::get('/department/all',[App\Http\Controllers\Patient\Department\DepartmentController::class,'index'])->name('Departments')->middleware('patient');
      Route::post('/department/all',[App\Http\Controllers\Patient\Department\DepartmentController::class,'FindDoctor'])->name('Doctors')->middleware('patient');
+     Route::post('/department/doctors',[App\Http\Controllers\Patient\Doctor\DoctorController::class,'ConfirmAppointment'])->name('AppointmentConfirm')->middleware('patient');
      
 
      //Doctor Routes
