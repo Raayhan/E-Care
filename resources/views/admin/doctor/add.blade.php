@@ -26,7 +26,7 @@
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item">
+      <li class="nav-item ">
         <a class="nav-link" href="/admin/dashboard">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>DASHBOARD</span></a>
@@ -92,7 +92,7 @@
           <div class=" py-2 collapse-inner rounded">
             <a class="collapse-item" href="\admin\appointment\all"><i class="fas fa-file-prescription"></i> &nbsp;All Appointments</a>
             <a class="collapse-item" href="\admin\appointment\live"><i class="fas fa-eye"></i> &nbsp;Live Status</a>
-            <a class="collapse-item" href="\admin\appointment\request"><i class="fas fa-comment-medical"></i> &nbsp;Appointment Requests <span class="badge badge-danger">1</span></a>
+            <a class="collapse-item" href="\admin\appointment\request"><i class="fas fa-comment-medical"></i> &nbsp;Appointment Requests</a>
 
             
         </div>
@@ -105,6 +105,15 @@
               </a>
       
             </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="\admin\medicines">
+                <i class="fas fa-pills"></i>
+                <span>MEDICINES</span>
+              </a>
+      
+            </li>
+
 
 
       <!-- Nav Item - Tables -->

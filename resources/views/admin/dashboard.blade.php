@@ -90,7 +90,7 @@
           <div class=" py-2 collapse-inner rounded">
             <a class="collapse-item" href="\admin\appointment\all"><i class="fas fa-file-prescription"></i> &nbsp;All Appointments</a>
             <a class="collapse-item" href="\admin\appointment\live"><i class="fas fa-eye"></i> &nbsp;Live Status</a>
-            <a class="collapse-item" href="\admin\appointment\request"><i class="fas fa-comment-medical"></i> &nbsp;Appointment Requests <span class="badge badge-danger">1</span></a>
+            <a class="collapse-item" href="\admin\appointment\request"><i class="fas fa-comment-medical"></i> &nbsp;Appointment Requests <span class="badge badge-danger">{{$pending}}</span></a>
 
             
         </div>
@@ -103,6 +103,15 @@
               </a>
       
             </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="\admin\medicines">
+                <i class="fas fa-pills"></i>
+                <span>MEDICINES</span>
+              </a>
+      
+            </li>
+
 
 
       <!-- Nav Item - Tables -->
@@ -198,7 +207,7 @@
                       <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Completed</div>
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
-                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">250</div>
+                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$completed}}</div>
                         </div>
                        
                       </div>
@@ -213,12 +222,12 @@
 
             <!-- Pending Requests Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
-              <a onclick="window.location.href='/admin/shipment/request'">  <div class="card border-left-danger shadow h-100 py-2">
+              <a onclick="window.location.href='/admin/appointment/request'">  <div class="card border-left-danger shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Pending</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">150</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{$pending}}</div>
                     </div>
                     <div class="col-auto">
                       <i class="far fa-clock fa-2x text-gray-500"></i>

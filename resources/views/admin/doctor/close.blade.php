@@ -42,16 +42,16 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item active">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Branch" aria-expanded="true" aria-controls="Branch">
-          <i class="fas fa-fw fa-code-branch"></i>
-          <span>BRANCH</span>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#doctor" aria-expanded="true" aria-controls="Branch">
+          <i class="fas fa-user-md"></i>
+          <span>DOCTOR</span>
         </a>
-        <div id="Branch" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="doctor" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="py-2 collapse-inner rounded">
             
-            <a class="collapse-item" href="/admin/branch/branches"><i class="fas fa-list-ul"></i> &nbsp;All Branches</a>
-            <a class="collapse-item" href="/admin/branch/add"><i class="fas fa-calendar-plus"></i> &nbsp;Open Branch</a>
-            <a class="collapse-item" href="/admin/branch/close"><i class="fas fa-calendar-minus"></i> &nbsp;Close Branch</a>
+            <a class="collapse-item" href="/admin/doctor/all"><i class="fas fa-list-ul"></i> &nbsp;All Doctors</a>
+            <a class="collapse-item" href="/admin/doctor/add"><i class="fas fa-user-plus"></i> &nbsp;Add Doctor</a>
+            <a class="collapse-item" href="/admin/doctor/remove"><i class="fas fa-user-minus"></i> &nbsp;Remove Doctor</a>
             
           </div>
         </div>
@@ -59,16 +59,16 @@
 
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Customer" aria-expanded="true" aria-controls="Customer">
-          <i class="fas fa-fw fa-users"></i>
-          <span>CUSTOMER</span>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#patient" aria-expanded="true" aria-controls="Customer">
+          <i class="fas fa-fw fa-hospital-user"></i>
+          <span>PATIENT</span>
         </a>
-        <div id="Customer" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div id="patient" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class=" py-2 collapse-inner rounded">
             
-            <a class="collapse-item" href="\admin\customer\customers"><i class="fas fa-list-ul"></i> &nbsp;All Customers</a>
-            <a class="collapse-item" href="\admin\customer\add"><i class="fas fa-user-plus"></i> &nbsp;Add Customer</a>
-            <a class="collapse-item" href="\admin\customer\block"><i class="fas fa-user-times"></i> &nbsp;Block Customer</a>
+            <a class="collapse-item" href="\admin\patient\all"><i class="fas fa-list-ul"></i> &nbsp;All Patients</a>
+            <a class="collapse-item" href="\admin\patient\add"><i class="fas fa-user-plus"></i> &nbsp;Add Patient</a>
+            <a class="collapse-item" href="\admin\patient\block"><i class="fas fa-user-times"></i> &nbsp;Block Patient</a>
             
           </div>
         </div>
@@ -84,27 +84,37 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Shipment" aria-expanded="true" aria-controls="Shipment">
-          <i class="fas fa-dolly-flatbed"></i>
-          <span>SHIPMENTS</span>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#appointment" aria-expanded="true" aria-controls="Shipment">
+          <i class="fas fa-prescription"></i>
+          <span>APPOINTMENTS</span>
         </a>
-        <div id="Shipment" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+        <div id="appointment" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class=" py-2 collapse-inner rounded">
-            <a class="collapse-item" href="\admin\shipment\all"><i class="fas fa-list-ul"></i> &nbsp;All Shipments</a>
-            <a class="collapse-item" href="\admin\shipment\live"><i class="fas fa-eye"></i> &nbsp;Live Status</a>
-            <a class="collapse-item" href="\admin\shipment\request"><i class="fas fa-truck-pickup"></i> &nbsp;Pickup Requests</a>
-            <a class="collapse-item" href="\admin\shipment\arrived"><i class="fas fa-download"></i> &nbsp;Arrived Parcels</a>
-            <a class="collapse-item" href="\admin\shipment\shipped"><i class="fas fa-calendar-check"></i> &nbsp;Shipped Parcels</a>
+            <a class="collapse-item" href="\admin\appointment\all"><i class="fas fa-file-prescription"></i> &nbsp;All Appointments</a>
+            <a class="collapse-item" href="\admin\appointment\live"><i class="fas fa-eye"></i> &nbsp;Live Status</a>
+            <a class="collapse-item" href="\admin\appointment\request"><i class="fas fa-comment-medical"></i> &nbsp;Appointment Requests</a>
+
             
         </div>
       </li>
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+              <a class="nav-link" href="\admin\departments">
+                <i class="fas fa-clinic-medical"></i>
+                <span>DEPARTMENTS</span>
+              </a>
+      
+            </li>
 
-      <!-- Nav Item - Charts -->
-      <li class="nav-item">
-        <a class="nav-link" href="\admin\earnings">
-          <i class="fas fa-fw fa-dollar-sign"></i>
-          <span>EARNINGS</span></a>
-      </li>
+            <li class="nav-item">
+              <a class="nav-link" href="\admin\medicines">
+                <i class="fas fa-pills"></i>
+                <span>MEDICINES</span>
+              </a>
+      
+            </li>
+
+
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
