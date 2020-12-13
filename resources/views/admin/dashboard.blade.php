@@ -240,6 +240,71 @@
           </div>
 
 
+          <div class="jumbotron jumbotron-fluid" style="padding-top:20px!important;padding-bottom:20px!important;">
+            <div class="container">
+              <h4 class="text-center">E-Care Management System</h4>
+              <p class="lead text-center small">Manage Administration Panel</p>
+              <div class="row mb-4">
+                <div class="col-md-6">
+                  <!-- Card -->
+                  <div class="card">
+
+                    <div class="card-image">
+
+                      <!-- Content -->
+                      <a href="/admin/departments">
+                        <div class="text-white rounded d-flex h-100 mask  indigo darken-3">
+                          <div class="first-content align-self-center p-3">
+                          <div class="row justify-content-center">
+                              <i class="fas fa-clinic-medical fa-3x"></i>
+                          </div><BR>
+                            <h4 class="text-center card-title">Manage Departments</h4>
+                            <p class="text-center">Add/Remove Departments. View details about E-Care departments.</p>
+                          </div>
+                         
+                        </div>
+                      </a>
+
+                    </div>
+
+
+
+                  </div>
+                <!-- Card -->
+                </div>
+                <div class="col-md-6">
+                  <!-- Card -->
+                  <div class="card">
+
+                    <div class="card-image">
+
+                      <!-- Content -->
+                      <a href="/admin/medicines">
+                        <div class="text-white d-flex rounded h-100 mask red darken-4">
+                          <div class="first-content align-self-center p-3">
+                              <div class="row justify-content-center">
+                                  <i class="fas fa-pills fa-3x"></i>
+                              </div><BR>
+                            <h4 class="text-center card-title">Manage Medicines</h4>
+                            <p class="text-center">Manage online medicine orders. View details about orders.</p>
+                          </div>
+
+                        </div>
+                      </a>
+
+                    </div>
+
+
+
+                  </div>
+                <!-- Card -->
+                </div>
+
+              </div>
+
+
+            </div>
+          </div>
 
 
 
