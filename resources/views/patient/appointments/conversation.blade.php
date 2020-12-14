@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('pagetitle', 'Appointment')
+@section('pagetitle', 'Conversation')
 @section('styles')
 <link href="{{ asset('css/vendor/admin.min.css') }}" rel="stylesheet">
 @stop
@@ -165,8 +165,10 @@
                 <!-- Page Heading -->
       
         
-      <div class="jumbotron" style="padding-top:1%;">
+      <div class="jumbotron" style="padding-top:4%;">
     
+        <h4 class="text-center"> Appointment#10112{{$id}}</h4>
+
           <div class="card-body branch_add">
          
             @if(session('status'))
@@ -189,118 +191,45 @@
         @endif
 
 
-        @foreach($appointments as $appointment)
-      
-
-        <div class="card mb-4">
-          <div class="card-header font-weight-bold">
-            <div class="row justify-content-center">
-            <span class=" mdb-color-text font-weight-bold small">Request time : {{$appointment->created_at}}</span>
-            </div>
-
-          
-          </div>
-          <div class="card-body branch_add">
-
-            <div class="row justify-content-center">
-              <div class="barcode">
-              
-                {!! DNS1D::getBarcodeHTML("10112$appointment->id","C128",1.4,22) !!}
-                <p class="small text-center">10112{{$appointment->id}}</p>
-            </div>
-            </div>
-            <hr>
-            <div class="row justify-content-center">
-              <div class="col-md-6">
-                <h6 class="font-weight-bold" ><i class="fas fa-user-check"></i> Doctor Informations</h6><hr>
-                <div class="small">
-                <span class="font-weight-bold"> Doctor Name : </span><span>{{$appointment->doctor_name}}</span><br>
-                <span class="font-weight-bold"> Designation : </span><span>{{$appointment->doctor_designation}}</span><br>
-                <span class="font-weight-bold"> Department : </span><span>{{$appointment->department_name}}</span><br>
-                <span class="font-weight-bold"> Gender : </span><span>{{$appointment->doctor_gender}}</span>
-                <hr>
-                </div>
-              </div>
-              <div class="col-md-6">
+        <hr>
+        <div class="row">
+            
+                <span class="font-weight-bold">{{Auth::guard('patient')->user()->name}}</span>
                 
-                <h6 class="font-weight-bold" ><i class="fas fa-user-tag"></i> Patient Informations</h6><hr>
-                <div class="small">
-                  <span class="font-weight-bold"> Patient Name : </span><span>{{$appointment->patient_name}}</span><br>
-                  <span class="font-weight-bold"> Age : </span><span>{{$appointment->patient_age}}</span><br>
-                  <span class="font-weight-bold"> Gender : </span><span>{{$appointment->patient_gender}}</span><br>
-                  <span class="font-weight-bold"> Blood Group : </span><span>{{$appointment->patient_blood}}</span>
-
-                  <hr>
-                  </div>
-              </div>
-
-            </div>
-            <div class="row justify-content-start mb-4">
-              <div class="col">
-                <span  class="font-weight-bold"> Status : </span><span style="background-color:#c8e6c9; color:#1b5e20;padding:0.5%;">{{$appointment->status}}</span><br>
-              </div>
-            </div>
-            <div class="row mb-4">
-              <div class="col-md-6">
-                <div class="row">
-                    <button onclick="goBack()" class="btn btn-unique btn-sm"><i class="fas fa-chevron-circle-left"></i> GO BACK</button>
-                </div>
-                
-                
-              </div>
-              <div class="col-md-6">
-                  <div class="row justify-content-end">
-
-                    <form action="/patient/appointments/conversation" method="GET">
-                     
-                     <input type="hidden" name="id" value="{{$appointment->id}}">
-                         
-                     <input type="submit" class="btn btn-indigo btn-sm" value="VISIT DOCTOR"/>
-                  </form>
-                    <form action="/patient/appointments/view" method="POST">
-                        @csrf
-                       <input type="hidden" name="id" value="{{$appointment->id}}">
-                           
-                       <input type="submit" name="delete" class="btn btn-danger btn-sm"   value="REMOVE"/>
-                    </form>
-                  </div>
-              
-              </div>
-             
-             
-                
-                    </div>
+            
+        </div>
+        <div class="row">
+            <span>Hello, Sir, How are you?</span>
+        </div>
+                <div class="row mb-4">
+            <span class="text-secondary" style="font-size:10px;">1:30 2020-12-15</span>
+        </div>
+        
+         
+            <form action="/patient/appointments/conversation" method="POST">
+            
+                <div class="form-group">
                     
-                    </div>
-                
+                    <textarea placeholder="Type your message . . ." class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+                  </div>
+            <div class="form-group-row">
+                <input type="hidden" name="id" value="1">
+                <input type="submit" class="btn btn-indigo btn-sm" value="SEND"/>
+            </div>
+             </form>
+        
+        
 
-                      
-                
-                    
-                    </div>
-                    @endforeach
+
+
+
+       
               </div>  
                      
                     
-                   
-
-                    <div class="d-flex flex-row-reverse">
-                      <div class="p-6">
-                       <div class="row">            
-                    
-                     
-
-                   
-              </div>
-            </div>
-                  
               
 
-              
            
-
-
-          </div>
 
 
         </div>
