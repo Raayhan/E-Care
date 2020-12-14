@@ -204,7 +204,7 @@
                     <td>
 
 
-                      <form action="/patient/appointment/view" method="GET">
+                      <form action="/admin/appointment/view" method="GET">
                                     
                           <input type="hidden" name="appointment_id" value="{{$appointment->id}}">
                           <input class="small btn-primary" type="submit" class="small" value="View">

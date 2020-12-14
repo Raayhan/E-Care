@@ -127,7 +127,10 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
       
       //Appointment Admin Routes
       Route::get('/appointment/all',[App\Http\Controllers\Admin\Appointment\AppointmentController::class,'AllAppointments'])->name('Appointments')->middleware('admin');
+      Route::get('/appointment/view',[App\Http\Controllers\Admin\Appointment\AppointmentController::class,'ViewAppointment'])->name('Appointment')->middleware('admin');
+      Route::post('/appointment/view',[App\Http\Controllers\Admin\Appointment\AppointmentController::class,'DeleteAppointment'])->name('DeleteAppointment')->middleware('admin');
       Route::get('/appointment/request',[App\Http\Controllers\Admin\Appointment\AppointmentController::class,'ShowRequest'])->name('Requests')->middleware('admin');
+      Route::post('/appointment/request',[App\Http\Controllers\Admin\Appointment\AppointmentController::class,'RequestHandel'])->name('Handel')->middleware('admin');
       
       
       
