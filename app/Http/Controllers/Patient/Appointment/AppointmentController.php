@@ -25,4 +25,23 @@ class AppointmentController extends Controller
     public function MakeAppointment(){
         return view('patient.appointments.create');
     }
+
+    public function ViewAppointment(Request $request){
+
+
+        $id = $request->input('appointment_id');
+        $appointments = DB::table('appointments')->where('id', '=',$id)->get();
+
+
+        return view('patient.appointments.view',['appointments'=>$appointments]); 
+    }
+
+    public function DeleteAppointment(Request $request){
+
+        $id = $request->input('id');
+
+        $appointment = Appointment::findOrFail($id);
+        DB::table('appointments')->where('id', '=', $id)->delete();
+        return redirect()->to('/admin/appointments/all')->with('status','Appointment has been deleted.');
+    }
 }

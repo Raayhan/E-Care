@@ -64,6 +64,8 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
      Route::get('/appointments/all',[App\Http\Controllers\Patient\Appointment\AppointmentController::class,'AllAppointments'])->name('Appointments')->middleware('patient');
      Route::get('/appointments/create',[App\Http\Controllers\Patient\Appointment\AppointmentController::class,'MakeAppointment'])->name('AppointmentCreate')->middleware('patient');
   
+     Route::get('/appointments/view',[App\Http\Controllers\Patient\Appointment\AppointmentController::class,'ViewAppointment'])->name('Appointment')->middleware('patient');
+     Route::post('/appointments/view',[App\Http\Controllers\Patinet\Appointment\AppointmentController::class,'DeleteAppointment'])->name('DeleteAppointment')->middleware('patient');
     });
   
   

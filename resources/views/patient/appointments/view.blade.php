@@ -13,7 +13,7 @@
    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/admin/dashboard">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/patient/dashboard">
       <div class="sidebar-brand-icon">
         <i class="fas fa-user-secret fa-sm"></i>
       </div>
@@ -24,8 +24,8 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
-      <a class="nav-link" href="/admin/dashboard">
+    <li class="nav-item">
+      <a class="nav-link" href="/patient/dashboard">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>DASHBOARD</span></a>
     </li>
@@ -35,21 +35,46 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-      Manage
+      Service
     </div>
-
+    <!-- Nav Item - Utilities Collapse Menu -->
+    <li class="nav-item active">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#appointment" aria-expanded="true" aria-controls="patient">
+          <i class="fas fa-prescription"></i>
+        <span>APPOINTMENTS</span>
+      </a>
+      <div id="appointment" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div class=" py-2 collapse-inner rounded">
+          
+          <a class="collapse-item" href="\patient\appointments\create"><i class="fas fa-file-medical"></i> &nbsp;Make Appointment</a>
+          <a class="collapse-item" href="\patient\appointments\all"><i class="fas fa-paste"></i> &nbsp;All Appointments</a>
+          <a class="collapse-item" href="\patient\appointments\status"><i class="fas fa-eye"></i> &nbsp;Check Status</a>
+         
+          
+        </div>
+      </div>
+    </li>
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#doctor" aria-expanded="true" aria-controls="Branch">
-        <i class="fas fa-user-md"></i>
-        <span>DOCTOR</span>
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#department" aria-expanded="true" aria-controls="Branch">
+          <i class="fas fa-clinic-medical"></i>
+        <span>DEPARTMENTS</span>
       </a>
-      <div id="doctor" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+      <div id="department" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="py-2 collapse-inner rounded">
           
-          <a class="collapse-item" href="/admin/doctor/all"><i class="fas fa-list-ul"></i> &nbsp;All Doctors</a>
-          <a class="collapse-item" href="/admin/doctor/add"><i class="fas fa-user-plus"></i> &nbsp;Add Doctor</a>
-          <a class="collapse-item" href="/admin/doctor/remove"><i class="fas fa-user-minus"></i> &nbsp;Remove Doctor</a>
+          <a class="collapse-item" href="/patient/department/medicine"><i class="fas fa-pills"></i>&nbsp; Medicine</a>
+          <a class="collapse-item" href="/patient/department/cardiology"><i class="fas fa-heartbeat"></i>&nbsp; Cardiology</a>
+          <a class="collapse-item" href="/patient/department/cancer"><i class="fas fa-bacterium"></i>&nbsp; Cancer</a>
+          <a class="collapse-item" href="/patient/department/diabetics"><i class="fas fa-burn"></i>&nbsp; Diabetics</a>
+          <a class="collapse-item" href="/patient/department/neurology"><i class="fas fa-brain"></i>&nbsp; Neurology</a>
+          <a class="collapse-item" href="/patient/department/gynaecology"><i class="fas fa-baby"></i>&nbsp; Gynaecology</a>
+          <a class="collapse-item" href="/patient/department/child"><i class="fas fa-child"></i>&nbsp; Child/Pediatric</a>
+          <a class="collapse-item" href="/patient/department/dermatology"><i class="fas fa-allergies"></i>&nbsp; Dermatology</a>
+          <a class="collapse-item" href="/patient/department/urology"><i class="fas fa-bacteria"></i>&nbsp; Urology</a>
+          <a class="collapse-item" href="/patient/department/ophthalmology"><i class="fas fa-eye"></i>&nbsp; Ophthalmology</a>
+          <a class="collapse-item" href="/patient/department/all"><i class="fas fa-list"></i>&nbsp; All Departments</a>
+          
           
         </div>
       </div>
@@ -57,19 +82,25 @@
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#patient" aria-expanded="true" aria-controls="Customer">
-        <i class="fas fa-fw fa-hospital-user"></i>
-        <span>PATIENT</span>
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#doctor" aria-expanded="true" aria-controls="patient">
+          <i class="fas fa-user-md"></i>
+        <span>DOCTORS</span>
       </a>
-      <div id="patient" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+      <div id="doctor" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
         <div class=" py-2 collapse-inner rounded">
           
-          <a class="collapse-item" href="\admin\patient\all"><i class="fas fa-list-ul"></i> &nbsp;All Patients</a>
-          <a class="collapse-item" href="\admin\patient\add"><i class="fas fa-user-plus"></i> &nbsp;Add Patient</a>
-          <a class="collapse-item" href="\admin\patient\block"><i class="fas fa-user-times"></i> &nbsp;Block Patient</a>
+          <a class="collapse-item" href="\patient\doctors\all"><i class="fas fa-user-md"></i> &nbsp;All Doctors</a>
+         
           
         </div>
       </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="\patient\medicines" aria-expanded="true" aria-controls="patient">
+          <i class="fas fa-pills"></i>
+        <span>MEDICINES</span>
+      </a>
+
     </li>
 
     <!-- Divider -->
@@ -80,38 +111,19 @@
       Operations
     </div>
 
-    <!-- Nav Item - Pages Collapse Menu -->
+ 
+
+    <!-- Nav Item - Charts -->
     <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#appointment" aria-expanded="true" aria-controls="appointment">
-        <i class="fas fa-prescription"></i>
-        <span>APPOINTMENTS</span>
-      </a>
-      <div id="appointment" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-        <div class=" py-2 collapse-inner rounded">
-          <a class="collapse-item" href="\admin\appointment\all"><i class="fas fa-file-prescription"></i> &nbsp;All Appointments</a>
-          <a class="collapse-item" href="\admin\appointment\live"><i class="fas fa-eye"></i> &nbsp;Live Status</a>
-          <a class="collapse-item" href="\admin\appointment\request"><i class="fas fa-comment-medical"></i> &nbsp;Appointment Requests</a>
-
-          
-      </div>
+      <a class="nav-link" href="\patient\history">
+        <i class="fas fa-history"></i>
+        <span>HISTORY</span></a>
     </li>
-          <!-- Nav Item - Pages Collapse Menu -->
-          <li class="nav-item">
-            <a class="nav-link" href="\admin\departments">
-              <i class="fas fa-clinic-medical"></i>
-              <span>DEPARTMENTS</span>
-            </a>
-    
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="\admin\medicines">
-              <i class="fas fa-pills"></i>
-              <span>MEDICINES</span>
-            </a>
-    
-          </li>
-
+    <li class="nav-item">
+      <a class="nav-link" href="\patient\reports">
+        <i class="fas fa-file-invoice"></i>
+        <span>REPORTS</span></a>
+    </li>
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
@@ -120,8 +132,8 @@
         <span>ACCOUNT</span></a>
         <div id="Account" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class=" py-2 collapse-inner rounded">
-            <a class="collapse-item" href="\admin\profile\view"><i class="fas fa-user-cog"></i> &nbsp;Account Settings</a>
-            <a class="collapse-item" href="\admin\profile\password"><i class="fas fa-user-lock"></i> &nbsp;Change Password</a>
+            <a class="collapse-item" href="\patient\profile\settings"><i class="fas fa-user-cog"></i> &nbsp;Account Settings</a>
+            <a class="collapse-item" href="\patient\profile\password"><i class="fas fa-user-lock"></i> &nbsp;Change Password</a>
             
         </div>
     </li>
@@ -238,7 +250,7 @@
               </div>
               <div class="col-md-6">
                   <div class="row justify-content-end">
-                    <form action="/admin/appointment/view" method="POST">
+                    <form action="/patient/appointments/view" method="POST">
                         @csrf
                        <input type="hidden" name="id" value="{{$appointment->id}}">
                            
