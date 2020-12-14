@@ -19,4 +19,12 @@ class AppointmentController extends Controller
         
 
     }
+
+    public function ShowRequest(){
+        $appointments = DB::table('appointments')->where('status', '=','Requested,Pending Approval')->get();
+        
+        
+        return view('admin.appointment.request',['appointments'=>$appointments]); 
+    }
+
 }
