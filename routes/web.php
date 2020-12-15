@@ -67,6 +67,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
      Route::get('/appointments/view',[App\Http\Controllers\Patient\Appointment\AppointmentController::class,'ViewAppointment'])->name('Appointment')->middleware('patient');
      Route::post('/appointments/view',[App\Http\Controllers\Patient\Appointment\AppointmentController::class,'DeleteAppointment'])->name('DeleteAppointment')->middleware('patient');
      Route::get('/appointments/conversation',[App\Http\Controllers\Patient\Appointment\ConversationController::class,'ViewConversation'])->name('ViewConversation')->middleware('patient');
+     Route::post('/appointments/conversation',[App\Http\Controllers\Patient\Appointment\ConversationController::class,'SendMessage'])->name('SendMessage')->middleware('patient');
 
     
     });

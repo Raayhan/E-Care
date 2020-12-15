@@ -190,30 +190,31 @@
                 </div>
         @endif
 
-
+        @foreach($conversations as $conversation)
         <hr>
         <div class="row">
             
-                <span class="font-weight-bold">{{Auth::guard('patient')->user()->name}}</span>
+                <span class="font-weight-bold">{{$conversation->sender_name}}</span>
                 
             
         </div>
         <div class="row">
-            <span>Hello, Sir, How are you?</span>
+            <span>{{$conversation->message}}</span>
         </div>
                 <div class="row mb-4">
-            <span class="text-secondary" style="font-size:10px;">1:30 2020-12-15</span>
+            <span class="text-secondary" style="font-size:10px;">{{$conversation->created_at}}</span>
         </div>
-        
+        @endforeach
          
             <form action="/patient/appointments/conversation" method="POST">
-            
+            @csrf
                 <div class="form-group">
                     
-                    <textarea placeholder="Type your message . . ." class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+                    <textarea placeholder="Type your message . . ." name="message" class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
                   </div>
             <div class="form-group-row">
-                <input type="hidden" name="id" value="1">
+                <input type="hidden" name="sender_name" value="{{Auth::guard('patient')->user()->name}}">
+                <input type="hidden" name="appointment_id" value="{{$id}}">
                 <input type="submit" class="btn btn-indigo btn-sm" value="SEND"/>
             </div>
              </form>
