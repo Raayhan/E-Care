@@ -194,7 +194,7 @@
         <hr>
         <div class="row">
             
-                <span class="font-weight-bold">{{$conversation->sender_name}}</span>
+                <span class="indigo-text font-weight-bold">{{$conversation->sender_name}}</span>
                 
             
         </div>

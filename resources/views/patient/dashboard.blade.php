@@ -12,9 +12,9 @@
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/patient/dashboard">
         <div class="sidebar-brand-icon">
-          <i class="fas fa-user-secret fa-sm"></i>
+          <i class="fas fa-hospital-user fa-sm"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Control Panel</div>
+        <div class="sidebar-brand-text mx-3">Patient Panel</div>
       </a>
 
       <!-- Divider -->
