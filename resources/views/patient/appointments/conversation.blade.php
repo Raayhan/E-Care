@@ -210,12 +210,12 @@
             @csrf
                 <div class="form-group">
                     
-                    <textarea placeholder="Type your message . . ." name="message" class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+                    <textarea placeholder="Type your message . . ." name="message" class="form-control" id="exampleFormControlTextarea1" rows="2"autofocus></textarea>
                   </div>
             <div class="form-group-row">
                 <input type="hidden" name="sender_name" value="{{Auth::guard('patient')->user()->name}}">
                 <input type="hidden" name="appointment_id" value="{{$id}}">
-                <input type="submit" class="btn btn-indigo btn-sm" value="SEND"/>
+                <input type="submit" class="btn btn-unique MyButton" value="SEND"/>
             </div>
              </form>
         

@@ -10,9 +10,21 @@ use App\Models\Conversation;
 class ConversationController extends Controller
 {
     public function ViewConversation(Request $request){
+        
+                
         $id = $request->input('id');
-        $conversations = DB::table('conversations')->where('appointment_id', '=',$id)->get();
-        return view('patient.appointments.conversation',['conversations'=>$conversations,'id'=>$id]);
+        $sql = DB::table('appointments')->where('id',$id)->where('status','Ready')->get();
+
+        if ($sql->isEmpty()){
+            return redirect()->back()->with('error','Doctor is not Ready. Visit doctor when the status is "Ready"');
+
+        }
+        else{
+            $conversations = DB::table('conversations')->where('appointment_id', '=',$id)->get();
+            return view('patient.appointments.conversation',['conversations'=>$conversations,'id'=>$id]);
+        } 
+
+      
     }
     public function SendMessage(Request $request){
 

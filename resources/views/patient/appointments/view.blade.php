@@ -238,6 +238,7 @@
             <div class="row justify-content-start mb-4">
               <div class="col">
                 <span  class="font-weight-bold"> Status : </span><span style="background-color:#c8e6c9; color:#1b5e20;padding:0.5%;">{{$appointment->status}}</span><br>
+                <span class="small font-weight-bold text-danger">Visit Doctor When the status is "Ready"</span>
               </div>
             </div>
             <div class="row mb-4">
