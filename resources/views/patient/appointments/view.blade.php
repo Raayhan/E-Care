@@ -54,6 +54,13 @@
         </div>
       </div>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" href="\patient\messages" aria-expanded="true" aria-controls="patient">
+          <i class="fab fa-facebook-messenger"></i>
+        <span>MESSAGES</span>
+      </a>
+
+    </li>
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#department" aria-expanded="true" aria-controls="Branch">
@@ -238,7 +245,7 @@
             <div class="row justify-content-start mb-4">
               <div class="col">
                 <span  class="font-weight-bold"> Status : </span><span style="background-color:#c8e6c9; color:#1b5e20;padding:0.5%;">{{$appointment->status}}</span><br>
-                <span class="small font-weight-bold text-danger">Visit Doctor When the status is "Ready"</span>
+                <span class="small font-weight-bold text-danger">Send messages to your doctor when the status is "Ready"</span>
               </div>
             </div>
             <div class="row mb-4">
@@ -256,7 +263,7 @@
                      
                      <input type="hidden" name="id" value="{{$appointment->id}}">
                          
-                     <input type="submit" class="btn btn-indigo btn-sm" value="VISIT DOCTOR"/>
+                     <input type="submit" class="btn btn-indigo btn-sm" value="SEND MESSAGE"/>
                   </form>
                     <form action="/patient/appointments/view" method="POST">
                         @csrf

@@ -54,6 +54,13 @@
         </div>
       </div>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" href="\patient\messages" aria-expanded="true" aria-controls="patient">
+          <i class="fab fa-facebook-messenger"></i>
+        <span>MESSAGES</span>
+      </a>
+
+    </li>
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#department" aria-expanded="true" aria-controls="Branch">
@@ -168,7 +175,9 @@
       <div class="jumbotron" style="padding-top:4%;">
     
         <h4 class="text-center"> Appointment#10112{{$id}}</h4>
-
+        <div class="row">
+          <button onclick="goBack()" class="btn btn-elegant btn-sm"><i class="fas fa-chevron-circle-left"></i> GO BACK</button>
+      </div>
           <div class="card-body branch_add">
          
             @if(session('status'))

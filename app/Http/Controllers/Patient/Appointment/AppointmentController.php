@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Patient\Appointment;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Appointment;
 use Auth;
 
 class AppointmentController extends Controller
@@ -42,6 +43,7 @@ class AppointmentController extends Controller
 
         $appointment = Appointment::findOrFail($id);
         DB::table('appointments')->where('id', '=', $id)->delete();
-        return redirect()->to('/admin/appointments/all')->with('status','Appointment has been deleted.');
+        DB::table('conversations')->where('appointment_id', '=', $id)->delete();
+        return redirect()->to('/patient/appointments/all')->with('status','Appointment has been deleted.');
     }
 }

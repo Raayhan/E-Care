@@ -56,6 +56,13 @@
             </div>
           </div>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="\patient\messages" aria-expanded="true" aria-controls="patient">
+              <i class="fab fa-facebook-messenger"></i>
+            <span>MESSAGES</span>
+          </a>
+   
+        </li>
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item active">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#department" aria-expanded="true" aria-controls="Branch">

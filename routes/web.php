@@ -88,7 +88,19 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
       Route::post('/login',[App\Http\Controllers\Doctor\Auth\LoginController::class,'login']);
       Route::post('/logout',[App\Http\Controllers\Doctor\Auth\LoginController::class,'logout'])->name('logout');
   
-  });
+      //Appointment Routes
+      Route::get('/appointments/all',[App\Http\Controllers\Doctor\Appointment\AppointmentController::class,'AllAppointments'])->name('Appointments')->middleware('doctor');
+      Route::get('/appointments/view',[App\Http\Controllers\Doctor\Appointment\AppointmentController::class,'ViewAppointment'])->name('Appointment')->middleware('doctor');
+      Route::post('/appointments/view',[App\Http\Controllers\Doctor\Appointment\AppointmentController::class,'DeleteAppointment'])->name('DeleteAppointment')->middleware('doctor');
+      Route::get('/appointments/conversation',[App\Http\Controllers\Doctor\Appointment\ConversationController::class,'ViewConversation'])->name('ViewConversation')->middleware('doctor');
+      Route::post('/appointments/conversation',[App\Http\Controllers\Doctor\Appointment\ConversationController::class,'SendMessage'])->name('SendMessage')->middleware('doctor');
+      Route::get('/appointments/requests',[App\Http\Controllers\Doctor\Appointment\AppointmentController::class,'ShowRequest'])->name('Requests')->middleware('doctor');
+      Route::post('/appointments/requests',[App\Http\Controllers\Doctor\Appointment\AppointmentController::class,'RequestHandel'])->name('Handel')->middleware('doctor');
+    
+    //Doctor-> Patient Routes
+    Route::get('/patients/all',[App\Http\Controllers\Doctor\Patient\PatientController::class,'index'])->middleware('doctor')->name('Patients');
+    
+    });
    
     
 

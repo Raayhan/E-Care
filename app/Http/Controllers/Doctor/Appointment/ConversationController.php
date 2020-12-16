@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Patient\Appointment;
+namespace App\Http\Controllers\Doctor\Appointment;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -13,16 +13,19 @@ class ConversationController extends Controller
         
                 
         $id = $request->input('id');
+     
         $sql = DB::table('appointments')->where('id',$id)->where('status','Ready')->get();
-
         if ($sql->isEmpty()){
-            return redirect()->back()->with('error','Doctor is not Ready. You will be able to send messages when the status is "Ready"');
+            return redirect()->back()->with('error','Please approve patient request to send messages.');
 
         }
         else{
             $conversations = DB::table('conversations')->where('appointment_id', '=',$id)->get();
-            return view('patient.appointments.conversation',['conversations'=>$conversations,'id'=>$id]);
+            return view('doctor.appointments.conversation',['conversations'=>$conversations,'id'=>$id]);
         } 
+        
+        return view('doctor.appointments.conversation',['conversations'=>$conversations,'id'=>$id]);
+        
 
       
     }
@@ -37,7 +40,7 @@ class ConversationController extends Controller
         $conversation->save();
         $id = $request->input('appointment_id');
         $conversations = DB::table('conversations')->where('appointment_id', '=',$id)->get();
-        return view('patient.appointments.conversation',['conversations'=>$conversations,'id'=>$id]);
+        return view('doctor.appointments.conversation',['conversations'=>$conversations,'id'=>$id]);
     }
 
 }

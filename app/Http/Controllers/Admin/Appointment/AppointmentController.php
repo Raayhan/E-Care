@@ -25,7 +25,7 @@ class AppointmentController extends Controller
         $appointments = DB::table('appointments')->where('status', '=','Requested,Pending Approval')->get();
         
         if ($appointments->isEmpty()){
-            return redirect()->to('/admin/appointment/request')->with('error','No Pending Requests Available.');
+            return redirect()->to('/admin/appointment/all')->with('error','No Pending Requests Available.');
         }
         else{
             return view('admin.appointment.request',['appointments'=>$appointments]); 
@@ -54,7 +54,7 @@ class AppointmentController extends Controller
             $id = $request->input('id');
             $appointment = Appointment::findOrFail($id);
 
-            $appointment->status = 'Declined';
+            $appointment->status = 'Declined by Admin';
             $aapointment->save();
             return redirect()->to('/admin/appointment/request')->with('error','Request has been declined');
 
@@ -81,6 +81,7 @@ class AppointmentController extends Controller
 
         $appointment = Appointment::findOrFail($id);
         DB::table('appointments')->where('id', '=', $id)->delete();
+        DB::table('conversations')->where('appointment_id', '=', $id)->delete();
         return redirect()->to('/admin/appointment/all')->with('status','Appointment has been deleted.');
     }
 
