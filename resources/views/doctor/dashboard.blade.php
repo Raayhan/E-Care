@@ -44,8 +44,9 @@
         <div id="appointment" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class=" py-2 collapse-inner rounded">
             
-            <a class="collapse-item" href="\doctor\appointments\requests"><i class="fas fa-comment-medical"></i> &nbsp;Appointment Requests</a>
+            
             <a class="collapse-item" href="\doctor\appointments\all"><i class="fas fa-paste"></i> &nbsp;All Appointments</a>
+            <a class="collapse-item" href="\doctor\appointments\requests"><i class="fas fa-comment-medical"></i> &nbsp;Appointment Requests</a>
             <a class="collapse-item" href="\doctor\appointments\status"><i class="fas fa-eye"></i> &nbsp;Check Status</a>
            
             
@@ -70,6 +71,13 @@
         </div>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="\doctor\messages" aria-expanded="true" aria-controls="patient">
+            <i class="fab fa-facebook-messenger"></i>
+          <span>MESSAGES</span>
+        </a>
+ 
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="\doctor\prescriptions" aria-expanded="true" aria-controls="patient">
             <i class="fas fa-file-prescription"></i>
           <span>PRESCRIPTIONS</span>
@@ -89,12 +97,12 @@
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="\patient\history">
+        <a class="nav-link" href="\doctor\history">
           <i class="fas fa-history"></i>
           <span>HISTORY</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="\patient\reports">
+        <a class="nav-link" href="\doctor\reports">
           <i class="fas fa-file-invoice"></i>
           <span>REPORTS</span></a>
       </li>
@@ -106,8 +114,8 @@
           <span>ACCOUNT</span></a>
           <div id="Account" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class=" py-2 collapse-inner rounded">
-              <a class="collapse-item" href="\patient\profile\settings"><i class="fas fa-user-cog"></i> &nbsp;Account Settings</a>
-              <a class="collapse-item" href="\patient\profile\password"><i class="fas fa-user-lock"></i> &nbsp;Change Password</a>
+              <a class="collapse-item" href="\doctor\profile\settings"><i class="fas fa-user-cog"></i> &nbsp;Account Settings</a>
+              <a class="collapse-item" href="\doctor\profile\password"><i class="fas fa-user-lock"></i> &nbsp;Change Password</a>
               
           </div>
       </li>
@@ -149,7 +157,7 @@
                        <div class="row no-gutters align-items-center">
                          <div class="col mr-2">
                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Patients</div>
-                         <div class="h5 mb-0 font-weight-bold text-gray-800">1</div>
+                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{$appointments}}</div>
                          </div>
                          <div class="col-auto">
                           <i class="fas fa-hospital-user fa-2x text-gray-500"></i>
@@ -167,7 +175,7 @@
                        <div class="row no-gutters align-items-center">
                          <div class="col mr-2">
                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Appointments</div>
-                         <div class="h5 mb-0 font-weight-bold text-gray-800">2</div>
+                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{$appointments}}</div>
                          </div>
                          <div class="col-auto">
                            <i class="fas fa-prescription fa-2x text-gray-500"></i>
@@ -187,7 +195,7 @@
                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Active</div>
                            <div class="row no-gutters align-items-center">
                              <div class="col-auto">
-                             <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">3</div>
+                             <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$active}}</div>
                              </div>
                             
                            </div>
@@ -207,7 +215,7 @@
                        <div class="row no-gutters align-items-center">
                          <div class="col mr-2">
                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Completed</div>
-                         <div class="h5 mb-0 font-weight-bold text-gray-800">4</div>
+                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{$completed}}</div>
                          </div>
                          <div class="col-auto">
                            <i class="fas fa-check-circle fa-2x text-gray-500"></i>
@@ -219,7 +227,7 @@
              </div>
              <div class="jumbotron jumbotron-fluid" style="padding-top:20px!important;padding-bottom:20px!important;">
                 <div class="container">
-                  <h4 class="text-center">Manage your Patients</h4>
+                  <h4 class="text-center">E-Care Doctor Panel</h4>
                   <p class="lead text-center small">Provide E-Prescription Service to your patients online</p>
                   <div class="row mb-4">
                     <div class="col-md-6">
@@ -229,8 +237,8 @@
                         <div class="card-image">
 
                           <!-- Content -->
-                          <a href="/patient/medicines">
-                            <div class="text-white rounded d-flex h-100 mask  indigo darken-3">
+                          <a href="/doctor/appointments/requests">
+                            <div class="text-white rounded d-flex h-100 mask  primary-color-dark">
                               <div class="first-content align-self-center p-3">
                                 <h4 class="card-title">Appointment Requests</h4>
                                 <p class="">Respond to your patient's appointment requests.</p>
@@ -255,7 +263,7 @@
                         <div class="card-image">
 
                           <!-- Content -->
-                          <a href="/contact">
+                          <a href="/doctor/prescriptions">
                             <div class="text-white d-flex rounded h-100 mask  red darken-4">
                               <div class="first-content align-self-center p-3">
                                 <h4 class="card-title">E-Prescriptions</h4>
@@ -263,6 +271,62 @@
                               </div>
                               <div class="second-content align-self-center mx-auto text-center">
                                 <i class="fas fa-prescription fa-3x"></i>
+                              </div>
+                            </div>
+                          </a>
+
+                        </div>
+
+
+
+                      </div>
+                    <!-- Card -->
+                    </div>
+
+                  </div>
+
+                  <div class="row mb-4">
+                    <div class="col-md-6">
+                      <!-- Card -->
+                      <div class="card">
+
+                        <div class="card-image">
+
+                          <!-- Content -->
+                          <a href="/doctor/patients/all">
+                            <div class="text-white rounded d-flex h-100 mask info-color-dark">
+                              <div class="first-content align-self-center p-3">
+                                <h4 class="card-title">Manage Patients</h4>
+                                <p class="">Manage all your patients.</p>
+                              </div>
+                              <div class="second-content align-self-center mx-auto text-center">
+                                <i class="fas fa-hospital-user fa-3x"></i>
+                              </div>
+                            </div>
+                          </a>
+
+                        </div>
+
+
+
+                      </div>
+                    <!-- Card -->
+                    </div>
+                    <div class="col-md-6">
+                      <!-- Card -->
+                      <div class="card">
+
+                        <div class="card-image">
+
+                          <!-- Content -->
+                          <a href="/doctor/messages">
+                            <div class="text-white d-flex rounded h-100 mask  unique-color">
+                              <div class="first-content align-self-center p-3">
+                                <h4 class="card-title">Messages</h4>
+                                <p class="">View or Send messages to your patients</p>
+                              </div>
+                              <div class="second-content align-self-center mx-auto text-center">
+                                <i class="fab fa-facebook-messenger fa-3x"></i>
                               </div>
                             </div>
                           </a>
