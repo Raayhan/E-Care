@@ -100,6 +100,8 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
     //Doctor-> Patient Routes
     Route::get('/patients/all',[App\Http\Controllers\Doctor\Patient\PatientController::class,'index'])->middleware('doctor')->name('Patients');
     
+    //Messages Routes
+    Route::get('/messages',[App\Http\Controllers\Doctor\MessageController::class,'ViewMessages'])->middleware('doctor')->name('Messages');
     });
    
     

@@ -1,13 +1,11 @@
 @extends('layouts.app')
-@section('pagetitle', 'Conversation')
+@section('pagetitle', 'Messages')
 @section('styles')
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 <link href="{{ asset('css/vendor/admin.min.css') }}" rel="stylesheet">
 @stop
 @section('content')
-
-
- <!-- Page Wrapper -->
- <div id="wrapper">
+<div id="wrapper">
 
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
@@ -38,7 +36,7 @@
           Service
         </div>
         <!-- Nav Item - Utilities Collapse Menu -->
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#appointment" aria-expanded="true" aria-controls="patient">
               <i class="fas fa-prescription"></i>
             <span>APPOINTMENTS</span>
@@ -72,7 +70,7 @@
             </div>
           </div>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" href="\doctor\messages" aria-expanded="true" aria-controls="patient">
               <i class="fab fa-facebook-messenger"></i>
             <span>MESSAGES</span>
@@ -133,134 +131,111 @@
       </ul>
       <!-- End of Sidebar -->
 
-    
  <!-- Content Wrapper -->
- <div id="content-wrapper" class="d-flex flex-column">
+    <div id="content-wrapper" class="d-flex flex-column">
 
-    <!-- Main Content -->
-     <div id="content">
+        <!-- Main Content -->
+         <div id="content">
 
- 
+     
 
-           <!-- Begin Page Content -->
-          <div class="container-fluid py-4">
+               <!-- Begin Page Content -->
+              <div class="container-fluid py-4">
 
-             
-                <!-- Page Heading -->
-      
+                 
+        <!-- Page Heading -->
+        <h1 class="h3 mb-2 text-gray-800 text-center">Messages</h1>
         
-      <div class="jumbotron" style="padding-top:4%;">
-    
-        <h4 class="text-center"> Appointment#10112{{$id}}</h4>
-        <div class="row">
-          <button onclick="goBack()" class="btn btn-elegant btn-sm"><i class="fas fa-chevron-circle-left"></i> GO BACK</button>
-      </div>
-      
-          <div class="card-body branch_add">
-         
+
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Inbox</h6>
+          </div>
+          <div class="card-body">
             @if(session('status'))
             <div class="alert alert-success alert-dismissible fade show text-center font-weight-bold small" role="alert">
-                {{session('status')}} <i class="far fa-check-circle"></i>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                {{session('status')}}
+               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        @endif
+               </button>
+             </div>
+         @endif
 
-        {{-- Error Alert --}}
-        @if(session('error'))
-                <div class="alert alert-danger alert-dismissible fade show text-center font-weight-bold small" role="alert">
-                    {{session('error')}}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-        @endif
+         {{-- Error Alert --}}
+         @if(session('error'))
+              <div class="alert alert-danger alert-dismissible fade show text-center font-weight-bold small" role="alert">
+                  {{session('error')}}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+         @endif
+            <div class="table-responsive">
+                <table id="example" class="table table-striped table-bordered" style="width:100%;text-align:center!important;">
+                  <thead class="small text-white" style="background:#4285F4 !important;">
+                        <tr>
+                            <th class="small-table">Time</th>
+                            <th class="small-table">ID</th>
+                            <th class="small-table">Name</th>
+                            <th class="small-table">Message</th>
+                            <th class="small-table">Action</th>
+                            
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                      @foreach($messages as $message)
 
-        @foreach($conversations as $conversation)
-        <hr>
-        <div class="row">
-            
-                <span class="indigo-text font-weight-bold">{{$conversation->sender_name}}</span>
-                
-            
-        </div>
-        <div class="row">
-            <span>{{$conversation->message}}</span>
-        </div>
-                <div class="row mb-4">
-            <span class="text-secondary" style="font-size:10px;">{{$conversation->created_at}}</span>
-        </div>
-        @endforeach
-         
-            <form action="/doctor/appointments/conversation" method="POST">
-            @csrf
-                <div class="form-group">
-                    
-                    <textarea placeholder="Type your message . . ." name="message" class="form-control" id="exampleFormControlTextarea1" rows="2"autofocus></textarea>
-                  </div>
-            <div class="form-group-row">
-                <input type="hidden" name="sender_name" value="Dr. {{Auth::guard('doctor')->user()->name}}">
-                <input type="hidden" name="appointment_id" value="{{$id}}">
-                <input type="submit" class="btn btn-unique MyButton" value="SEND"/>
-            </div>
-             </form>
-        
-        
-
-
-
-
-       
-              </div>  
+                        <tr>
+                          <td>{{ $message->created_at }}</td>
+                          <td>10112{{ $message->appointment_id }}</td>
+                          <td>{{ $message->sender_name }}</td>
+                          <td>{{ $message->message }}</td>
+                          <td>
+                            <form action="/doctor/appointments/conversation" method="GET">
                      
-                    
-         
-              <div class="row justify-content-center">
-                <form action="/doctor/appointments/prescription" method="GET">
-                     
-                  <input type="hidden" name="id" value="{{$id}}">
-                      
-                  <input style="text-transform: none!important;" type="submit" class="view_btn" value="Create Prescription"/>
-               </form>
-              </div>
+                                <input type="hidden" name="id" value="{{$message->appointment_id}}">
+                                    
+                                <input style="text-transform: none!important;" type="submit" class="view_btn" value="Go to Conversation"/>
+                             </form>
+                          </td>
+                         
 
-           
+                        </tr>
 
+                          @endforeach
+                       
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th class="small-table">Time</th>
+                            <th class="small-table">ID</th>
+                            <th class="small-table">Name</th>
+                            <th class="small-table">Message</th>
+                            <th class="small-table">Action</th>
+                        </tr>
+                    </tfoot>
+                </table>
 
-        </div>
-
-
-    
-          
-
-
-
-
-      
-            
-              </div>
-              </div>
             </div>
           </div>
+        </div>
 
+
+              </div>
           </div>
-
-  </div>
-  <!-- End of Page Wrapper -->
-
-
-
- 
-
-
-
+    </div>
+</div>
 @section('scripts')
+<script src="{{ asset('js/vendor/jquery.dataTables.min.js') }}"></script>
     <script src="{{asset('js/vendor/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('js/vendor/admin.js')}}"></script>
-
-    <script>  function goBack() {
-        window.history.back();
-          }</script>
+   
+    <script type="text/javascript">
+      $(document).ready(function() {
+          $('#example').DataTable();
+      } );
+    </script>   
 @stop
 @endsection

@@ -24,7 +24,7 @@ class ConversationController extends Controller
             return view('doctor.appointments.conversation',['conversations'=>$conversations,'id'=>$id]);
         } 
         
-        return view('doctor.appointments.conversation',['conversations'=>$conversations,'id'=>$id]);
+       
         
 
       
