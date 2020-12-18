@@ -13,6 +13,7 @@ class ConversationController extends Controller
         
                 
         $id = $request->input('id');
+        $receiver = $request->input('doctor_name');
         $sql = DB::table('appointments')->where('id',$id)->where('status','Ready')->get();
 
         if ($sql->isEmpty()){
@@ -21,23 +22,29 @@ class ConversationController extends Controller
         }
         else{
             $conversations = DB::table('conversations')->where('appointment_id', '=',$id)->get();
-            return view('patient.appointments.conversation',['conversations'=>$conversations,'id'=>$id]);
+          
+            return view('patient.appointments.conversation',['conversations'=>$conversations,'id'=>$id,'receiver'=>$receiver]);
         } 
 
       
     }
     public function SendMessage(Request $request){
 
+       
+
+
         $conversation = new Conversation;
 
         $conversation->appointment_id = $request->input('appointment_id');
-        $conversation->sender_name    = $request->input('sender_name');
+        $conversation->sender         = $request->input('sender');
+        $conversation->receiver       = $request->input('receiver');
         $conversation->message        = $request->input('message');
 
         $conversation->save();
         $id = $request->input('appointment_id');
+        $receiver = $request->input('receiver');
         $conversations = DB::table('conversations')->where('appointment_id', '=',$id)->get();
-        return view('patient.appointments.conversation',['conversations'=>$conversations,'id'=>$id]);
+        return view('patient.appointments.conversation',['conversations'=>$conversations,'id'=>$id,'receiver'=>$receiver]);
     }
 
 }

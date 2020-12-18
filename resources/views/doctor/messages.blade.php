@@ -190,13 +190,18 @@
                         <tr>
                           <td>{{ $message->created_at }}</td>
                           <td>10112{{ $message->appointment_id }}</td>
-                          <td>{{ $message->sender_name }}</td>
-                          <td>{{ $message->message }}</td>
+                          <td>{{ $message->sender }}</td>
+                          <td class="small">{{ $message->message }}</td>
                           <td>
                             <form action="/doctor/appointments/conversation" method="GET">
                      
                                 <input type="hidden" name="id" value="{{$message->appointment_id}}">
-                                    
+                               
+                               
+                                <input type="hidden" name="patient_name" value="{{$message->sender}}"> 
+                           
+                               
+                                 
                                 <input style="text-transform: none!important;" type="submit" class="view_btn" value="Go to Conversation"/>
                              </form>
                           </td>

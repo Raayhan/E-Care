@@ -151,10 +151,9 @@
         
       <div class="jumbotron" style="padding-top:4%;">
     
+
         <h4 class="text-center"> Appointment#10112{{$id}}</h4>
-        <div class="row">
-          <button onclick="goBack()" class="btn btn-elegant btn-sm"><i class="fas fa-chevron-circle-left"></i> GO BACK</button>
-      </div>
+
       
           <div class="card-body branch_add">
          
@@ -181,7 +180,7 @@
         <hr>
         <div class="row">
             
-                <span class="indigo-text font-weight-bold">{{$conversation->sender_name}}</span>
+                <span class="indigo-text font-weight-bold">{{$conversation->sender}}</span>
                 
             
         </div>
@@ -200,7 +199,8 @@
                     <textarea placeholder="Type your message . . ." name="message" class="form-control" id="exampleFormControlTextarea1" rows="2"autofocus></textarea>
                   </div>
             <div class="form-group-row">
-                <input type="hidden" name="sender_name" value="Dr. {{Auth::guard('doctor')->user()->name}}">
+                <input type="hidden" name="sender" value="Dr. {{Auth::guard('doctor')->user()->name}}">
+                <input type="hidden" name="receiver" value="{{$receiver}}">
                 <input type="hidden" name="appointment_id" value="{{$id}}">
                 <input type="submit" class="btn btn-unique MyButton" value="SEND"/>
             </div>
@@ -217,12 +217,12 @@
                     
          
               <div class="row justify-content-center">
-                <form action="/doctor/appointments/prescription" method="GET">
+               
                      
-                  <input type="hidden" name="id" value="{{$id}}">
+                 <a href="/doctor/prescription">Create Prescription</a>
                       
-                  <input style="text-transform: none!important;" type="submit" class="view_btn" value="Create Prescription"/>
-               </form>
+
+               
               </div>
 
            

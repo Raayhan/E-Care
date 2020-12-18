@@ -262,6 +262,7 @@
                     <form action="/patient/appointments/conversation" method="GET">
                      
                      <input type="hidden" name="id" value="{{$appointment->id}}">
+                     <input type="hidden" name="doctor_name" value="Dr. {{$appointment->doctor_name}}">
                          
                      <input type="submit" class="btn btn-indigo btn-sm" value="SEND MESSAGE"/>
                   </form>

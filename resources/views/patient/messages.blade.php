@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('pagetitle', 'Patients')
+@section('pagetitle', 'Messages')
 @section('styles')
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 <link href="{{ asset('css/vendor/admin.min.css') }}" rel="stylesheet">
@@ -56,7 +56,7 @@
     
   
         <!-- Nav Item - Utilities Collapse Menu -->
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#doctor" aria-expanded="true" aria-controls="patient">
               <i class="fas fa-hospital-user"></i>
             <span>PATIENTS</span>
@@ -70,7 +70,7 @@
             </div>
           </div>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" href="\doctor\messages" aria-expanded="true" aria-controls="patient">
               <i class="fab fa-facebook-messenger"></i>
             <span>MESSAGES</span>
@@ -144,13 +144,13 @@
 
                  
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800 text-center">Patients</h1>
+        <h1 class="h3 mb-2 text-gray-800 text-center">Messages</h1>
         
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
           <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">All Patient Informations</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Inbox</h6>
           </div>
           <div class="card-body">
             @if(session('status'))
@@ -175,38 +175,30 @@
                 <table id="example" class="table table-striped table-bordered" style="width:100%;text-align:center!important;">
                   <thead class="small text-white" style="background:#4285F4 !important;">
                         <tr>
-                            
-                            
-                            <th class="small-table">Patient Name</th>
-                            <th class="small-table">Age</th>
-                            <th class="small-table">Gender</th>
-                            <th class="small-table">Blood Group</th>
-                            <th class="small-table">Department</th>
-                            <th class="small-table">Status</th>
+                            <th class="small-table">Time</th>
+                            <th class="small-table">ID</th>
+                            <th class="small-table">Name</th>
+                            <th class="small-table">Message</th>
                             <th class="small-table">Action</th>
+                            
                             
                         </tr>
                     </thead>
                     <tbody>
-                      @foreach($patients as $patient)
+                      @foreach($messages as $message)
 
                         <tr>
-                         
-                          <td>{{ $patient->patient_name }}</td>
-                          <td>{{ $patient->patient_age }}</td>
-                          <td>{{ $patient->patient_gender }}</td>
-                          <td>{{ $patient->patient_blood }}</td>
-                          <td>{{ $patient->department_name }}</td>
-                          <td><span style="background-color:#c8e6c9; color:#1b5e20;padding:0.5%;" class="font-weight-bold small">{{$patient->status}}</span></td>
+                          <td>{{ $message->created_at }}</td>
+                          <td>10112{{ $message->appointment_id }}</td>
+                          <td>{{ $message->sender }}</td>
+                          <td class="small">{{ $message->message }}</td>
                           <td>
-
-
-                            <form action="/doctor/appointments/conversation" method="GET">
-                                          
-                                <input type="hidden" name="id" value="{{$patient->id}}">
-                                <input type="hidden" name="patient_name" value="{{$patient->patient_name}}">
-                                <input class="small btn-primary" type="submit" class="small" value="SEND MESSAGE">
-                            </form>
+                            <form action="/patient/appointments/conversation" method="GET">
+                     
+                                <input type="hidden" name="id" value="{{$message->appointment_id}}">
+                                <input type="hidden" name="doctor_name" value="{{$message->sender}}">  
+                                <input style="text-transform: none!important;" type="submit" class="view_btn" value="Go to Conversation"/>
+                             </form>
                           </td>
                          
 
@@ -217,12 +209,10 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th class="small-table">Patient Name</th>
-                            <th class="small-table">Age</th>
-                            <th class="small-table">Gender</th>
-                            <th class="small-table">Blood Group</th>
-                            <th class="small-table">Department</th>
-                            <th class="small-table">Status</th>
+                            <th class="small-table">Time</th>
+                            <th class="small-table">ID</th>
+                            <th class="small-table">Name</th>
+                            <th class="small-table">Message</th>
                             <th class="small-table">Action</th>
                         </tr>
                     </tfoot>

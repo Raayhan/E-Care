@@ -31,9 +31,10 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
 
 
   Route::prefix('/patient')->name('patient.')->namespace('Patient')->group(function(){
-
+    Route::get('/messages',[App\Http\Controllers\Patient\MessageController::class,'ViewMessages'])->middleware('patient')->name('AllMessages');
       Route::get('/dashboard',[App\Http\Controllers\Patient\DashboardController::class,'index'])->name('dashboard')->middleware('patient');
-    
+     //Message Routes
+   
 
       //Login Register Routes
       Route::get('/register',[App\Http\Controllers\Patient\Auth\RegisterController::class,'PatientRegisterForm'])->name('register');
@@ -56,7 +57,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
      
 
      //Doctor Routes
-     Route::get('/doctors/all',[App\Http\Controllers\Patient\Doctor\DoctorController::class,'index'])->name('Doctors')->middleware('patient');
+     Route::get('/doctors/all',[App\Http\Controllers\Patient\Doctor\DoctorController::class,'index'])->name('AllDoctors')->middleware('patient');
      Route::post('/doctors/all',[App\Http\Controllers\Patient\Doctor\DoctorController::class,'ConfirmAppointment'])->name('ConfirmAppointment');
 
      //Appointment Routes
@@ -68,7 +69,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
      Route::post('/appointments/view',[App\Http\Controllers\Patient\Appointment\AppointmentController::class,'DeleteAppointment'])->name('DeleteAppointment')->middleware('patient');
      Route::get('/appointments/conversation',[App\Http\Controllers\Patient\Appointment\ConversationController::class,'ViewConversation'])->name('ViewConversation')->middleware('patient');
      Route::post('/appointments/conversation',[App\Http\Controllers\Patient\Appointment\ConversationController::class,'SendMessage'])->name('SendMessage')->middleware('patient');
-
+    
     
     });
   
@@ -100,9 +101,17 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
     //Doctor-> Patient Routes
     Route::get('/patients/all',[App\Http\Controllers\Doctor\Patient\PatientController::class,'index'])->middleware('doctor')->name('Patients');
     
-    //Messages Routes
+    
+    
+    Route::get('/prescription',[App\Http\Controllers\Doctor\PrescriptionController::class,'CreatePrescription'])->middleware('doctor')->name('CreatePrescription');
+   
+     //Messages Routes
     Route::get('/messages',[App\Http\Controllers\Doctor\MessageController::class,'ViewMessages'])->middleware('doctor')->name('Messages');
+    Route::get('/history',[App\Http\Controllers\Doctor\HistoryController::class,'index'])->middleware('doctor')->name('History');
     });
+
+   
+
    
     
 
@@ -129,15 +138,13 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
       Route::get('/doctor/all',[App\Http\Controllers\Admin\Doctor\ViewDoctorController::class,'index'])->middleware('admin')->name('doctors');
       Route::get('/doctor/add',[App\Http\Controllers\Admin\Doctor\AddDoctorController::class,'DoctorRegisterForm'])->middleware('admin')->name('doctor.add');
       Route::post('/doctor/add',[App\Http\Controllers\Admin\Doctor\AddDoctorController::class,'AddDoctor']);
-      Route::get('/doctor/remove',[App\Http\Controllers\Admin\CloseBranchController::class,'ViewBranchList'])->middleware('admin')->name('branches');
-      Route::post('/doctor/remove',[App\Http\Controllers\Admin\CloseBranchController::class,'CloseBranch']);
+   
 
       //Patient->Admin Routes
       Route::get('/patient/all',[App\Http\Controllers\Admin\Patient\ViewPatientController::class,'index'])->middleware('admin')->name('Patients');
       Route::get('/patient/add',[App\Http\Controllers\Admin\Patient\AddPatientController::class,'PatientRegisterForm'])->middleware('admin')->name('patient.add');
       Route::post('/patient/add',[App\Http\Controllers\Admin\Patient\AddPatientController::class,'AddPatient']);
-      Route::get('/patient/block',[App\Http\Controllers\Admin\BlockPatientController::class,'ViewPatientList'])->middleware('admin')->name('Patients');
-      Route::post('/patient/block',[App\Http\Controllers\Admin\BlockPatientController::class,'BlockPatient']);
+ 
       
 
       //Department Admin Routes

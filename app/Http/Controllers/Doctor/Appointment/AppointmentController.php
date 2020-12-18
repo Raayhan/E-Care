@@ -79,4 +79,6 @@ class AppointmentController extends Controller
         DB::table('conversations')->where('appointment_id', '=', $id)->delete();
         return redirect()->to('/patient/appointments/all')->with('status','Appointment has been deleted.');
     }
+ 
+
 }

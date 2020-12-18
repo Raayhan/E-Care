@@ -1,17 +1,19 @@
 @extends('layouts.app')
-@section('pagetitle', 'Patients')
+@section('pagetitle', 'Create Prescription')
 @section('styles')
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 <link href="{{ asset('css/vendor/admin.min.css') }}" rel="stylesheet">
 @stop
 @section('content')
-<div id="wrapper">
+
+
+ <!-- Page Wrapper -->
+ <div id="wrapper">
 
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/patient/dashboard">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
           <div class="sidebar-brand-icon">
             <i class="fas fa-user-md fa-sm"></i>
           </div>
@@ -36,7 +38,7 @@
           Service
         </div>
         <!-- Nav Item - Utilities Collapse Menu -->
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#appointment" aria-expanded="true" aria-controls="patient">
               <i class="fas fa-prescription"></i>
             <span>APPOINTMENTS</span>
@@ -56,7 +58,7 @@
     
   
         <!-- Nav Item - Utilities Collapse Menu -->
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#doctor" aria-expanded="true" aria-controls="patient">
               <i class="fas fa-hospital-user"></i>
             <span>PATIENTS</span>
@@ -131,121 +133,102 @@
       </ul>
       <!-- End of Sidebar -->
 
+    
  <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
+ <div id="content-wrapper" class="d-flex flex-column">
 
-        <!-- Main Content -->
-         <div id="content">
+    <!-- Main Content -->
+     <div id="content">
 
-     
+ 
 
-               <!-- Begin Page Content -->
-              <div class="container-fluid py-4">
+           <!-- Begin Page Content -->
+          <div class="container-fluid py-4">
 
-                 
-        <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800 text-center">Patients</h1>
+             
+                <!-- Page Heading -->
+      
         
-
-        <!-- DataTales Example -->
-        <div class="card shadow mb-4">
-          <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">All Patient Informations</h6>
-          </div>
-          <div class="card-body">
+      <div class="jumbotron" style="padding-top:4%;">
+    
+        <h4 class="text-center"> Create Prescription</h4>
+        <div class="row">
+          <button onclick="goBack()" class="btn btn-elegant btn-sm"><i class="fas fa-chevron-circle-left"></i> GO BACK</button>
+      </div>
+      
+          <div class="card-body branch_add">
+         
             @if(session('status'))
             <div class="alert alert-success alert-dismissible fade show text-center font-weight-bold small" role="alert">
-                {{session('status')}}
-               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                {{session('status')}} <i class="far fa-check-circle"></i>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
-               </button>
-             </div>
-         @endif
-
-         {{-- Error Alert --}}
-         @if(session('error'))
-              <div class="alert alert-danger alert-dismissible fade show text-center font-weight-bold small" role="alert">
-                  {{session('error')}}
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                  </button>
-              </div>
-         @endif
-            <div class="table-responsive">
-                <table id="example" class="table table-striped table-bordered" style="width:100%;text-align:center!important;">
-                  <thead class="small text-white" style="background:#4285F4 !important;">
-                        <tr>
-                            
-                            
-                            <th class="small-table">Patient Name</th>
-                            <th class="small-table">Age</th>
-                            <th class="small-table">Gender</th>
-                            <th class="small-table">Blood Group</th>
-                            <th class="small-table">Department</th>
-                            <th class="small-table">Status</th>
-                            <th class="small-table">Action</th>
-                            
-                        </tr>
-                    </thead>
-                    <tbody>
-                      @foreach($patients as $patient)
-
-                        <tr>
-                         
-                          <td>{{ $patient->patient_name }}</td>
-                          <td>{{ $patient->patient_age }}</td>
-                          <td>{{ $patient->patient_gender }}</td>
-                          <td>{{ $patient->patient_blood }}</td>
-                          <td>{{ $patient->department_name }}</td>
-                          <td><span style="background-color:#c8e6c9; color:#1b5e20;padding:0.5%;" class="font-weight-bold small">{{$patient->status}}</span></td>
-                          <td>
-
-
-                            <form action="/doctor/appointments/conversation" method="GET">
-                                          
-                                <input type="hidden" name="id" value="{{$patient->id}}">
-                                <input type="hidden" name="patient_name" value="{{$patient->patient_name}}">
-                                <input class="small btn-primary" type="submit" class="small" value="SEND MESSAGE">
-                            </form>
-                          </td>
-                         
-
-                        </tr>
-
-                          @endforeach
-                       
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <th class="small-table">Patient Name</th>
-                            <th class="small-table">Age</th>
-                            <th class="small-table">Gender</th>
-                            <th class="small-table">Blood Group</th>
-                            <th class="small-table">Department</th>
-                            <th class="small-table">Status</th>
-                            <th class="small-table">Action</th>
-                        </tr>
-                    </tfoot>
-                </table>
-
+                </button>
             </div>
-          </div>
+        @endif
+
+        {{-- Error Alert --}}
+        @if(session('error'))
+                <div class="alert alert-danger alert-dismissible fade show text-center font-weight-bold small" role="alert">
+                    {{session('error')}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+        @endif
+
+ 
+         
+
+        
+        
+
+
+
+
+       
+              </div>  
+                     
+                    
+         
+   
+
+           
+
+
         </div>
 
 
+    
+          
+
+
+
+
+      
+            
               </div>
+              </div>
+            </div>
           </div>
-    </div>
-</div>
+
+          </div>
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+
+
+ 
+
+
+
 @section('scripts')
-<script src="{{ asset('js/vendor/jquery.dataTables.min.js') }}"></script>
     <script src="{{asset('js/vendor/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('js/vendor/admin.js')}}"></script>
-   
-    <script type="text/javascript">
-      $(document).ready(function() {
-          $('#example').DataTable();
-      } );
-    </script>   
+
+    <script>  function goBack() {
+        window.history.back();
+          }</script>
 @stop
 @endsection
