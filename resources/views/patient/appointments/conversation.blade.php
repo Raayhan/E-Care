@@ -13,18 +13,18 @@
    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/patient/dashboard">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
       <div class="sidebar-brand-icon">
-        <i class="fas fa-user-secret fa-sm"></i>
+        <i class="fas fa-hospital-user fa-sm"></i>
       </div>
-      <div class="sidebar-brand-text mx-3">Control Panel</div>
+      <div class="sidebar-brand-text mx-3">Patient Panel</div>
     </a>
 
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item">
+    <li class="nav-item ">
       <a class="nav-link" href="/patient/dashboard">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>DASHBOARD</span></a>
@@ -38,7 +38,7 @@
       Service
     </div>
     <!-- Nav Item - Utilities Collapse Menu -->
-    <li class="nav-item active">
+    <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#appointment" aria-expanded="true" aria-controls="patient">
           <i class="fas fa-prescription"></i>
         <span>APPOINTMENTS</span>
@@ -54,13 +54,14 @@
         </div>
       </div>
     </li>
-    <li class="nav-item">
+    <li class="nav-item active">
       <a class="nav-link" href="\patient\messages" aria-expanded="true" aria-controls="patient">
           <i class="fab fa-facebook-messenger"></i>
         <span>MESSAGES</span>
       </a>
 
     </li>
+
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#department" aria-expanded="true" aria-controls="Branch">
