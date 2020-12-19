@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('pagetitle', 'Create Prescription')
+@section('pagetitle', 'Checkout')
 @section('styles')
 <link href="{{ asset('css/vendor/admin.min.css') }}" rel="stylesheet">
 @stop
@@ -182,18 +182,7 @@
             <div class="col-md-4">
 
             </div>
-            <div class="col-md-4">
-              <div class="row justify-content-center">
-                <form action="/doctor/appointments/checkout" method="get">
-              
-                  <input type="hidden" name="id" value="{{$appointment->id}}">
-  
-                  <button style="font-size:11px!important;" type="submit" class=" btn btn-unique">Checkout <i class="fas fa-sign-out-alt"></i></button>
-  
-                </form>
-              </div>
 
-            </div>
         
 
         </div>
@@ -220,135 +209,59 @@
          <hr>
          <i class="fas fa-prescription fa-2x"></i>
          <div class="row justify-content-center mb-4">
-            <span class="h5 text-center">Prescribe Medicines</span>
+            <span class="h5 text-center">Prescribed Medicines</span>
          </div>
-         @if(!empty($status))
-         <div class="alert alert-success alert-dismissible fade show text-center font-weight-bold small" role="alert">
-          {{$status}} <i class="far fa-check-circle"></i>
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-          </button>
-      </div>
-         @endif
-       
-            {{-- Error Alert --}}
-            @if(session('error'))
-                    <div class="alert alert-danger alert-dismissible fade show text-center font-weight-bold small" role="alert">
-                        {{session('error')}}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-            @endif
+    
 
          <hr>
+         <div class="table-responsive mb-4">
+            <table class="table table-striped table-bordered table-sm small-table" style="text-align:center!important;">
+              <thead class="primary-color white-text text-xsmall">
+                <tr>
+                  <th class="small-table" scope="col">Type</th>
+                  <th class="small-table" scope="col">Name</th>
+                  <th class="small-table" scope="col">Dosage</th>
+                  <th class="small-table" scope="col">Frequency</th>
+                  <th class="small-table" scope="col">Duration</th>
+                </tr>
+              </thead>
+              <tbody>
+                  @foreach ($medicines as $medicine)
+                      
+                 
+                <tr>
+                  <th class="small-table" scope="row">{{$medicine->type}}</th>
+                  <td class="small-table">{{$medicine->name}}</td>
+                  <td class="small-table">{{$medicine->dosage}}Mg/Ml</td>
+                  <td class="small-table">{{$medicine->frequency}}</td>
+                  <td class="small-table">{{$medicine->duration}} Days</td>
+                </tr>
+                @endforeach
+           
+              </tbody>
+            </table>
+          </div>
          
-         
-             <form action="/doctor/appointments/prescription" method="POST">
+             <form action="{{url('doctor/appointments/completed')}}" method="GET">
             
-                @csrf
+           
               
+               
                 <div class="form-group row">
-                    <label for="name" class="col-md-4 col-form-label text-md-right font-weight-bold">{{ __('Name') }}</label>
+                    <div class="col-md-4">
+
+                    </div>
 
                     <div class="col-md-4">
-                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name"autofocus>
                         
-                        @error('name')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-                </div>
-                <fieldset class="form-group">
-                    <div class="row">
-                      <legend class="col-form-label col-md-4 text-md-right font-weight-bold pt-0">Type</legend>
-                      <div class="col-md-6">
-                        <div class="form-check">
-                          <input class="form-check-input" type="radio" name="type" id="tab" value="Tablet" checked>
-                          <label class="form-check-label" for="tab">
-                            Tablet
-                          </label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="radio" name="type" id="cap" value="Capsule">
-                          <label class="form-check-label" for="cap">
-                            Capsule
-                          </label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="radio" name="type" id="liq" value="Liquid">
-                          <label class="form-check-label" for="liq">
-                            Liquid
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </fieldset>
-
-                  <div class="form-group row">
-                    <label for="dosage" class="col-md-4 col-form-label text-md-right font-weight-bold">{{ __('Dosage') }}</label>
-
-                    <div class="col-md-4">
-                        <input id="dosage" type="number" class="form-control @error('dosage') is-invalid @enderror" name="dosage">
-                        <span class="small text-danger">(in mg,ml)</span>
-                        @error('dosage')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-                </div>
-
-                  <fieldset class="form-group">
-                    <div class="row">
-                      <legend class="col-form-label col-md-4 text-md-right pt-0 font-weight-bold">Frequency</legend>
-                      <div class="col-md-6">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" name="frequency[]" type="checkbox" id="morning" value="Morning">
-                            <label class="form-check-label" for="morning">Morning</label>
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input class="form-check-input" name="frequency[]" type="checkbox" id="noon" value="Noon">
-                            <label class="form-check-label" for="noon">Noon</label>
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input class="form-check-input" name="frequency[]" type="checkbox" id="night" value="Night">
-                            <label class="form-check-label" for="night">Night</label>
-                          </div>
-                      </div>
-                    </div>
-                  </fieldset>
-                  <div class="form-group row">
-                    <label for="duration" class="col-md-4 col-form-label text-md-right font-weight-bold">{{ __('Duration') }}</label>
-
-                    <div class="col-md-4">
-                        <input id="duration" type="number" class="form-control @error('duration') is-invalid @enderror" name="duration">
-                        <span class="small text-danger">(in Days)</span>
-                        @error('duration')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-md-4">
-
-                    </div>
-
-                    <div class="col-md-4">
-                        <input type="hidden" name="patient_id" value="{{$appointment->patient_id}}">
-                        <input type="hidden" name="doctor_name" value="Dr. {{$appointment->doctor_name}}">
                         <input type="hidden" name="appointment_id" value="{{$appointment->id}}">
-                        <input  type="submit" class="btn btn-primary btn-block" value="Add">
-                        
+                        <input  type="submit" class="btn btn-primary btn-block" value="SAVE">
+                       
                     </div>
                 </div>
 
             </form>
-         
+            @endforeach
         
         
 
@@ -364,7 +277,7 @@
 
            
 
-              @endforeach
+              
 
             
         </div>

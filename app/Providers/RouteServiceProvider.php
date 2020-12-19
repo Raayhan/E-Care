@@ -17,7 +17,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const DASHBOARD = '/customer/dashboard';
+    public const DASHBOARD = '/';
     
     
 
@@ -28,26 +28,26 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-   
+    protected $namespace = null;
 
     /**
      * Define your route model bindings, pattern filters, etc.
      *
      * @return void
      */
-    protected $namespace = 'App\Http\Controllers';
+  
     public function boot()
     {
         $this->configureRateLimiting();
 
         $this->routes(function () {
             Route::middleware('web')
-                ->namespace($this->namespace)
+               
                 ->group(base_path('routes/web.php'));
 
             Route::prefix('api')
                 ->middleware('api')
-                ->namespace($this->namespace)
+               
                 ->group(base_path('routes/api.php'));
         });
     }

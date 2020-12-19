@@ -90,6 +90,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
       Route::post('/logout',[App\Http\Controllers\Doctor\Auth\LoginController::class,'logout'])->name('logout');
   
       //Appointment Routes
+
       Route::get('/appointments/all',[App\Http\Controllers\Doctor\Appointment\AppointmentController::class,'AllAppointments'])->name('Appointments')->middleware('doctor');
       Route::get('/appointments/view',[App\Http\Controllers\Doctor\Appointment\AppointmentController::class,'ViewAppointment'])->name('Appointment')->middleware('doctor');
       Route::post('/appointments/view',[App\Http\Controllers\Doctor\Appointment\AppointmentController::class,'DeleteAppointment'])->name('DeleteAppointment')->middleware('doctor');
@@ -102,6 +103,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
       Route::post('/appointments/prescription',[App\Http\Controllers\Doctor\Appointment\PrescriptionController::class,'AddMedicine'])->name('AddMedicine');
     
       Route::get('/appointments/checkout',[App\Http\Controllers\Doctor\Appointment\CheckoutController::class,'ViewCheckout'])->middleware('doctor')->name('ViewCheckout');
+      Route::get('/appointments/completed',[App\Http\Controllers\Doctor\Appointment\CheckoutController::class,'EndAppointment'])->name('EndAppointment')->middleware('doctor');
     
       //Doctor-> Patient Routes
     Route::get('/patients/all',[App\Http\Controllers\Doctor\Patient\PatientController::class,'index'])->middleware('doctor')->name('Patients');
