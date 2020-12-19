@@ -179,6 +179,21 @@
                 <span>BMDC REG No. : {{Auth::guard('doctor')->user()->reg_no}}</span><br>
 
             </div>
+            <div class="col-md-4">
+
+            </div>
+            <div class="col-md-4">
+              <div class="row justify-content-center">
+                <form action="/doctor/appointments/checkout" method="get">
+              
+                  <input type="hidden" name="id" value="{{$appointment->id}}">
+  
+                  <input type="submit" class=" btn btn-sm btn-unique" value="Check Out">
+  
+                </form>
+              </div>
+
+            </div>
         
 
         </div>
@@ -207,15 +222,15 @@
          <div class="row justify-content-center mb-4">
             <span class="h5 text-center">Prescribe Medicines</span>
          </div>
-         @if(session('status'))
-            <div class="alert alert-success alert-dismissible fade show text-center font-weight-bold small" role="alert">
-                {{session('status')}} <i class="far fa-check-circle"></i>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-          @endif
-
+         @if(!empty($status))
+         <div class="alert alert-success alert-dismissible fade show text-center font-weight-bold small" role="alert">
+          {{$status}} <i class="far fa-check-circle"></i>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+         @endif
+       
             {{-- Error Alert --}}
             @if(session('error'))
                     <div class="alert alert-danger alert-dismissible fade show text-center font-weight-bold small" role="alert">
@@ -229,9 +244,10 @@
          <hr>
          
          
-             <form action="/doctor/appointments/prescription" method="post">
+             <form action="/doctor/appointments/prescription" method="POST">
             
                 @csrf
+              
                 <div class="form-group row">
                     <label for="name" class="col-md-4 col-form-label text-md-right font-weight-bold">{{ __('Name') }}</label>
 
@@ -276,7 +292,7 @@
 
                     <div class="col-md-4">
                         <input id="dosage" type="number" class="form-control @error('dosage') is-invalid @enderror" name="dosage">
-                        <span class="small text-danger">(in Mg)</span>
+                        <span class="small text-danger">(in mg,ml)</span>
                         @error('dosage')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -350,6 +366,7 @@
 
               @endforeach
 
+            
         </div>
 
 
