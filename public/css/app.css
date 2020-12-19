@@ -157,6 +157,10 @@ color:white!important;
 .parcel hr{
   margin:0!important;
 }
+.prescription br{
+  margin-top: 0px!important;
+  margin-bottom: 0px!important;
+}
 .small-table{
 font-size:12px!important;
 font-weight: normal!important;

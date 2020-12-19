@@ -97,13 +97,13 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
       Route::post('/appointments/conversation',[App\Http\Controllers\Doctor\Appointment\ConversationController::class,'SendMessage'])->name('SendMessage')->middleware('doctor');
       Route::get('/appointments/requests',[App\Http\Controllers\Doctor\Appointment\AppointmentController::class,'ShowRequest'])->name('Requests')->middleware('doctor');
       Route::post('/appointments/requests',[App\Http\Controllers\Doctor\Appointment\AppointmentController::class,'RequestHandel'])->name('Handel')->middleware('doctor');
-    
+      Route::get('/appointments/prescription',[App\Http\Controllers\Doctor\Appointment\PrescriptionController::class,'CreatePrescription'])->middleware('doctor')->name('CreatePrescription');
     //Doctor-> Patient Routes
     Route::get('/patients/all',[App\Http\Controllers\Doctor\Patient\PatientController::class,'index'])->middleware('doctor')->name('Patients');
     
     
     
-    Route::get('/prescription',[App\Http\Controllers\Doctor\PrescriptionController::class,'CreatePrescription'])->middleware('doctor')->name('CreatePrescription');
+    
    
      //Messages Routes
     Route::get('/messages',[App\Http\Controllers\Doctor\MessageController::class,'ViewMessages'])->middleware('doctor')->name('Messages');

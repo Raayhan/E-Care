@@ -218,8 +218,13 @@
          
               <div class="row justify-content-center">
                
-                     
-                 <a href="/doctor/prescription">Create Prescription</a>
+                     <form action="/doctor/appointments/prescription" method="GET">
+
+                      <input type="hidden" name="id" value="{{$id}}">
+                      <input style="text-transform:none!important;" class="view_btn" type="submit" value="Create Prescription" >
+
+                    </form>
+                 
                       
 
                
