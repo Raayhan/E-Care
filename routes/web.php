@@ -66,11 +66,14 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
      Route::get('/appointments/create',[App\Http\Controllers\Patient\Appointment\AppointmentController::class,'MakeAppointment'])->name('AppointmentCreate')->middleware('patient');
   
      Route::get('/appointments/view',[App\Http\Controllers\Patient\Appointment\AppointmentController::class,'ViewAppointment'])->name('Appointment')->middleware('patient');
-     Route::post('/appointments/view',[App\Http\Controllers\Patient\Appointment\AppointmentController::class,'DeleteAppointment'])->name('DeleteAppointment')->middleware('patient');
      Route::get('/appointments/conversation',[App\Http\Controllers\Patient\Appointment\ConversationController::class,'ViewConversation'])->name('ViewConversation')->middleware('patient');
      Route::post('/appointments/conversation',[App\Http\Controllers\Patient\Appointment\ConversationController::class,'SendMessage'])->name('SendMessage')->middleware('patient');
+     Route::get('/appointments/prescription',[App\Http\Controllers\Patient\Appointment\PrescriptionController::class,'ViewPrescription'])->name('ViewPrescription')->middleware('patient');
     
-    
+     //Report Routes
+     Route::get('/reports/all',[App\Http\Controllers\Patient\ReportsController::class,'ViewReports'])->name('ViewReports')->middleware('patient');
+     Route::get('/reports/view',[App\Http\Controllers\Patient\ReportsController::class,'ShowReport'])->name('ShowReport')->middleware('patient');
+
     });
   
   

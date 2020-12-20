@@ -121,13 +121,9 @@
  
 
     <!-- Nav Item - Charts -->
+
     <li class="nav-item">
-      <a class="nav-link" href="\patient\history">
-        <i class="fas fa-history"></i>
-        <span>HISTORY</span></a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="\patient\reports">
+      <a class="nav-link" href="\patient\reports\all">
         <i class="fas fa-file-invoice"></i>
         <span>REPORTS</span></a>
     </li>
@@ -249,15 +245,21 @@
               </div>
             </div>
             <div class="row mb-4">
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <div class="row">
                     <button onclick="goBack()" class="btn btn-unique btn-sm"><i class="fas fa-chevron-circle-left"></i> GO BACK</button>
                 </div>
                 
                 
               </div>
-              <div class="col-md-6">
+              <div class="col-md-8">
                   <div class="row justify-content-end">
+                    <form action="/patient/appointments/prescription" method="GET">
+                     
+                      <input type="hidden" name="id" value="{{$appointment->id}}">
+                          
+                      <input type="submit" class="btn btn-dark-green btn-sm" value="PRESCRIPTION"/>
+                   </form>
 
                     <form action="/patient/appointments/conversation" method="GET">
                      
@@ -266,12 +268,7 @@
                          
                      <input type="submit" class="btn btn-indigo btn-sm" value="SEND MESSAGE"/>
                   </form>
-                    <form action="/patient/appointments/view" method="POST">
-                        @csrf
-                       <input type="hidden" name="id" value="{{$appointment->id}}">
-                           
-                       <input type="submit" name="delete" class="btn btn-danger btn-sm"   value="REMOVE"/>
-                    </form>
+                
                   </div>
               
               </div>

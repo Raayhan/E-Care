@@ -100,8 +100,9 @@
           </div>
         </div>
       </li>
+ 
       <li class="nav-item">
-        <a class="nav-link" href="\patient\medicines" aria-expanded="true" aria-controls="patient">
+        <a class="nav-link" href="\patient\medicines\all" aria-expanded="true" aria-controls="patient">
             <i class="fas fa-pills"></i>
           <span>MEDICINES</span>
         </a>
@@ -118,14 +119,9 @@
 
    
 
-      <!-- Nav Item - Charts -->
+     
       <li class="nav-item">
-        <a class="nav-link" href="\patient\history">
-          <i class="fas fa-history"></i>
-          <span>HISTORY</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="\patient\reports">
+        <a class="nav-link" href="\patient\reports\all">
           <i class="fas fa-file-invoice"></i>
           <span>REPORTS</span></a>
       </li>
@@ -432,7 +428,7 @@
                           <div class="card-image">
 
                             <!-- Content -->
-                            <a href="/patient/medicines">
+                            <a href="/patient/medicines/all">
                               <div class="text-white rounded d-flex h-100 mask  indigo darken-3">
                                 <div class="first-content align-self-center p-3">
                                   <h4 class="card-title">Order Medicines</h4>

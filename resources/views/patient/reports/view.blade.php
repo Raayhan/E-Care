@@ -1,21 +1,23 @@
 @extends('layouts.app')
-@section('pagetitle', 'Messages')
+@section('pagetitle', 'Report')
 @section('styles')
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 <link href="{{ asset('css/vendor/admin.min.css') }}" rel="stylesheet">
 @stop
 @section('content')
-<div id="wrapper">
+
+
+ <!-- Page Wrapper -->
+ <div id="wrapper">
 
    <!-- Sidebar -->
    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/patient/dashboard">
       <div class="sidebar-brand-icon">
-        <i class="fas fa-hospital-user fa-sm"></i>
+        <i class="fas fa-user-secret fa-sm"></i>
       </div>
-      <div class="sidebar-brand-text mx-3">Patient Panel</div>
+      <div class="sidebar-brand-text mx-3">Control Panel</div>
     </a>
 
     <!-- Divider -->
@@ -52,14 +54,13 @@
         </div>
       </div>
     </li>
-    <li class="nav-item active">
+    <li class="nav-item">
       <a class="nav-link" href="\patient\messages" aria-expanded="true" aria-controls="patient">
           <i class="fab fa-facebook-messenger"></i>
         <span>MESSAGES</span>
       </a>
 
     </li>
-
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#department" aria-expanded="true" aria-controls="Branch">
@@ -120,7 +121,7 @@
  
 
  
-    <li class="nav-item">
+    <li class="nav-item active">
       <a class="nav-link" href="\patient\reports\all">
         <i class="fas fa-file-invoice"></i>
         <span>REPORTS</span></a>
@@ -150,111 +151,167 @@
   </ul>
   <!-- End of Sidebar -->
 
+    
  <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
+ <div id="content-wrapper" class="d-flex flex-column">
 
-        <!-- Main Content -->
-         <div id="content">
+    <!-- Main Content -->
+     <div id="content">
 
-     
+ 
 
-               <!-- Begin Page Content -->
-              <div class="container-fluid py-4">
+           <!-- Begin Page Content -->
+          <div class="container-fluid py-4">
 
-                 
-        <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800 text-center">Messages</h1>
+             
+                <!-- Page Heading -->
+      
+        
+      <div class="jumbotron" style="padding-top:4%;">
+       @foreach ($appointments as $appointment)
+            
         
 
-        <!-- DataTales Example -->
-        <div class="card shadow mb-4">
-          <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Inbox</h6>
-          </div>
-          <div class="card-body">
-            @if(session('status'))
-            <div class="alert alert-success alert-dismissible fade show text-center font-weight-bold small" role="alert">
-                {{session('status')}}
-               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-               </button>
-             </div>
-         @endif
-
-         {{-- Error Alert --}}
-         @if(session('error'))
-              <div class="alert alert-danger alert-dismissible fade show text-center font-weight-bold small" role="alert">
-                  {{session('error')}}
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                  </button>
+    
+        
+      
+          <div class="card-body branch_add">
+         
+          
+        <div class="row">
+            <div class="row mb-4">
+                <div class="col-md-9">
+                  <img style="max-width:20%!important;text-align:left;" src="{{ asset('img/logo.png') }}" alt="">
+                </div>
+                <div class="col-md-3 small">
+                <span>Appointment ID </span><span class="mdb-color-text" style="font-weight:bold;"> &nbsp;#10112{{$appointment->id}}</span>
+                </div>
               </div>
-         @endif
-            <div class="table-responsive">
-                <table id="example" class="table table-striped table-bordered" style="width:100%;text-align:center!important;">
-                  <thead class="small text-white" style="background:#4285F4 !important;">
-                        <tr>
-                            <th class="small-table">Time</th>
-                            <th class="small-table">ID</th>
-                            <th class="small-table">Name</th>
-                            <th class="small-table">Message</th>
-                            <th class="small-table">Action</th>
-                            
-                            
-                        </tr>
-                    </thead>
-                    <tbody>
-                      @foreach($messages as $message)
-
-                        <tr>
-                          <td>{{ $message->created_at }}</td>
-                          <td>10112{{ $message->appointment_id }}</td>
-                          <td>{{ $message->sender }}</td>
-                          <td class="small">{{ $message->message }}</td>
-                          <td>
-                            <form action="/patient/appointments/conversation" method="GET">
-                     
-                                <input type="hidden" name="id" value="{{$message->appointment_id}}">
-                                <input type="hidden" name="doctor_name" value="{{$message->sender}}">  
-                                <input style="text-transform: none!important;" type="submit" class="view_btn" value="Reply"/>
-                             </form>
-                          </td>
-                         
-
-                        </tr>
-
-                          @endforeach
-                       
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <th class="small-table">Time</th>
-                            <th class="small-table">ID</th>
-                            <th class="small-table">Name</th>
-                            <th class="small-table">Message</th>
-                            <th class="small-table">Action</th>
-                        </tr>
-                    </tfoot>
-                </table>
+        </div>
+        <div class="row mb-4">
+            <div class="col-md-4 prescription">
+                <span class="h5 text-danger">Dr. {{$appointment->doctor_name}}</span><br>
+                <span>{{$appointment->doctor_designation}}</span><br>
+                <span>Department of {{$appointment->department_name}}</span><br>
+              
 
             </div>
+            <div class="col-md-4">
+
+            </div>
+
+        
+
+        </div>
+        <hr>
+   
+       
+            
+       
+         <div class="row mb-4">
+             <div class="col-md-4">
+                 <span>Patient Name : </span><span class="font-weight-bold">{{$appointment->patient_name}}</span> 
+             </div>
+             <div class="col-md-3">
+                <span>Age : </span><span class="font-weight-bold">{{$appointment->patient_age}}</span> 
+            </div>
+            <div class="col-md-2">
+                <span>Gender : </span><span class="font-weight-bold">{{$appointment->patient_gender}}</span> 
+            </div>
+            <div class="col-md-3">
+                <span>Blood Group : </span><span class="font-weight-bold">{{$appointment->patient_blood}}</span> 
+            </div>
+         </div>
+       
+         <hr>
+         <i class="fas fa-prescription fa-2x"></i>
+         <div class="row justify-content-center mb-4">
+            <span class="h5 text-center">Prescribed Medicines</span>
+         </div>
+    
+
+         <hr>
+         <div class="table-responsive mb-4">
+            <table class="table table-striped table-bordered table-sm small-table" style="text-align:center!important;">
+              <thead class="primary-color white-text text-xsmall">
+                <tr>
+                  <th class="small-table" scope="col">Type</th>
+                  <th class="small-table" scope="col">Name</th>
+                  <th class="small-table" scope="col">Dosage</th>
+                  <th class="small-table" scope="col">Frequency</th>
+                  <th class="small-table" scope="col">Duration</th>
+                </tr>
+              </thead>
+              <tbody>
+                  @foreach ($medicines as $medicine)
+                      
+                 
+                <tr>
+                  <th class="small-table" scope="row">{{$medicine->type}}</th>
+                  <td class="small-table">{{$medicine->name}}</td>
+                  <td class="small-table">{{$medicine->dosage}}Mg/Ml</td>
+                  <td class="small-table">{{$medicine->frequency}}</td>
+                  <td class="small-table">{{$medicine->duration}} Days</td>
+                </tr>
+                @endforeach
+           
+              </tbody>
+            </table>
           </div>
+         
+        
+            @endforeach
+        
+        
+
+
+
+
+       
+              </div>  
+                     
+                    
+         
+   
+
+           
+
+              
+
+            
         </div>
 
 
+    
+          
+
+
+
+
+      
+            
               </div>
+              </div>
+            </div>
           </div>
-    </div>
-</div>
+
+          </div>
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+
+
+ 
+
+
+
 @section('scripts')
-<script src="{{ asset('js/vendor/jquery.dataTables.min.js') }}"></script>
     <script src="{{asset('js/vendor/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('js/vendor/admin.js')}}"></script>
-   
-    <script type="text/javascript">
-      $(document).ready(function() {
-          $('#example').DataTable();
-      } );
-    </script>   
+
+    <script>  function goBack() {
+        window.history.back();
+          }</script>
 @stop
 @endsection

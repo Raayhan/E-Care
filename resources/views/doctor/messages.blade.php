@@ -202,7 +202,7 @@
                            
                                
                                  
-                                <input style="text-transform: none!important;" type="submit" class="view_btn" value="Go to Conversation"/>
+                                <input style="text-transform: none!important;" type="submit" class="view_btn" value="Reply"/>
                              </form>
                           </td>
                          

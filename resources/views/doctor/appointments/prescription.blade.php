@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('pagetitle', 'Create Prescription')
+@section('pagetitle', 'Prescription')
 @section('styles')
 <link href="{{ asset('css/vendor/admin.min.css') }}" rel="stylesheet">
 @stop

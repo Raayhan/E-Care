@@ -37,13 +37,5 @@ class AppointmentController extends Controller
         return view('patient.appointments.view',['appointments'=>$appointments]); 
     }
 
-    public function DeleteAppointment(Request $request){
 
-        $id = $request->input('id');
-
-        $appointment = Appointment::findOrFail($id);
-        DB::table('appointments')->where('id', '=', $id)->delete();
-        DB::table('conversations')->where('appointment_id', '=', $id)->delete();
-        return redirect()->to('/patient/appointments/all')->with('status','Appointment has been deleted.');
-    }
 }

@@ -27,6 +27,6 @@ class CheckoutController extends Controller
        
         $appointment->save();
        
-        return redirect()->to('/doctor/appointments/all')->with('status','Appointment has been completed');
+        return redirect()->to('/doctor/appointments/all')->with('status','Completed');
     }
 }

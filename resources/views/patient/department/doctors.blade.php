@@ -123,14 +123,9 @@
 
  
 
-    <!-- Nav Item - Charts -->
+
     <li class="nav-item">
-      <a class="nav-link" href="\patient\history">
-        <i class="fas fa-history"></i>
-        <span>HISTORY</span></a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="\patient\reports">
+      <a class="nav-link" href="\patient\reports\all">
         <i class="fas fa-file-invoice"></i>
         <span>REPORTS</span></a>
     </li>
