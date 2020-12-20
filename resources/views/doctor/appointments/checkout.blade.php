@@ -242,10 +242,10 @@
             </table>
           </div>
          
-             <form action="{{url('doctor/appointments/completed')}}" method="GET">
-            
+             <form action="/doctor/appointments/checkout" method="POST">
+             @csrf
+      
            
-              
                
                 <div class="form-group row">
                     <div class="col-md-4">

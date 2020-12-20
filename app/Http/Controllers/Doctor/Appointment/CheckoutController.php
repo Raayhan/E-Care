@@ -20,7 +20,7 @@ class CheckoutController extends Controller
 
     public function EndAppointment(Request $request){
 
-        $id = $request->input('id');
+        $id = $request->input('appointment_id');
         $appointment = Appointment::findOrFail($id);
 
         $appointment->status = 'Completed';

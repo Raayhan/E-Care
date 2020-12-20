@@ -17,7 +17,8 @@ class ConversationController extends Controller
         $sql = DB::table('appointments')->where('id',$id)->where('status','Ready')->get();
 
         if ($sql->isEmpty()){
-            return redirect()->back()->with('error','Doctor is not Ready. You will be able to send messages when the status is "Ready"');
+
+            return redirect()->back()->with('error','Sending Messages is not allowed for now');
 
         }
         else{

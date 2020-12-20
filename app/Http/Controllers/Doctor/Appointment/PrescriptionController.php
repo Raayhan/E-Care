@@ -12,10 +12,16 @@ class PrescriptionController extends Controller
     public function CreatePrescription(Request $request){
      
         $id = $request->input('id');
-        $appointments = DB::table('appointments')->where('id',$id)->get();
+        $appointments = DB::table('appointments')->where('id',$id)->where('status','Ready')->get();
+        if ($appointments->isEmpty()){
+            return redirect()->back()->with('error','Prescription page is not available for now');
+
+        }
+        else{
         
         return view('doctor.appointments.prescription',['appointments'=>$appointments]);
     }
+   }
 
     public function AddMedicine(Request $request){
 
