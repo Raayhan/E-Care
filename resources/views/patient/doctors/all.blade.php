@@ -102,7 +102,7 @@
       </div>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="\patient\medicines" aria-expanded="true" aria-controls="patient">
+      <a class="nav-link" href="\patient\medicines\all" aria-expanded="true" aria-controls="patient">
           <i class="fas fa-pills"></i>
         <span>MEDICINES</span>
       </a>

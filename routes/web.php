@@ -74,6 +74,11 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
      Route::get('/reports/all',[App\Http\Controllers\Patient\ReportsController::class,'ViewReports'])->name('ViewReports')->middleware('patient');
      Route::get('/reports/view',[App\Http\Controllers\Patient\ReportsController::class,'ShowReport'])->name('ShowReport')->middleware('patient');
 
+     //Medicine Routes
+     Route::get('/medicines/all',[App\Http\Controllers\Patient\MedicineController::class,'AllMedicines'])->name('AllMedicines')->middleware('patient');
+     Route::post('/medicines/all',[App\Http\Controllers\Patient\MedicineController::class,'CreateOrder'])->name('CreateOrder')->middleware('patient');
+     Route::get('/medicines/checkout',[App\Http\Controllers\Patient\MedicineController::class,'Checkout'])->name('Checkout')->middleware('patient');
+
     });
   
   
