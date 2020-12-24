@@ -259,25 +259,17 @@
             </table>
           </div>
          
-             <form action="/patient/medicines/checkout" method="GET">
-             @csrf
-      
-           
-               
-                <div class="form-group row">
-                    <div class="col-md-4">
-
+          
+                    <div class="row justify-content-center">
+ 
+                      <div class="col-md-4">
+                        <a role="button" href="/patient/medicines/all" class="btn btn-primary btn-block">Oder Medicines</a>
+                      </div>
                     </div>
 
-                    <div class="col-md-4">
                         
-                        <input type="hidden" name="appointment_id" value="{{$appointment->id}}">
-                        <input  type="submit" class="btn btn-primary btn-block" value="Order Medicines">
                        
-                    </div>
-                </div>
-
-            </form>
+             
             @endforeach
         
         

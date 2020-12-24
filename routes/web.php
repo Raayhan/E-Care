@@ -48,7 +48,8 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
 
       Route::get('/profile/complete',[App\Http\Controllers\Patient\Profile\CompleteProfileController::class,'CompleteForm'])->name('CompleteForm')->middleware('patient');
       Route::post('/profile/complete', [App\Http\Controllers\Patient\Profile\CompleteProfileController::class,'CompleteProfile']);
-  
+      Route::get('/profile/settings',[App\Http\Controllers\Patient\Profile\ProfileController::class,'SettingsPage'])->middleware('patient')->name('Settings');
+      Route::post('/profile/settings',[App\Http\Controllers\Patient\Profile\ProfileController::class,'ChangeInfo'])->middleware('patient')->name('ChangeAccount');
      // Department Routes
 
      Route::get('/department/all',[App\Http\Controllers\Patient\Department\DepartmentController::class,'index'])->name('Departments')->middleware('patient');
@@ -145,7 +146,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
 
       Route::get('/profile/view',[App\Http\Controllers\Admin\Profile\viewProfileController::class,'ViewProfile'])->middleware('admin')->name('profile');
       Route::post('/profile/view',[App\Http\Controllers\Admin\Profile\viewProfileController::class,'ChangeName']);
-
+      
       Route::get('/profile/password',[App\Http\Controllers\Admin\Profile\viewProfileController::class,'ViewPassword'])->middleware('admin')->name('password');
       Route::post('/profile/password',[App\Http\Controllers\Admin\Profile\viewProfileController::class,'ChangePassword']);
      
@@ -173,8 +174,11 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
       Route::post('/appointment/view',[App\Http\Controllers\Admin\Appointment\AppointmentController::class,'DeleteAppointment'])->name('DeleteAppointment')->middleware('admin');
       Route::get('/appointment/request',[App\Http\Controllers\Admin\Appointment\AppointmentController::class,'ShowRequest'])->name('Requests')->middleware('admin');
       Route::post('/appointment/request',[App\Http\Controllers\Admin\Appointment\AppointmentController::class,'RequestHandel'])->name('Handel')->middleware('admin');
-      
-      
+      Route::get('/appointment/live',[App\Http\Controllers\Admin\Appointment\StatusController::class,'ShowPage'])->name('ShowPage')->middleware('admin');
+      Route::post('/appointment/live',[App\Http\Controllers\Admin\Appointment\StatusController::class,'ViewStatus'])->name('ViewStatus')->middleware('admin');
+      // Medicine Routes
+
+      Route::get('/medicines',[App\Http\Controllers\Admin\MedicineController::class,'index'])->name('ViewOrders')->middleware('admin');
       
       //Login Routes
       Route::get('/login',[App\Http\Controllers\Admin\Auth\LoginController::class,'showLoginForm'])->name('login');

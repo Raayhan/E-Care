@@ -1,16 +1,18 @@
 @extends('layouts.app')
-@section('pagetitle', 'Check Status')
+@section('pagetitle', 'Medicine Orders')
 @section('styles')
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+
 <link href="{{ asset('css/vendor/admin.min.css') }}" rel="stylesheet">
+
 @stop
 @section('content')
+<!-- Page Wrapper -->
+<div id="wrapper">
 
-
- <!-- Page Wrapper -->
- <div id="wrapper">
-
-     <!-- Sidebar -->
-     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/admin/dashboard">
@@ -24,7 +26,7 @@
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="/admin/dashboard">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>DASHBOARD</span></a>
@@ -104,13 +106,14 @@
       
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item active">
               <a class="nav-link" href="\admin\medicines">
                 <i class="fas fa-pills"></i>
                 <span>MEDICINES</span>
               </a>
       
             </li>
+
 
 
       <!-- Nav Item - Tables -->
@@ -137,115 +140,114 @@
     </ul>
     <!-- End of Sidebar -->
 
- <!-- Content Wrapper -->
+
     <div id="content-wrapper" class="d-flex flex-column">
 
-        <!-- Main Content -->
-         <div id="content">
+      <!-- Main Content -->
+     <div id="content">
+       <!-- Begin Page Content -->
+       <div class="container-fluid py-4">
 
-     
-
-               <!-- Begin Page Content -->
-              <div class="container-fluid py-4">
-
-                <div class="card Poppins">
-                    <div class="card-header">
-                        <div class="row justify-content-center">
-                        <span class="font-weight-bold small"></span>
-                        </div>
-                    </div>
-                    <div class="card-body" style="padding-top:12%;height:80vh;">
-                                    {{-- Success Alert --}}
-                                    @if(session('status'))
-                                    <div class="alert alert-success alert-dismissible fade show text-center font-weight-bold small" role="alert">
-                                        {{session('status')}}
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                @endif
+        <!-- Page Heading -->
+        <h1 class="h3 mb-2 text-gray-800 text-center">E-Care Medicine Orders</h1>
         
-                                {{-- Error Alert --}}
-                                @if(session('error'))
-                                <div class="row justify-content-center">
-                                  <div class="col-md-4">
-                                    <div class="alert alert-danger alert-dismissible fade show text-center font-weight-bold small" role="alert">
-                                      {{session('error')}}
-                                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                          <span aria-hidden="true">&times;</span>
-                                      </button>
-                                  </div>
-                                  </div>
-                                </div>
-                                 
-                                
-                                @endif
-                      <div class="row justify-content-center mb-4">
-                        <h5 class="mdb-color-text"><i class="fas fa-search"></i> Check status</h5>
-                      </div>
-                   
-                        <form action="/admin/appointment/live" method="POST">
-                        
-                            @csrf
-                        
-                            <div class="form-group row">
-                                <label for="appointment_id" class="col-md-4 col-form-label text-md-right">{{ __('Appointment ID') }}</label>
-    
-                                <div class="col-md-4">
-                                    <input id="appointment_id" type="text" class="form-control @error('appointment_id') is-invalid @enderror" name="appointment_id"autofocus>
-    
-                                    @error('appointment_id')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                                
-                                    
-    
-                                   
-                              
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-md-4">
-                                    
-                                </div>
-                                <div class="col-md-4">
-                                    <input  type="submit" class="btn btn-indigo MyButton" value="Check">
-                                </div>
-                                <div class="col-md-4">
-                                    
-                                </div>
-                            </div>
 
-                        </form>
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">All Order Informations</h6>
+          </div>
+          <div class="card-body">
+            @if(session('status'))
+            <div class="alert alert-success alert-dismissible fade show text-center font-weight-bold small" role="alert">
+                {{session('status')}}
+               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+               </button>
+             </div>
+         @endif
 
-                        <div class="row justify-content-center">
-                          <span class="mdb-color-text">Enter appointment ID & view the current status</span>
-                        </div>
+         {{-- Error Alert --}}
+         @if(session('error'))
+              <div class="alert alert-danger alert-dismissible fade show text-center font-weight-bold small" role="alert">
+                  {{session('error')}}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+         @endif
+            <div class="table-responsive">
+                <table id="example" class="table table-striped table-bordered" style="width:100%;text-align:center!important;">
+                  <thead class="small text-white" style="background:#4285F4 !important;">
+                        <tr>
+                            <th class="small-table">Type</th>
+                            <th class="small-table">Name</th>
+                            <th class="small-table">Dosage</th>
+                            <th class="small-table">Patient</th>
+                            <th class="small-table">Address</th>
+                            <th class="small-table">Status</th>
+                            <th class="small-table">Time</th>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                      @foreach($medicines as $medicine)
+
+                        <tr>
+
+                          <td>{{ $medicine->type }}</td>
+                          <td>{{ $medicine->name }}</td>
+                          <td>{{ $medicine->dosage }} Mg/Ml</td>
+                          <td>{{ $medicine->patient_name }}</td>
+                          <td>{{ $medicine->patient_address }}</td>
+                          <td>{{ $medicine->status }}</td>
+                          <td>{{ $medicine->created_at }}</td>
                        
 
-                    </div>
-                </div>
+                        </tr>
+
+                          @endforeach
+                       
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th class="small-table">Type</th>
+                            <th class="small-table">Name</th>
+                            <th class="small-table">Dosage</th>
+                            <th class="small-table">Patient</th>
+                            <th class="small-table">Address</th>
+                            <th class="small-table">Status</th>
+                            <th class="small-table">Time</th>
+                        </tr>
+                    </tfoot>
+                </table>
 
             </div>
+          </div>
         </div>
 
+      </div>
+
+
+   </div>
   </div>
 </div>
-
 @section('scripts')
-<script src="{{ asset('js/vendor/jquery.dataTables.min.js') }}"></script>
-<script src="{{asset('js/vendor/bootstrap.bundle.min.js')}}"></script>
 
-<script src="{{asset('js/vendor/admin.js')}}"></script>
+  <script src="{{ asset('js/vendor/jquery.dataTables.min.js') }}"></script>
+   <script src="{{asset('js/vendor/bootstrap.bundle.min.js')}}"></script>
+   
+   <script src="{{asset('js/vendor/admin.js')}}"></script>
+  
+  <script type="text/javascript">
+    $(document).ready(function() {
+        $('#example').DataTable();
+    } );
+  </script>
+  
+  
 
-<script type="text/javascript">
-$(document).ready(function() {
-$('#example').DataTable();
-} );
-</script>
 
-
+    
 @stop
 @endsection

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Patient\Profile;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Patient;
+use Hash;
+
 class CompleteProfileController extends Controller
 {
     /* If a user signup using Google or Linkedin ID , Additional informations 
@@ -22,7 +24,12 @@ class CompleteProfileController extends Controller
 
         $this->validator($request);
 
+        //Making the password Hashed
+        $password = $request->input('password'); // Encrypting the password for security  
+        $hash = Hash::make($password);
+
         $id = $request->input('id');
+
         
         $patient = Patient::findOrFail($id);
         
@@ -39,6 +46,7 @@ class CompleteProfileController extends Controller
         $patient->age     = $age;
         $patient->blood   = $request->input('blood');
         $patient->gender  = $request->input('gender');
+        $patient->password  = $hash;
         
 
        
@@ -58,6 +66,7 @@ class CompleteProfileController extends Controller
                 'blood'     => 'required',
                 'dob'       => 'required',
                 'gender'    => 'required',
+                'password'  => 'required|string|confirmed|min:6|max:255',
             ];
 
             //custom validation error messages.

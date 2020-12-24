@@ -29,13 +29,17 @@ class MedicineController extends Controller
     public function CreateOrder(Request $request){
 
         $patient_id = Auth::guard('patient')->user()->id;
+        $patient_name = Auth::guard('patient')->user()->name;
+        $patient_address = Auth::guard('patient')->user()->address;
 
         $order = new Order;
-        $order->name       = $request->input('name');
-        $order->type       = $request->input('type');
-        $order->dosage     = $request->input('dosage');
-        $order->patient_id = $patient_id;
-        $order->status     = 'PENDING';
+        $order->name         = $request->input('name');
+        $order->type         = $request->input('type');
+        $order->dosage       = $request->input('dosage');
+        $order->patient_id   = $patient_id;
+        $order->patient_name = $patient_name;
+        $order->patient_address = $patient_address;
+        $order->status       = 'PENDING';
 
         $order->save();
 

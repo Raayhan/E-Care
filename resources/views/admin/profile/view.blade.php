@@ -152,34 +152,7 @@
             <div class="container-fluid py-4">
               <section class="section about-section gray-bg mb-4" id="about">
                 <div class="container">
-                    <div class="counter">
-                        <div class="row">
-                            <div class="col-6 col-lg-3">
-                                <div class="count-data text-center">
-                                    <h6 class="count h5" data-to="500" data-speed="500">500.00৳</h6>
-                                    <p class="m-0px font-w-600">Earnings</p>
-                                </div>
-                            </div>
-                            <div class="col-6 col-lg-3">
-                                <div class="count-data text-center">
-                                    <h6 class="count h5" data-to="150" data-speed="150">150.00৳</h6>
-                                    <p class="m-0px font-w-600">Due</p>
-                                </div>
-                            </div>
-                            <div class="col-6 col-lg-3">
-                                <div class="count-data text-center">
-                                <h6 class="count h5" data-to="190" data-speed="190">500</h6>
-                                    <p class="m-0px font-w-600">Completed</p>
-                                </div>
-                            </div>
-                            <div class="col-6 col-lg-3">
-                                <div class="count-data text-center">
-                                <h6 class="count h5" data-to="190" data-speed="190">100</h6>
-                                    <p class="m-0px font-w-600">Pendings</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                 
                 </div>
             </section>
             <section class="section about-section gray-bg mb-4 raleway" id="about">
