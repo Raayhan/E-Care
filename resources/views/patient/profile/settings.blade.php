@@ -293,7 +293,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right text-danger">{{ __('Password') }}</label>
 
                             <div class="col-md-4">
                                 <input id="password" placeholder="Enter Account Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password">
@@ -311,7 +311,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                               <input type="hidden" name="id" value="{{Auth::guard('patient')->user()->id}}" >
-                                <button type="submit" class="btn btn-dark-green MyButton">
+                                <button type="submit" class="btn btn-unique MyButton">
                                     {{ __('Save Changes') }}
                                 </button>
                             </div>
@@ -323,10 +323,10 @@
                  
                     <div class="row justify-content-center" style="margin-top:5%; padding-bottom:10%;">
                       <div class="col-md-3">
-                        <a href="/patient/profile/delete">Delete Your Account</a>
+                        <a class="font-weight-bold text-danger small" href="/patient/profile/delete">Deactivate Account</a>
                       </div>
                       <div class="col-md-3">
-                        <a href="/patient/profile/password">Change Account Password</a>
+                        <a class="font-weight-bold text-primary small" href="/patient/profile/password">Change Account Password</a>
                       </div>
                       
                     </div>
