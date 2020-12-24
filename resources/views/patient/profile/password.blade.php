@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('pagetitle', 'Settings')
+@section('pagetitle', 'Change Password')
 @section('styles')
 <link href="{{ asset('css/vendor/admin.min.css') }}" rel="stylesheet">
 @stop
@@ -176,17 +176,17 @@
 
                  <div class="jumbotron jumbotron-fluid" style="padding-top:20px!important;padding-bottom:20px!important;">
                   <div class="container">
-                    <h4 class="text-center">Edit Account Informations</h4><hr><br>
-                    <form method="POST" action="\patient\profile\settings">
+                    <h4 class="text-center">Change Account Password</h4><hr><br><br>
+                    <form method="POST" action="\patient\profile\password">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="Newpassword" class="col-md-4 col-form-label text-md-right">{{ __('New Password') }}</label>
 
                             <div class="col-md-4">
-                                <input id="name" value="{{Auth::guard('patient')->user()->name}}" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}"autocomplete="name" autofocus>
-                                
-                                @error('name')
+                                <input id="Newpassword" type="password" class="form-control @error('Newpassword') is-invalid @enderror" name="Newpassword" autofocus>
+
+                                @error('Newpassword')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -195,103 +195,15 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="Newpassword-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm New Password') }}</label>
 
                             <div class="col-md-4">
-                                <input id="email" value="{{Auth::guard('patient')->user()->email}}" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Phone') }}</label>
-
-                            <div class="col-md-4">
-                                <input id="phone" value="{{Auth::guard('patient')->user()->phone}}" type="number" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}"autocomplete="phone">
-
-                                @error('phone')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="dob" class="col-md-4 col-form-label text-md-right">{{ __('Date of Birth') }}</label>
-
-                            <div class="col-md-4" >
-                                <input id="dob" value="{{Auth::guard('patient')->user()->dob}}" type="date" class="form-control @error('dob') is-invalid @enderror" name="dob" value="{{ old('dob') }}" autocomplete="dob">
-
-                                @error('dob')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
-
-                            <div class="col-md-4">
-                                <select name="gender" class="form-control  @error('gender') is-invalid @enderror" id="gender">
-                                    <option value="{{Auth::guard('patient')->user()->gender}}"selected>{{Auth::guard('patient')->user()->gender}}</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                    <option value="Others">Others</option>
-
-                                  </select>
-                                  @error('gender')
-                                  <span class="invalid-feedback" role="alert">
-                                      <strong>{{ $message }}</strong>
-                                  </span>
-                              @enderror
-
-
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="blood" class="col-md-4 col-form-label text-md-right">{{ __('Blood Group') }}</label>
-
-                            <div class="col-md-4">
-                                <select name="blood" class="form-control  @error('blood') is-invalid @enderror" id="blood">
-                                    <option value="{{Auth::guard('patient')->user()->blood}}"selected>{{Auth::guard('patient')->user()->blood}}</option>
-                                    <option value="A+">A+</option>
-                                    <option value="A-">A-</option>
-                                    <option value="B+">B+</option>
-                                    <option value="B-">B-</option>
-                                    <option value="O+">O+</option>
-                                    <option value="O-">O-</option>
-                                    <option value="AB+">AB+</option>
-                                    <option value="AB-">AB-</option>
-
-                                  </select>
-                                  @error('blood')
-                                  <span class="invalid-feedback" role="alert">
-                                      <strong>{{ $message }}</strong>
-                                  </span>
-                              @enderror
-
-
+                                <input id="Newpassword-confirm" type="password" class="form-control" name="Newpassword_confirmation" autocomplete="new-password">
+                                <span class="font-weight-bold small" id='message'>
                             </div>
                         </div>
 
-                        <div class="form-group row mb-5">
-                            <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
-
-                            <div class="col-md-4">
-                                <input id="address" value="{{Auth::guard('patient')->user()->address}}" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" autocomplete="address">
-
-                                @error('address')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+                    
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
@@ -326,7 +238,7 @@
                         <a href="/patient/profile/delete">Delete Your Account</a>
                       </div>
                       <div class="col-md-3">
-                        <a href="/patient/profile/password">Change Account Password</a>
+                        <a href="/patient/profile/settings">Change Account Info</a>
                       </div>
                       
                     </div>
@@ -344,7 +256,16 @@
 @section('scripts')
     <script src="{{asset('js/vendor/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('js/vendor/admin.js')}}"></script>
-   
+    <script>
+        $('#Newpassword, #Newpassword-confirm').on('keyup', function () {
+          if ($('#Newpassword').val() == $('#Newpassword-confirm').val()) {
+              $('#message').html('Matched <i class="fas fa-check-circle"></i>').css('color', 'green');
+            }
+          else 
+              $('#message').html('Not Matching <i class="fas fa-times-circle"></i>').css('color', 'red');
+            }
+            );
+  </script>  
     
 @stop
 @endsection

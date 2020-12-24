@@ -80,4 +80,55 @@ class ProfileController extends Controller
 
 
     }
+
+    public function PasswordPage(){
+        return view('patient.profile.password');
+    }
+
+    public function ChangePassword(Request $request){
+
+        $this->PasswordValidator($request);        
+        $id = $request->input('id');
+        $oldpassword = $request->input('password');
+        $newpassword = $request->input('Newpassword');
+        $hash = Hash::make($newpassword);
+
+        $patient = Patient::findOrFail($id);
+
+        if (Hash::check($oldpassword, $patient->password)) {
+        
+            $patient->password = $hash;
+            $patient->save();
+            return redirect()->to('/patient/profile/password')->with('status','Password Changed');
+
+        }
+        else {
+            return redirect()->to('/patient/profile/password')->with('error','Incorrect Password');
+        }
+    }
+
+    private function PasswordValidator(Request $request)
+    {
+            //validation rules.
+            $rules = [
+                
+                'Newpassword' => 'required|min:6|max:255|confirmed',
+                'password'    => 'required|min:6|max:255',
+               
+                
+               
+            ];
+
+            //custom validation error messages.
+            $messages = [
+               
+               
+            ];
+            
+
+            //validate the request.
+            $request->validate($rules,$messages);
+
+
+    }
 }

@@ -50,6 +50,8 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
       Route::post('/profile/complete', [App\Http\Controllers\Patient\Profile\CompleteProfileController::class,'CompleteProfile']);
       Route::get('/profile/settings',[App\Http\Controllers\Patient\Profile\ProfileController::class,'SettingsPage'])->middleware('patient')->name('Settings');
       Route::post('/profile/settings',[App\Http\Controllers\Patient\Profile\ProfileController::class,'ChangeInfo'])->middleware('patient')->name('ChangeAccount');
+      Route::get('/profile/password',[App\Http\Controllers\Patient\Profile\ProfileController::class,'PasswordPage'])->middleware('patient')->name('Passwords');
+      Route::post('/profile/password',[App\Http\Controllers\Patient\Profile\ProfileController::class,'ChangePassword'])->middleware('patient')->name('ChangePassword');
      // Department Routes
 
      Route::get('/department/all',[App\Http\Controllers\Patient\Department\DepartmentController::class,'index'])->name('Departments')->middleware('patient');
