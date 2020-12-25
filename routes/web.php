@@ -94,6 +94,8 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
   Route::prefix('/doctor')->name('doctor.')->namespace('Doctor')->group(function(){
 
       Route::get('/dashboard',[App\Http\Controllers\Doctor\DashboardController::class,'index'])->middleware('doctor')->name('dashboard');
+      Route::get('/prescriptions',[App\Http\Controllers\Doctor\PrescriptionController::class,'index'])->middleware('doctor')->name('prescriptions');
+      Route::get('/prescription',[App\Http\Controllers\Doctor\PrescriptionController::class,'ViewPrescription'])->middleware('doctor')->name('prescription');
     
       //Login Routes
       Route::get('/login',[App\Http\Controllers\Doctor\Auth\LoginController::class,'showLoginForm'])->name('login');
@@ -125,6 +127,8 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
     Route::get('/history',[App\Http\Controllers\Doctor\HistoryController::class,'index'])->middleware('doctor')->name('History');
   
     Route::get('/reports',[App\Http\Controllers\Doctor\ReportsController::class,'index'])->middleware('doctor')->name('Report');
+    Route::get('/profile/password',[App\Http\Controllers\Doctor\ProfileController::class,'ShowPage'])->middleware('doctor')->name('PasswordPage');
+    Route::post('/profile/password',[App\Http\Controllers\Doctor\ProfileController::class,'ChangePassword'])->middleware('doctor')->name('changePass');
   
   });
 

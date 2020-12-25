@@ -26,7 +26,9 @@ class CheckoutController extends Controller
         $appointment->status = 'Completed';
        
         $appointment->save();
+
+        $conversations = DB::table('conversations')->where('appointment_id', '=',$id)->delete();
        
-        return redirect()->to('/doctor/appointments/all')->with('status','Completed');
+        return redirect()->to('/doctor/appointments/all')->with('status','Appointment has been closed');
     }
 }

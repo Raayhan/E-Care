@@ -1,7 +1,6 @@
 @extends('layouts.app')
-@section('pagetitle', 'Prescriptions')
+@section('pagetitle', 'Prescription')
 @section('styles')
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 <link href="{{ asset('css/vendor/admin.min.css') }}" rel="stylesheet">
 @stop
 @section('content')
@@ -151,84 +150,104 @@
       
         
       <div class="jumbotron" style="padding-top:4%;">
+       @foreach ($appointments as $appointment)
+            
+        
+
     
-        <h4 class="text-center">Prescriptions</h4>
-   
+        
       
           <div class="card-body branch_add">
          
-            @if(session('status'))
-            <div class="alert alert-success alert-dismissible fade show text-center font-weight-bold small" role="alert">
-                {{session('status')}} <i class="far fa-check-circle"></i>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        @endif
-
-        {{-- Error Alert --}}
-        @if(session('error'))
-                <div class="alert alert-danger alert-dismissible fade show text-center font-weight-bold small" role="alert">
-                    {{session('error')}}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+          
+        <div class="row">
+            <div class="row mb-4">
+                <div class="col-md-9">
+                  <img style="max-width:20%!important;text-align:left;" src="{{ asset('img/logo.png') }}" alt="">
                 </div>
-        @endif
+                <div class="col-md-3 small">
+                <span>Appointment ID </span><span class="mdb-color-text" style="font-weight:bold;"> &nbsp;#10112{{$appointment->id}}</span>
+                </div>
+              </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col-md-4 prescription">
+                <span class="h5 text-danger">Dr. {{$appointment->doctor_name}}</span><br>
+                <span>{{$appointment->doctor_designation}}</span><br>
+                <span>Department of {{$appointment->department_name}}</span><br>
+              
 
+            </div>
+            <div class="col-md-4">
 
-        <div class="table-responsive">
-          <table id="example" class="table table-striped table-bordered" style="width:100%;text-align:center!important;">
-            <thead class="small text-white" style="background:#4285F4 !important;">
-                  <tr>
-                      <th class="small-table">Date</th>
-                      <th class="small-table">Appointment ID</th>
-                      <th class="small-table">Patient Name</th>
-                      <th class="small-table">Status</th>
-                      <th class="small-table">Action</th>
-                      
-                  </tr>
+            </div>
+
+        
+
+        </div>
+        <hr>
+   
+       
+            
+       
+         <div class="row mb-4">
+             <div class="col-md-4">
+                 <span>Patient Name : </span><span class="font-weight-bold">{{$appointment->patient_name}}</span> 
+             </div>
+             <div class="col-md-3">
+                <span>Age : </span><span class="font-weight-bold">{{$appointment->patient_age}}</span> 
+            </div>
+            <div class="col-md-2">
+                <span>Gender : </span><span class="font-weight-bold">{{$appointment->patient_gender}}</span> 
+            </div>
+            <div class="col-md-3">
+                <span>Blood Group : </span><span class="font-weight-bold">{{$appointment->patient_blood}}</span> 
+            </div>
+         </div>
+       
+         <hr>
+         <i class="fas fa-prescription fa-2x"></i>
+         <div class="row justify-content-center mb-4">
+            <span class="h5 text-center">Prescribed Medicines</span>
+         </div>
+    
+
+         <hr>
+         <div class="table-responsive mb-4">
+            <table class="table table-striped table-bordered table-sm small-table" style="text-align:center!important;">
+              <thead class="primary-color white-text text-xsmall">
+                <tr>
+                  <th class="small-table" scope="col">Type</th>
+                  <th class="small-table" scope="col">Name</th>
+                  <th class="small-table" scope="col">Dosage</th>
+                  <th class="small-table" scope="col">Frequency</th>
+                  <th class="small-table" scope="col">Duration</th>
+                </tr>
               </thead>
               <tbody>
-                @foreach($appointments as $appointment)
-
-                  <tr>
-                    <td>{{ $appointment->created_at }}</td>
-                    <td>10112{{ $appointment->id }}</td>
-                    <td>{{ $appointment->patient_name }}</td>
-        
-                    <td><span style="background-color:#c8e6c9; color:#1b5e20;padding:0.5%;" class="font-weight-bold small">{{$appointment->status}}</span></td>
-                    <td>
-
-
-                      <form action="/doctor/prescription" method="GET">
-                                    
-                          <input type="hidden" name="id" value="{{$appointment->id}}">
-                          <input class="small btn-primary" type="submit" class="small" value="View">
-                      </form>
-                    </td>
-                   
-
-                  </tr>
-
-                    @endforeach
+                  @foreach ($medicines as $medicine)
+                      
                  
+                <tr>
+                  <th class="small-table" scope="row">{{$medicine->type}}</th>
+                  <td class="small-table">{{$medicine->name}}</td>
+                  <td class="small-table">{{$medicine->dosage}}Mg/Ml</td>
+                  <td class="small-table">{{$medicine->frequency}}</td>
+                  <td class="small-table">{{$medicine->duration}} Days</td>
+                </tr>
+                @endforeach
+           
               </tbody>
-              <tfoot>
-                  <tr>
-                    <th class="small-table">Date</th>
-                    <th class="small-table">Appointment ID</th>
-                    <th class="small-table">Patient Name</th>
-                    <th class="small-table">Status</th>
-                    <th class="small-table">Action</th>
-                  </tr>
-              </tfoot>
-          </table>
-
-      </div>
- 
+            </table>
+          </div>
          
+          
+              
 
+                        
+                       
+             
+            @endforeach
         
         
 
@@ -244,7 +263,9 @@
 
            
 
+              
 
+            
         </div>
 
 
@@ -273,17 +294,11 @@
 
 
 @section('scripts')
-<script src="{{ asset('js/vendor/jquery.dataTables.min.js') }}"></script>
     <script src="{{asset('js/vendor/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('js/vendor/admin.js')}}"></script>
 
     <script>  function goBack() {
         window.history.back();
           }</script>
-              <script type="text/javascript">
-                $(document).ready(function() {
-                    $('#example').DataTable();
-                } );
-              </script>  
 @stop
 @endsection
