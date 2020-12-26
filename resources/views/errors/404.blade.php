@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'iParcel') }} | Page Not Found</title>
+    <title>{{ config('app.name', 'E-Care') }} | Page Not Found</title>
     <link rel="icon" href="{{ asset('img/icon.png')}}" type="image/x-icon">
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
@@ -18,7 +18,7 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+   
     
     <!-- Styles -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
@@ -195,11 +195,11 @@
 <!-- Copyright -->
 <div class="footer-copyright text-center py-3">
 <div class="row justify-content-center">
-<img class="footer-logo" src="{{asset('img/logo-white.png')}}" alt="">
+<img class="footer-logo" src="{{asset('img/logo.png')}}" alt="">
 
 </div>
 © Developed & Maintained by :
-<a target="_BLANK" href="https://raayhan.github.io/">© Rayhan Ahmed Rakib</a>
+<a target="_BLANK" href="/">© E-Care Inc</a>
 </div>
 <!-- Copyright -->
 

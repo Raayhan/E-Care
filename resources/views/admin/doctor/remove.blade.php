@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('pagetitle', 'Close Branches')
+@section('pagetitle', 'Remove Doctor')
 @section('styles')
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
@@ -149,13 +149,13 @@
        <div class="container-fluid py-4">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800 text-center">Close Branches</h1>
+        <h1 class="h3 mb-2 text-gray-800 text-center">Remove Doctor from E-Care</h1>
         
 
         <!-- DataTales Example -->
-        <div class="card shadow mb-4 Poppins">
+        <div class="card shadow mb-4">
           <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">All Branch Informations</h6>
+            <h6 class="m-0 font-weight-bold text-primary"></h6>
           </div>
           <div class="card-body">
             @if(session('status'))
@@ -178,34 +178,40 @@
          @endif
             <div class="table-responsive">
                 <table id="example" class="table table-striped table-bordered" style="width:100%;text-align:center!important;">
-                    <thead>
+                  <thead class="small text-white" style="background:#4285F4 !important;">
                         <tr>
-                            <th>Branch</th>
-                            <th>ID</th>
-                            <th>Zone</th>
-                            <th>Completed <i class="far fa-check-circle"></i></th>
-                            <th>Pending <i class="far fa-clock"></i></th>
-                            <th>Earnings</th>
-                            <th>Action</th>
+                            <th class="small-table">Name</th>
+                            <th class="small-table">Reg No.</th>
+                            <th class="small-table">Designation</th>
+                            <th class="small-table">Department</th>
+                            <th class="small-table">Degree</th>
+                            <th class="small-table">Gender</th>
+                            <th class="small-table">Email</th>
+                            <th class="small-table" >Phone</th>
+                            <th class="small-table" >Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                      @foreach($branches as $branch)
+                      @foreach($doctors as $doctor)
 
                         <tr>
 
-                          <td>{{ $branch->name }}</td>
-                          <td>{{ $branch->branch_id }}</td>
-                          <td>{{ $branch->zone }}</td>
-                          <td>{{ $branch->completed }}</td>
-                          <td>{{ $branch->pending }}</td>
-                          <td>৳ {{ $branch->balance }}</td>
-                          <td><form method="POST" action="/admin/branch/close">
+                          <td>Dr. {{ $doctor->name }}</td>
+                          <td>{{ $doctor->reg_no }}</td>
+                          <td>{{ $doctor->designation }}</td>
+                          <td>{{ $doctor->department }}</td>
+                          <td>{{ $doctor->degree }}</td>
+                          <td>{{ $doctor->gender }}</td>
+                          <td>{{ $doctor->email }}</td>
+                          <td>{{ $doctor->phone }}</td>
+                          <td>
+                            <form action="/admin/doctor/remove" method="POST">
                             @csrf
-                               <input name="id" type="hidden" value="{{ $branch->id }}">
-                               <button type="submit" class="btn btn-sm btn-elegant Mybutton"><i class="fas fa-ban"></i> Close</button>
+                              <input type="hidden" name="id" value={{$doctor->id}}>
+                              <input type="submit" class="small" value="Remove">
+
                             </form>
-                        </td>
+                          </td>
 
                         </tr>
 
@@ -214,13 +220,15 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                          <th>Branch</th>
-                          <th>ID</th>
-                          <th>Zone</th>
-                          <th>Completed <i class="far fa-check-circle"></i></th>
-                          <th>Pending <i class="far fa-clock"></i></th>
-                          <th>Earnings</th>
-                          <th>Action</th>
+                          <th class="small-table">Name</th>
+                            <th class="small-table">Reg No.</th>
+                            <th class="small-table">Designation</th>
+                            <th class="small-table">Department</th>
+                            <th class="small-table">Degree</th>
+                            <th class="small-table">Gender</th>
+                            <th class="small-table">Email</th>
+                            <th class="small-table" >Phone</th>
+                            <th class="small-table" >Action</th>
                         </tr>
                     </tfoot>
                 </table>
