@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('pagetitle', 'Block Customer')
+@section('pagetitle', 'Block Patients')
 @section('styles')
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
@@ -149,18 +149,18 @@
        <div class="container-fluid py-4">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800 text-center">Block Customers</h1>
+        <h1 class="h3 mb-2 text-gray-800 text-center">E-Care Patients</h1>
         
 
         <!-- DataTales Example -->
-        <div class="card shadow mb-4 Poppins">
+        <div class="card shadow mb-4">
           <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">All Customer Informations</h6>
+            <h6 class="m-0 font-weight-bold text-primary">All Patient Informations</h6>
           </div>
           <div class="card-body">
             @if(session('status'))
             <div class="alert alert-success alert-dismissible fade show text-center font-weight-bold small" role="alert">
-                {{session('status')}}&nbsp; <i class="far fa-check-circle"></i>
+                {{session('status')}}
                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                </button>
@@ -170,7 +170,7 @@
          {{-- Error Alert --}}
          @if(session('error'))
               <div class="alert alert-danger alert-dismissible fade show text-center font-weight-bold small" role="alert">
-                  {{session('error')}}&nbsp; <i class="fas fa-exclamation-triangle"></i>
+                  {{session('error')}}
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                   </button>
@@ -178,49 +178,55 @@
          @endif
             <div class="table-responsive">
                 <table id="example" class="table table-striped table-bordered" style="width:100%;text-align:center!important;">
-                    <thead>
+                    <thead class="text-white" style="background:#4285F4 !important;">
                         <tr>
-                            <th>Name</th>
-                            <th>ID</th>
-                            <th>Phone</th>
-                            <th>Shipments</th>
-                            <th>Paid</th>
-                            <th>Due</th>
-                            <th>Action</th>
+                            <th class="small-table">ID</th>
+                            <th class="small-table">Name</th>
+                            <th class="small-table">Age</th>
+                            <th class="small-table">Gender</th>
+                            <th class="small-table">Blood Group</th>
+                            <th class="small-table">Address</th>
+                            <th class="small-table">Email</th>
+                            <th class="small-table">Phone</th>
+                            <th class="small-table">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                      @foreach($customers as $customer)
+                      @foreach($patients as $patient)
 
-                      <tr>
-
-                        <td>{{ $customer->name }}</td>
-                        <td>CUS202010{{ $customer->id }}</td>
-                        <td>{{ $customer->phone }}</td>
-                        <td>{{ $customer->shipments }}</td>
-                        <td>৳ {{ $customer->balance }}</td>
-                        <td>৳ {{ $customer->due }}</td>
-                        <td><form method="POST" action="/admin/customer/block">
+                        <tr>
+                          <td>1220{{ $patient->id }}</td>
+                          <td>{{ $patient->name }}</td>
+                          <td>{{ $patient->age }}</td>
+                          <td>{{ $patient->gender }}</td>
+                          <td>{{ $patient->blood }}</td>
+                          <td>{{ $patient->address }}</td>
+                          <td>{{ $patient->email }}</td>
+                          <td>{{ $patient->phone }}</td>
+                          <td>
+                            <form action="/admin/patient/block" method="post">
                             @csrf
-                               <input name="id" type="hidden" value="{{ $customer->id }}">
-                               <button type="submit" class="btn btn-sm btn-elegant Mybutton"><i class="fas fa-ban"></i> Block</button>
+                            <input type="hidden" name="id" value={{$patient->id}}>
+                            <input type="submit" class="small" value="Block">
                             </form>
-                        </td>
+                          </td>
 
-                      </tr>
+                        </tr>
 
-                        @endforeach
+                          @endforeach
                        
                     </tbody>
                     <tfoot>
                         <tr>
-                          <th>Name</th>
-                            <th>ID</th>
-                            <th>Phone</th>
-                            <th>Shipments</th>
-                            <th>Paid</th>
-                            <th>Due</th>
-                            <th>Action</th>
+                            <th class="small-table">ID</th>
+                            <th class="small-table">Name</th>
+                            <th class="small-table">Age</th>
+                            <th class="small-table">Gender</th>
+                            <th class="small-table">Blood Group</th>
+                            <th class="small-table">Address</th>
+                            <th class="small-table">Email</th>
+                            <th class="small-table">Phone</th>
+                            <th class="small-table">Action</th>
                         </tr>
                     </tfoot>
                 </table>

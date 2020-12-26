@@ -167,7 +167,8 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
       Route::get('/patient/all',[App\Http\Controllers\Admin\Patient\ViewPatientController::class,'index'])->middleware('admin')->name('Patients');
       Route::get('/patient/add',[App\Http\Controllers\Admin\Patient\AddPatientController::class,'PatientRegisterForm'])->middleware('admin')->name('patient.add');
       Route::post('/patient/add',[App\Http\Controllers\Admin\Patient\AddPatientController::class,'AddPatient']);
- 
+      Route::get('/patient/block',[App\Http\Controllers\Admin\Patient\BlockPatientController::class,'index'])->middleware('admin')->name('patient.block');
+      Route::post('/patient/block',[App\Http\Controllers\Admin\Patient\BlockPatientController::class,'BlockPatient'])->middleware('admin')->name('BlockPatient');
       
 
       //Department Admin Routes
