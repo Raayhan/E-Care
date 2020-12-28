@@ -104,8 +104,8 @@
                         <a class="collapse-item" href="\admin\appointment\request"><i
                                 class="fas fa-comment-medical"></i> &nbsp;Appointment Requests</a>
 
-
                     </div>
+                </div>
             </li>
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
@@ -139,6 +139,7 @@
                             &nbsp;Change Password</a>
 
                     </div>
+                </div>
             </li>
 
             <!-- Divider -->
@@ -157,8 +158,6 @@
 
             <!-- Main Content -->
             <div id="content">
-
-
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid py-4">
@@ -220,11 +219,6 @@
                                             </span>
                                         @enderror
                                     </div>
-
-
-
-
-
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-md-4">
@@ -243,7 +237,6 @@
                             <div class="row justify-content-center">
                                 <span class="mdb-color-text">Enter appointment ID & view the current status</span>
                             </div>
-
 
                         </div>
                     </div>

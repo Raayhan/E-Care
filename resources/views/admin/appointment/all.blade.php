@@ -102,6 +102,7 @@
                         <a class="collapse-item" href="\admin\appointment\request"><i
                                 class="fas fa-comment-medical"></i> &nbsp;Appointment Requests</a>
                     </div>
+                </div>
             </li>
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
@@ -133,6 +134,7 @@
                             &nbsp;Change Password</a>
 
                     </div>
+                </div>
             </li>
 
             <!-- Divider -->

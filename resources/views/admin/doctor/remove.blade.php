@@ -108,6 +108,7 @@
 
 
                     </div>
+                </div>
             </li>
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
@@ -140,6 +141,7 @@
                             &nbsp;Change Password</a>
 
                     </div>
+                </div>
             </li>
 
             <!-- Divider -->
