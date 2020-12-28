@@ -125,8 +125,6 @@
 
             </li>
 
-
-
             <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Account"
