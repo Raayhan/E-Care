@@ -19,14 +19,15 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index() // displays Admin dashboard page
     {
         
-        $doctor = Doctor::count();
-        $patient = Patient::count();
-        $completed = Appointment::where('status', 'Completed')->count();
-        $pending = Appointment::where('status', 'Requested,Pending Approval')->count();
-        // return view('admin.dashboard',['branch'=>$branch,'customer'=>$customer,'completed'=>$completed,'pending'=>$pending]);
+        $doctor = Doctor::count(); // Counts number of doctors
+        $patient = Patient::count();//Counts number of patients
+        $completed = Appointment::where('status', 'Completed')->count();//Counts number of completed appointments
+        $pending = Appointment::where('status', 'Requested,Pending Approval')->count();//Counts number of pending requests
+        
         return view('admin.dashboard',['doctor'=>$doctor,'patient'=>$patient,'pending'=>$pending,'completed'=>$completed]);
+        //Return a view of the dashboard page with all the data as arrays
     }
 }
