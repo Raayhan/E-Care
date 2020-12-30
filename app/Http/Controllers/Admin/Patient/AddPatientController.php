@@ -9,7 +9,7 @@ use Hash;
 
 class AddPatientController extends Controller
 {
-    public function PatientRegisterForm(){
+    public function PatientRegisterForm(){ // Displays Patient Registration form page
         return view('admin.patient.add',[
             
             'registerRoute' => 'admin.patient.add',
@@ -19,10 +19,10 @@ class AddPatientController extends Controller
 
     public function AddPatient(Request $request){
 
-        $this->validator($request);
+        $this->validator($request); // Validator function to validate the form
 
 
-        $patient = new Patient;
+        $patient = new Patient; // Creating new Patient model object
 
         //Making the password Hashed
         $password = $request->input('password'); // Encrypting the password for security  
