@@ -204,7 +204,7 @@
                                     </div>
                                     <div class="col-md-2 small">
                                         <span>Appointment ID :</span><span class="mdb-color-text"
-                                            style="font-weight:bold;"> &nbsp;{{ $appointment->id }}</span>
+                                            style="font-weight:bold;"> &nbsp;10112{{ $appointment->id }}</span>
                                     </div>
                                 </div>
                                 <div class="row justify-content-center Poppins mb-4">
@@ -215,53 +215,19 @@
                                 <div class="row justify-content-center">
                                     <div class="barcode">
 
-                                        {!! DNS1D::getBarcodeHTML($appointment->id, "C128",1.4,22) !!}
-                                        <p class="small text-center">{{ $appointment->id }}</p>
+                                        {!! DNS1D::getBarcodeHTML("10112$appointment->id", "C128",1.4,22) !!}
+                                        <p class="small text-center">10112{{ $appointment->id }}</p>
                                     </div>
                                 </div>
-
                                 <hr>
                                 <div class="row justify-content-center mb-4">
-                                    <div class="col-md-6">
-                                        <h6 class="font-weight-bold"><i class="fas fa-user-check"></i> Doctor
-                                            Informations</h6>
-                                        <hr>
-                                        <div class="small">
-                                            <span class="font-weight-bold"> Doctor Name :
-                                            </span><span>{{ $appointment->doctor_name }}</span><br>
-                                            <span class="font-weight-bold"> Designation :
-                                            </span><span>{{ $appointment->doctor_designation }}</span><br>
-                                            <span class="font-weight-bold"> Department :
-                                            </span><span>{{ $appointment->department_name }}</span><br>
-                                            <span class="font-weight-bold"> Gender :
-                                            </span><span>{{ $appointment->doctor_gender }}</span>
-                                            <hr>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
 
-                                        <h6 class="font-weight-bold"><i class="fas fa-user-tag"></i> Patient
-                                            Informations</h6>
-                                        <hr>
-                                        <div class="small">
-                                            <span class="font-weight-bold"> Patient Name :
-                                            </span><span>{{ $appointment->patient_name }}</span><br>
-                                            <span class="font-weight-bold"> Age :
-                                            </span><span>{{ $appointment->patient_age }}</span><br>
-                                            <span class="font-weight-bold"> Gender :
-                                            </span><span>{{ $appointment->patient_gender }}</span><br>
-                                            <span class="font-weight-bold"> Blood Group :
-                                            </span><span>{{ $appointment->patient_blood }}</span>
-
-                                            <hr>
-                                        </div>
-                                    </div>
-
+                                    <span style="background-color:#c8e6c9; color:#1b5e20;padding:0.5%;"
+                                        class="font-weight-bold h4">{{ $appointment->status }}</span>
                                 </div>
 
-
-                                <div class="row justify-content-center mb-4">
-                                    <button onclick="goBack()" class="btn btn-unique">Check Again</button>
+                                <div class="row justify-content-center mb-4" style="margin-top: 10%;">
+                                    <button onclick="goBack()" class="btn btn-unique btn-sm">Check Again</button>
                                 </div>
 
 

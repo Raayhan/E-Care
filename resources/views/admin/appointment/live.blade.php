@@ -162,13 +162,17 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid py-4">
 
-                    <div class="card Poppins">
+                    <div class="card">
                         <div class="card-header">
                             <div class="row justify-content-center">
                                 <span class="font-weight-bold small"></span>
                             </div>
                         </div>
                         <div class="card-body" style="padding-top:12%;height:80vh;">
+
+                            <div class="row justify-content-center mb-4">
+                                <h5 class="mdb-color-text"><i class="fas fa-search"></i> Check status</h5>
+                            </div>
                             {{-- Success Alert --}}
                             @if(session('status'))
                                 <div class="alert alert-success alert-dismissible fade show text-center font-weight-bold small"
@@ -196,15 +200,12 @@
 
 
                             @endif
-                            <div class="row justify-content-center mb-4">
-                                <h5 class="mdb-color-text"><i class="fas fa-search"></i> Check status</h5>
-                            </div>
 
                             <form action="/admin/appointment/live" method="POST">
 
                                 @csrf
 
-                                <div class="form-group row">
+                                <div class="form-group row mb-4">
                                     <label for="appointment_id"
                                         class="col-md-4 col-form-label text-md-right">{{ __('Appointment ID') }}</label>
 
@@ -220,22 +221,23 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <div class="col-md-4">
 
-                                    </div>
-                                    <div class="col-md-4">
-                                        <input type="submit" class="btn btn-indigo MyButton" value="Check">
-                                    </div>
-                                    <div class="col-md-4">
+                                <div class="form-group row justify-content-center">
 
+                                    <div class="col-md-4">
+                                        <input type="submit" class="btn btn-indigo btn-block MyButton" value="Check">
                                     </div>
+
                                 </div>
 
                             </form>
 
                             <div class="row justify-content-center">
-                                <span class="mdb-color-text">Enter appointment ID & view the current status</span>
+                                <div class="col-md-4">
+                                    <span class="mdb-color-text small">Enter appointment ID & view the current
+                                        status</span>
+                                </div>
+
                             </div>
 
                         </div>
