@@ -14,15 +14,15 @@ class LoginController extends Controller
      * 
      * @return \Illuminate\Http\Response
      */
-    public function showLoginForm()
+    public function showLoginForm() // Displays login page
     {
-        if((Auth::guard('admin')->check())){
+        if((Auth::guard('admin')->check())){  // If Admin is logged in no need to show login page
             return redirect()
-            ->intended(route('admin.dashboard'))
+            ->intended(route('admin.dashboard')) // Redirecting to the dashboard
             ->with('status','You are already logged in as Admin!');
     }
     else{
-        return view('admin.login',[
+        return view('admin.login',[  // Displaying login page
             
             'loginRoute' => 'admin.login',
            
