@@ -12,21 +12,22 @@ use Illuminate\Support\Facades\DB;
 
 class AddDoctorController extends Controller
 {
-    public function DoctorRegisterForm(){
-        $departments = Department::all(['name']);
+    public function DoctorRegisterForm(){ // Displays doctor registration form
+
+        $departments = Department::all(['name']); // Selects all departments from departments table
         return view('admin.doctor.add',[
             
-            'registerRoute' => 'admin.doctor.add','departments'=>$departments
+            'registerRoute' => 'admin.doctor.add','departments'=>$departments // Passes department names as array
            
         ]);
     }
 
-    public function AddDoctor(Request $request){
+    public function AddDoctor(Request $request){ // Adding a new doctor function
 
-        $this->validator($request);
+        $this->validator($request); // Validate registration form
 
 
-        $doctor = new Doctor;
+        $doctor = new Doctor; // Creating new model object
 
         //Making the password Hashed
         $password = $request->input('password');
