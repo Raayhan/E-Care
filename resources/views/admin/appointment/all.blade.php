@@ -205,8 +205,8 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <blade
-                                            foreach|(%24appointments%20%3F%3F%20%26%2339%3B%26%2339%3B%20as%20%24appointment)%0D>
+                                        @foreach($appointments as $appointment)
+                                           
 
                                             <tr>
                                                 <td>{{ $appointment->created_at }}</td>
