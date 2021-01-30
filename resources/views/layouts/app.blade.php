@@ -27,7 +27,7 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light shadow-sm"
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm sticky-top"
             style=" color:white!important; background:rgb(255, 255, 255);">
             <div class="container">
                 <a class="navbar-brand" href="/"><img class="navbar-brand"
